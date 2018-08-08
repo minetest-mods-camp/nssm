@@ -70,12 +70,13 @@ mobs:register_mob("nssm:ant_queen", {
 			self.ant_queen_counter = 0
 			local counter = 0
 
-			local s = self.object:getpos()
-			local p = self.attack:getpos()
+			local s = self.object:get_pos()
+			local p = self.attack:get_pos()
 
 			p.y = p.y + 1.5
 			s.y = s.y + 1.5
-			if mobs.line_of_sight(self, p, s) == true then
+			if mobs:line_of_sight(self, p, s) == true then
+
 				-- play attack sound
 				if self.sounds.attack then
 					minetest.sound_play(self.sounds.attack, {

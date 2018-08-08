@@ -88,14 +88,14 @@ mobs:register_mob("nssm:lava_titan", {
 	--[[
 	custom_attack = function (self)
 		digging_attack
-		mobs.set_animation(self, "punch")
+		mobs:set_animation(self, "punch")
 		local p2 = p
 		local s2 = s
 
 		p2.y = p2.y + 1.5
 		s2.y = s2.y + 1.5
 
-		if mobs.line_of_sight(self, p2, s2) == true then
+		if mobs:line_of_sight(self, p2, s2) == true then
 
 			-- play attack sound
 			if self.sounds.attack then

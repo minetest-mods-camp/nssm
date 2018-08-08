@@ -8,10 +8,10 @@ local default_dir = {
 --Function used to shoot:
 local function weapons_shot(itemstack, placer, pointed_thing, velocity, name)
     local dir = placer:get_look_dir();
-    local playerpos = placer:getpos();
+    local playerpos = placer:get_pos();
     local obj = minetest.add_entity({x=playerpos.x+0+dir.x,y=playerpos.y+2+dir.y,z=playerpos.z+0+dir.z}, "nssm:"..name)
     local vec = {x=dir.x*velocity,y=dir.y*velocity,z=dir.z*velocity}
-    obj:setvelocity(vec)
+    obj:set_velocity(vec)
     return itemstack
 end
 
@@ -39,7 +39,7 @@ local function search_on_step2(
     radius,     --radius in which look for entities to follow
     vel)        --velocity of the projectile
 
-    local pos = self.object:getpos()
+    local pos = self.object:get_pos()
 
     --Disappear after a certain time
     if self.life_time == 0 then
@@ -59,7 +59,7 @@ local function search_on_step2(
     for _,obj in ipairs(objects) do
         if (obj:is_player()) then
         elseif (obj:get_luaentity() and obj:get_luaentity().name ~= "__builtin:item" and obj:get_luaentity().name ~= self.object:get_luaentity().name) then
-            obj_p = obj:getpos()
+            obj_p = obj:get_pos()
             local vec = {x=obj_p.x-pos.x, y=obj_p.y-pos.y, z=obj_p.z-pos.z}
             local dist = (vec.x^2+vec.y^2+vec.z^2)^0.5
             if (dist<min_dist) then
@@ -93,15 +93,15 @@ local function search_on_step2(
         vec_min.x = (vec_min.x/max_diff)*vel
         vec_min.y = (vec_min.y/max_diff)*vel
         vec_min.z = (vec_min.z/max_diff)*vel
-        obj_p = obj_min:getpos()
+        obj_p = obj_min:get_pos()
         if min_dist <=8 and self.move==0 then
-            self.object:setvelocity({x=0, y=0, z=0})
+            self.object:set_velocity({x=0, y=0, z=0})
 
             --hit(pos,self)
         elseif min_dist<=1 and self.move==1 then
             hit(pos,self)
         else
-            self.object:setvelocity(vec_min)
+            self.object:set_velocity(vec_min)
         end
     end
 
@@ -120,7 +120,7 @@ local function search_on_step(
     vel)        --velocity of the projectile
 
 
-    local pos = self.object:getpos()
+    local pos = self.object:get_pos()
 
     --Disappear after a certain time
     if self.life_time == 0 then
@@ -141,7 +141,7 @@ local function search_on_step(
     for _,obj in ipairs(objects) do
         if (obj:is_player()) then
         elseif (obj:get_luaentity() and obj:get_luaentity().name ~= "__builtin:item" and obj:get_luaentity().name ~= self.object:get_luaentity().name) then
-            obj_p = obj:getpos()
+            obj_p = obj:get_pos()
             local vec = {x=obj_p.x-pos.x, y=obj_p.y-pos.y, z=obj_p.z-pos.z}
             local dist = (vec.x^2+vec.y^2+vec.z^2)^0.5
             if (dist<min_dist) then
@@ -175,14 +175,14 @@ local function search_on_step(
         vec_min.x = (vec_min.x/max_diff)*vel
         vec_min.y = (vec_min.y/max_diff)*vel
         vec_min.z = (vec_min.z/max_diff)*vel
-        obj_p = obj_min:getpos()
+        obj_p = obj_min:get_pos()
         if min_dist < 1 then
             local node = node_ok(pos).name
             self.hit_node(self, pos, node)
             self.object:remove()
             return
         else
-            self.object:setvelocity(vec_min)
+            self.object:set_velocity(vec_min)
         end
     end
     local n = minetest.get_node(pos).name
@@ -205,7 +205,7 @@ local function default_on_step(
     vel)                --velocity of the projectile
 
 
-    local pos = self.object:getpos()
+    local pos = self.object:get_pos()
 
     if self.life_time == 0 then
         self.life_time = os.time()
@@ -248,7 +248,7 @@ local function default_on_step(
         self.object:remove()
         return
     else
-        local vec = self.object:getvelocity()
+        local vec = self.object:get_velocity()
         local c=vel/10
         --calculate how many blocks around need to be removed
         local max = 0
@@ -403,7 +403,7 @@ nssm_register_weapon("hellzone_grenade", {
     end,
 
     on_drop = function(itemstack, user, pointed_thing)
-        local pos = user:getpos()
+        local pos = user:get_pos()
         activate_balls(pos)
     end,
     material = "default:mese",
@@ -415,7 +415,7 @@ nssm_register_weapon("hellzone_grenade", {
     move = 0,
 
     on_step = function(self, dtime)
-        local pos = self.object:getpos()
+        local pos = self.object:get_pos()
         local vel = 1
 
         minetest.add_particlespawner({
@@ -454,7 +454,7 @@ nssm_register_weapon("hellzone_grenade", {
         for _,obj in ipairs(objects) do
             if (obj:is_player()) then
             elseif (obj:get_luaentity() and obj:get_luaentity().name ~= "__builtin:item" and obj:get_luaentity().name ~= self.object:get_luaentity().name) then
-                obj_p = obj:getpos()
+                obj_p = obj:get_pos()
                 local vec = {x=obj_p.x-pos.x, y=obj_p.y-pos.y, z=obj_p.z-pos.z}
                 local dist = (vec.x^2+vec.y^2+vec.z^2)^0.5
                 if (dist<min_dist) then
@@ -488,9 +488,9 @@ nssm_register_weapon("hellzone_grenade", {
             vec_min.x = (vec_min.x/max_diff)*vel
             vec_min.y = (vec_min.y/max_diff)*vel
             vec_min.z = (vec_min.z/max_diff)*vel
-            obj_p = obj_min:getpos()
+            obj_p = obj_min:get_pos()
 
-            self.object:setvelocity(vec_min)
+            self.object:set_velocity(vec_min)
             if min_dist < 1 then
 
                 local node = nssm:node_ok(pos).name
@@ -498,7 +498,7 @@ nssm_register_weapon("hellzone_grenade", {
                 self.object:remove()
                 return
             else
-                self.object:setvelocity(vec_min)
+                self.object:set_velocity(vec_min)
             end
 
         end
@@ -518,7 +518,7 @@ nssm_register_weapon("hellzone_grenade", {
     end,
 
     on_drop = function(itemstack, user, pointed_thing)
-        local pos = user:getpos()
+        local pos = user:get_pos()
         --activate_balls(pos)
     end,
     material = "group:wood",
@@ -531,7 +531,7 @@ nssm_register_weapon("light_ball", {
     move = 0,
 
     on_step = function(self, dtime, last_pos)
-        local pos = self.object:getpos()
+        local pos = self.object:get_pos()
         local vel = 1
 
 
@@ -565,7 +565,7 @@ nssm_register_weapon("light_ball", {
         for _,obj in ipairs(objects) do
             if (obj:is_player()) then
             elseif (obj:get_luaentity() and obj:get_luaentity().name ~= "__builtin:item" and obj:get_luaentity().name ~= self.object:get_luaentity().name) then
-                obj_p = obj:getpos()
+                obj_p = obj:get_pos()
                 local vec = {x=obj_p.x-pos.x, y=obj_p.y-pos.y, z=obj_p.z-pos.z}
                 local dist = (vec.x^2+vec.y^2+vec.z^2)^0.5
                 if (dist<min_dist) then
@@ -599,9 +599,9 @@ nssm_register_weapon("light_ball", {
             vec_min.x = (vec_min.x/max_diff)*vel
             vec_min.y = (vec_min.y/max_diff)*vel
             vec_min.z = (vec_min.z/max_diff)*vel
-            obj_p = obj_min:getpos()
+            obj_p = obj_min:get_pos()
 
-            self.object:setvelocity(vec_min)
+            self.object:set_velocity(vec_min)
             if min_dist < 1 then
 
                 local node = nssm:node_ok(pos).name
@@ -609,7 +609,7 @@ nssm_register_weapon("light_ball", {
                 self.object:remove()
                 return
             else
-                self.object:setvelocity(vec_min)
+                self.object:set_velocity(vec_min)
             end
 
         end
@@ -629,7 +629,7 @@ nssm_register_weapon("light_ball", {
     end,
 
     on_drop = function(itemstack, user, pointed_thing)
-        local pos = user:getpos()
+        local pos = user:get_pos()
         --activate_balls(pos)
     end,
     material = "group:sand",
@@ -645,13 +645,13 @@ function nssm_register_throwitem(name, descr, def)
             --weapons_shot(itemstack, placer, pointed_thing, def.velocity, name)
             local velocity = 15
             local dir = placer:get_look_dir();
-            local playerpos = placer:getpos();
+            local playerpos = placer:get_pos();
 			posthrow = playerpos
             local obj = minetest.add_entity({x=playerpos.x+0+dir.x,y=playerpos.y+2+dir.y,z=playerpos.z+0+dir.z}, "nssm:"..name.."_bomb_flying")
             local vec = {x=dir.x*velocity,y=dir.y*velocity,z=dir.z*velocity}
             local acc = {x=0, y=-9.8, z=0}
-            obj:setvelocity(vec)
-            obj:setacceleration(acc)
+            obj:set_velocity(vec)
+            obj:set_acceleration(acc)
             itemstack:take_item()
             return itemstack
         end,
@@ -662,7 +662,7 @@ function nssm_register_throwitem(name, descr, def)
 		hp_max = 20,
 		collisionbox = {-0.1,-0.1,-0.1, 0.1,0.1,0.1},
         on_step = function(self, dtime)
-            local pos = self.object:getpos()
+            local pos = self.object:get_pos()
             local node = minetest.get_node(pos)
             local n = node.name
             if n ~= "air" then
@@ -950,7 +950,7 @@ nssm_register_throwitem("teleport", "Teleport Bomb", {
 						if not minetest.is_protected(pos1, "") or not minetest.get_item_group(minetest.get_node(pos1).name, "unbreakable") == 1 then
 							for _,obj in ipairs(minetest.get_objects_inside_radius(posthrow, 2)) do
 								if obj:is_player() then
-									obj:setpos(pos1)
+									obj:set_pos(pos1)
 									minetest.set_node(pos1, {name="air"})
 									minetest.set_node(pos2, {name="air"})
 								end
@@ -1193,12 +1193,12 @@ function nssm_register_throwegg(name, descr, def)
             --weapons_shot(itemstack, placer, pointed_thing, def.velocity, name)
             local velocity = 15
             local dir = placer:get_look_dir();
-            local playerpos = placer:getpos();
+            local playerpos = placer:get_pos();
             local obj = minetest.add_entity({x=playerpos.x+0+dir.x,y=playerpos.y+2+dir.y,z=playerpos.z+0+dir.z}, "nssm:"..name.."_bomb_flying")
             local vec = {x=dir.x*velocity,y=dir.y*velocity,z=dir.z*velocity}
             local acc = {x=0, y=-9.8, z=0}
-            obj:setvelocity(vec)
-            obj:setacceleration(acc)
+            obj:set_velocity(vec)
+            obj:set_acceleration(acc)
             itemstack:take_item()
             return itemstack
         end,
@@ -1207,7 +1207,7 @@ function nssm_register_throwegg(name, descr, def)
     minetest.register_entity("nssm:"..name.."_bomb_flying",{
         textures = {"evocation_bomb.png^"..name.."_egg.png"},
         on_step = function(self, dtime)
-            local pos = self.object:getpos()
+            local pos = self.object:get_pos()
             local node = minetest.get_node(pos)
             local n = node.name
             if n ~= "air" then

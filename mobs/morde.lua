@@ -59,8 +59,8 @@ mobs:register_mob("nssm:morde", {
 		if (os.time() - self.morde_timer) > 1 then
 			self.morde_timer = os.time()
 
-			local s = self.object:getpos()
-			local p = self.attack:getpos()
+			local s = self.object:get_pos()
+			local p = self.attack:get_pos()
 
 			mobs:set_animation(self, "punch")
 
@@ -101,7 +101,7 @@ mobs:register_mob("nssm:morde", {
 		end
 	end,
 	on_die = function(self)
-		local pos = self.object:getpos()
+		local pos = self.object:get_pos()
 		self.object:remove()
 		minetest.add_entity(pos, "nssm:mortick")
 	end,
@@ -121,7 +121,7 @@ minetest.register_entity("nssm:mortick", {
 		self.mortick_timer = self.mortick_timer or os.time()
 		self.timer = self.timer or 0
 		self.timer = self.timer+dtime
-		local s = self.object:getpos()
+		local s = self.object:get_pos()
 		local s1 = {x=s.x, y = s.y-1, z = s.z}
 
 		--[[
@@ -147,7 +147,7 @@ minetest.register_entity("nssm:mortick", {
 
 		--If found a player follow him
 		if self.attack ~= 0 then
-			local p = self.attack:getpos()
+			local p = self.attack:get_pos()
 			local yawp = self.attack:get_look_yaw()
 			local pi = math.pi
 
@@ -159,8 +159,8 @@ minetest.register_entity("nssm:mortick", {
 			local yaws = yawp +pi
 
 			--stay attached to players back:
-			self.object:setvelocity(v)
-			self.object:setyaw(yaws)
+			self.object:set_velocity(v)
+			self.object:set_yaw(yaws)
 
 			--damage player every ten seconds:
 			if (self.timer>10) then

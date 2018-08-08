@@ -72,7 +72,7 @@ mobs:register_mob("nssm:morlu", {
 		if self.flag == 1 then
 			self.state = ""
 			mobs:set_animation(self, "run")
-			self.object:setyaw(self.dir)
+			self.object:set_yaw(self.dir)
 			set_velocity(self, 4)
 
 			if os.time() - self.morlu_timer > 3 then
@@ -89,8 +89,8 @@ mobs:register_mob("nssm:morlu", {
 		self.dir = (self.dir or 0)
 		if (os.time() - self.morlu_timer) > 1 then
 
-			local s = self.object:getpos()
-			local p = self.attack:getpos()
+			local s = self.object:get_pos()
+			local p = self.attack:get_pos()
 			mobs:set_animation(self, "punch")
 			local m = 1
 
@@ -191,7 +191,7 @@ mobs:register_mob("nssm:morlu", {
 									self.state = ""
 									local pyaw = self.curr_attack: get_look_yaw()
 									self.dir = pyaw
-									self.object:setyaw(pyaw)
+									self.object:set_yaw(pyaw)
 									if self then
 										set_velocity(self, 4)
 									end
@@ -200,8 +200,8 @@ mobs:register_mob("nssm:morlu", {
 						end
 					end
 				else
-					local s = self.object:getpos()
-					local p = self.attack:getpos()
+					local s = self.object:get_pos()
+					local p = self.attack:get_pos()
 
 					mobs:set_animation(self, "punch")
 
@@ -224,13 +224,13 @@ mobs:register_mob("nssm:morlu", {
 		end
 	end,
 	on_die = function(self)
-		local pos = self.object:getpos()
+		local pos = self.object:get_pos()
 		if (self.inventory ~= nil) then
 			if self.invnum > 0 then
 				for i=1,self.invnum do
 					local items = ItemStack(self.inventory[i].name.." 1")
 					local obj = minetest.add_item(pos, items)
-						obj:setvelocity({
+						obj:set_velocity({
 							x = math.random(-1, 1),
 							y = 6,
 							z = math.random(-1, 1)

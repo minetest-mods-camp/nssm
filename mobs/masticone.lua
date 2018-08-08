@@ -89,7 +89,7 @@ mobs:register_mob("nssm:masticone", {
 	end,
 
 	do_custom = function (self)
-		local pos = self.object:getpos()
+		local pos = self.object:get_pos()
 		local n = minetest.get_node(pos).name
 
 		if n == "default:lava_source" or n == "default:lava_flowing" then
@@ -106,7 +106,7 @@ mobs:register_mob("nssm:masticone", {
 
 						if obj then
 
-							obj:setvelocity({
+							obj:set_velocity({
 								x = math.random(-1, 1),
 								y = 6,
 								z = math.random(-1, 1)

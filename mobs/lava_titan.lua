@@ -52,7 +52,7 @@ mobs:register_mob("nssm:lava_titan", {
   	shoot_offset = 0,
 	--[[
 	on_dist_attack = function(self, player)
-		local pos = player:getpos()
+		local pos = player:get_pos()
 		for dy=-1, 6, 1 do
 			for dx=-1, 1, 2 do
 				for dz=-1, 1, 2 do

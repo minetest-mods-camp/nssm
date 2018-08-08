@@ -870,8 +870,8 @@ minetest.register_tool("nssm:axe_of_pride", {
 							end
 			            end
 						if part == 1 then
-							local s = dropper:getpos()
-							local p = obj:getpos()
+							local s = dropper:get_pos()
+							local p = obj:get_pos()
 							local m = 2
 
 							minetest.add_particlespawner(
@@ -915,7 +915,7 @@ minetest.register_tool("nssm:gratuitousness_battleaxe", {
 	    local objects = minetest.get_objects_inside_radius(pos, 10)
 	    local flag = 0
 		local vec = dropper:get_look_dir()
-		local pos = dropper:getpos()
+		local pos = dropper:get_pos()
 		--vec.y = 0
 
 		for i=1,10 do
@@ -983,12 +983,12 @@ minetest.register_tool("nssm:sword_of_eagerness", {
 	                    minetest.chat_send_player(pname, "You haven't got any Energy Globe!")
 	                    return
 	                else
-						local pos = obj:getpos()
+						local pos = obj:get_pos()
 						pos.y = pos.y + 15
 	                    if (obj:is_player()) then
 	                        if (obj:get_player_name()~=dropper:get_player_name()) then
 								part=1
-								obj:setpos(pos)
+								obj:set_pos(pos)
 	                            --flag = 1
 
 	                            local items = player_inv:get_stack('main', found)
@@ -998,7 +998,7 @@ minetest.register_tool("nssm:sword_of_eagerness", {
 	                    else
 	                        if (obj:get_luaentity().health) then
 								obj:get_luaentity().old_y = pos.y
-	                            obj:setpos(pos)
+	                            obj:set_pos(pos)
 								part=1
 	                            --flag = 1
 
@@ -1049,7 +1049,7 @@ minetest.register_tool("nssm:falchion_of_eagerness", {
 	},
 	on_drop = function(itemstack, dropper, pos)
 		local vec = dropper:get_look_dir()
-		local pos = dropper:getpos()
+		local pos = dropper:get_pos()
 		--vec.y = 0
 
 		for i=1,16 do
@@ -1077,7 +1077,7 @@ minetest.register_tool("nssm:falchion_of_eagerness", {
 				minetest.chat_send_player(pname, "You haven't got enough life_energy!")
 				return
 			else
-				local s = dropper:getpos()
+				local s = dropper:get_pos()
 				minetest.add_particlespawner(
 					25, --amount
 					0.3, --time
@@ -1099,7 +1099,7 @@ minetest.register_tool("nssm:falchion_of_eagerness", {
 				minetest.remove_node(pos)
 				pos.y=pos.y-2
 				minetest.remove_node(pos)
-				dropper:setpos(pos)
+				dropper:set_pos(pos)
 				s = pos
 				s.y = s.y+10
 				minetest.add_particlespawner(
@@ -1249,7 +1249,7 @@ minetest.register_tool("nssm:sword_of_gluttony", {
 			            else
 							if (obj:get_luaentity().health) then
 								if obj:get_luaentity().health <= 32 then
-									local pos = obj:getpos()
+									local pos = obj:get_pos()
 									obj:remove()
 
 									--check_for_death(obj:get_luaentity())
@@ -1264,8 +1264,8 @@ minetest.register_tool("nssm:sword_of_gluttony", {
 										drops(drop)
 									end
 
-									local s = obj:getpos()
-									local p = dropper:getpos()
+									local s = obj:get_pos()
+									local p = dropper:get_pos()
 									local m = 3
 
 									minetest.add_particlespawner(
@@ -1331,7 +1331,7 @@ minetest.register_tool("nssm:death_scythe", {
 					drop = minetest.add_item(pos, "nssm:energy_globe 1")
 
 					if drop then
-						drop:setvelocity({
+						drop:set_velocity({
 							x = math.random(-10, 10) / 9,
 							y = 5,
 							z = math.random(-10, 10) / 9,
@@ -1340,7 +1340,7 @@ minetest.register_tool("nssm:death_scythe", {
 				end
 			end
 	    end
-		local pos = dropper:getpos()
+		local pos = dropper:get_pos()
 		local vec = {x=5,y=5,z=5}
 		local poslist = minetest.find_nodes_in_area(vector.subtract(pos, vec), vector.add(pos,vec), "default:dirt_with_grass")
 		for _,v in pairs(poslist) do

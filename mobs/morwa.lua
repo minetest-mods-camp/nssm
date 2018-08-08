@@ -60,7 +60,7 @@ mobs:register_mob("nssm:morwa", {
     	shoot_end=226,
 	},
 	do_custom = function (self)
-		local pos = self.object:getpos()
+		local pos = self.object:get_pos()
 		local light = minetest.get_node_light(pos)
 		--minetest.chat_send_all("Luce: "..light)
 		if (light < 8) then

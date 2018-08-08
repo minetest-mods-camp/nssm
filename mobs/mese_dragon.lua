@@ -74,11 +74,11 @@ mobs:register_mob("nssm:mese_dragon", {
 			self.timer = 0
 			self.attack_rip = self.attack_rip+1
 
-			local s = self.object:getpos()
+			local s = self.object:get_pos()
 			if minetest.is_protected(s, "") then
 				return
 			end
-			local p = self.attack:getpos()
+			local p = self.attack:get_pos()
 
 			p.y = p.y + 1.5
 			s.y = s.y + 1.5

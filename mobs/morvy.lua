@@ -62,8 +62,8 @@ mobs:register_mob("nssm:morvy", {
 			self.morvy_counter = 0
 			local counter = 0
 
-			local s = self.object:getpos()
-			local p = self.attack:getpos()
+			local s = self.object:get_pos()
+			local p = self.attack:get_pos()
 
 			p.y = p.y + 1.5
 			s.y = s.y + 1.5

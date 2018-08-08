@@ -57,8 +57,8 @@ mobs:register_mob("nssm:mordain", {
 		self.mordain_timer = (self.mordain_timer or os.time())
 		if (os.time() - self.mordain_timer) > 1 then
 			self.mordain_timer = os.time()
-			local s = self.object:getpos()
-			local p = self.attack:getpos()
+			local s = self.object:get_pos()
+			local p = self.attack:get_pos()
 
 			mobs:set_animation(self, "punch")
 
@@ -116,7 +116,7 @@ mobs:register_mob("nssm:mordain", {
 						end
 					end
 				end
-				self.object:setpos(d)
+				self.object:set_pos(d)
 			end)
 		end
 	end

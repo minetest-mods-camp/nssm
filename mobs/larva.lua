@@ -58,7 +58,7 @@ mobs:register_mob("nssm:larva", {
 		if os.time() - self.metatimer >20 then
 			minetest.log("action",
 				"metatimer expired, metamorphosis! ")
-			local pos=self.object:getpos()
+			local pos=self.object:get_pos()
 			self.object:remove()
 			minetest.add_particlespawner(
 				200, --amount

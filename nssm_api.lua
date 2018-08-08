@@ -96,7 +96,7 @@ function check_for_death_hydra(self)
 		end
 		return false
 	end
-	local pos = self.object:getpos()
+	local pos = self.object:get_pos()
 	local obj = nil
 	if self.sounds.death ~= nil then
 		minetest.sound_play(self.sounds.death,{
@@ -158,7 +158,7 @@ function explosion(pos, exp_radius, fire, kamehameha_bad)
     --Damages entities around (not the player)
     local objects = minetest.get_objects_inside_radius(pos, exp_radius)
     for _,obj in ipairs(objects) do
-        local obj_p = obj:getpos()
+        local obj_p = obj:get_pos()
         local vec = {x=obj_p.x-pos.x, y=obj_p.y-pos.y, z=obj_p.z-pos.z}
         local dist = (vec.x^2+vec.y^2+vec.z^2)^0.5
 		local damage = (-exp_radius*dist+exp_radius^2)*2
@@ -231,7 +231,7 @@ function explosion(pos, exp_radius, fire, kamehameha_bad)
 
         						if obj then
 
-        							obj:setvelocity({
+        							obj:set_velocity({
         								x = math.random(-2, 2),
         								y = 7,
         								z = math.random(-2, 2)
@@ -271,8 +271,8 @@ end
 
 	--if math.random(1,nssm:virulence(self)) ~= 1 then return end
 
-	local v = self.object:getvelocity()
-	local pos = self.object:getpos()
+	local v = self.object:get_velocity()
+	local pos = self.object:get_pos()
 
 	if minetest.is_protected(pos, "") then
 		return
@@ -282,7 +282,7 @@ end
 
 	local max = 0
 	--local posmax = 0 --			1 = x, -1=-x, 2 = z, -2 = -z
-	local yaw = (self.object:getyaw() + self.rotate) or 0
+	local yaw = (self.object:get_yaw() + self.rotate) or 0
 	local x = math.sin(yaw)*-1
 	local z = math.cos(yaw)
 
@@ -338,8 +338,8 @@ function digging_attack(
 
 	--if math.random(1,nssm:virulence(self)) ~= 1 then return end
 	if self.attack and self.attack:is_player() then
-		local s = self.object:getpos()
-		local p = self.attack:getpos()
+		local s = self.object:get_pos()
+		local p = self.attack:get_pos()
 
 		local dir = vector.subtract(p,s)
 		dir = vector.normalize(dir)
@@ -394,7 +394,7 @@ function putting_ability(		--puts under the mob the block defined as 'p_block'
 	)
 	--if math.random(1,nssm:virulence(self)) ~= 1 then return end
 
-	local v = self.object:getvelocity()
+	local v = self.object:get_velocity()
 
 	local dx = 0
 	local dz = 0
@@ -413,7 +413,7 @@ function putting_ability(		--puts under the mob the block defined as 'p_block'
 		end
 	end
 
-	local pos = self.object:getpos()
+	local pos = self.object:get_pos()
 	local pos1
 	pos.y=pos.y-1
 	pos1 = {x = pos.x+dx, y = pos.y, z = pos.z+dz}
@@ -447,7 +447,7 @@ function webber_ability(		--puts randomly around the block defined as w_block
 
 	if (nssm:virulence(self)~=0) and (math.random(1,nssm:virulence(self)) ~= 1) then return end
 
-	local pos = self.object:getpos()
+	local pos = self.object:get_pos()
 	if (math.random(1,55)==1) then
 		local dx=math.random(1,radius)
 		local dz=math.random(1,radius)
@@ -470,15 +470,15 @@ function midas_ability(		--ability to transform every blocks it touches in the m
 	)
 	--if math.random(1,nssm:virulence(self)) ~= 1 then return end
 
-	local v = self.object:getvelocity()
-	local pos = self.object:getpos()
+	local v = self.object:get_velocity()
+	local pos = self.object:get_pos()
 
 	if minetest.is_protected(pos, "") then
 		return
 	end
 
 	local max = 0
-	local yaw = (self.object:getyaw() + self.rotate) or 0
+	local yaw = (self.object:get_yaw() + self.rotate) or 0
 	local x = math.sin(yaw)*-1
 	local z = math.cos(yaw)
 
@@ -634,8 +634,8 @@ local function eject_drops(drops, pos, radius)
 			local obj = minetest.add_item(drop_pos, dropitem)
 			if obj then
 				obj:get_luaentity().collect = true
-				obj:setacceleration({x = 0, y = -10, z = 0})
-				obj:setvelocity({x = math.random(-3, 3),
+				obj:set_acceleration({x = 0, y = -10, z = 0})
+				obj:set_velocity({x = math.random(-3, 3),
 						y = math.random(0, 10),
 						z = math.random(-3, 3)})
 			end
@@ -680,7 +680,7 @@ end
 local function entity_physics(pos, radius, drops)
 	local objs = minetest.get_objects_inside_radius(pos, radius)
 	for _, obj in pairs(objs) do
-		local obj_pos = obj:getpos()
+		local obj_pos = obj:get_pos()
 		local dist = math.max(1, vector.distance(pos, obj_pos))
 
 		local damage = (4 / dist) * radius
@@ -692,7 +692,7 @@ local function entity_physics(pos, radius, drops)
 			local moveoff = vector.multiply(dir, dist + 1.0)
 			local newpos = vector.add(pos, moveoff)
 			newpos = vector.add(newpos, {x = 0, y = 0.2, z = 0})
-			obj:setpos(newpos)
+			obj:set_pos(newpos)
 
 			obj:set_hp(obj:get_hp() - damage)
 		else
@@ -713,8 +713,8 @@ local function entity_physics(pos, radius, drops)
 			end
 
 			if do_knockback then
-				local obj_vel = obj:getvelocity()
-				obj:setvelocity(calc_velocity(pos, obj_pos,
+				local obj_vel = obj:get_velocity()
+				obj:set_velocity(calc_velocity(pos, obj_pos,
 						obj_vel, radius * 10))
 			end
 			if do_damage then

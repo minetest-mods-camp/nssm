@@ -77,8 +77,8 @@ mobs:register_mob("nssm:morvalar", {
 		self.dir = (self.dir or 0)
 		if (os.time() - self.morvalar_timer) > 2 then
 
-			local s = self.object:getpos()
-			local p = self.attack:getpos()
+			local s = self.object:get_pos()
+			local p = self.attack:get_pos()
 			mobs:set_animation(self, "punch")
 			local m = 1
 
@@ -154,8 +154,8 @@ mobs:register_mob("nssm:morvalar", {
 						end
 					end
 				else
-					local s = self.object:getpos()
-					local p = self.attack:getpos()
+					local s = self.object:get_pos()
+					local p = self.attack:get_pos()
 
 					mobs:set_animation(self, "punch")
 
@@ -178,7 +178,7 @@ mobs:register_mob("nssm:morvalar", {
 		end
 	end,
 	on_die = function(self)
-		local pos = self.object:getpos()
+		local pos = self.object:get_pos()
 		self.object:remove()
 		add_entity_and_particles("nssm:morvalar6", pos, "morparticle.png", 10)
 	end,
@@ -238,8 +238,8 @@ mobs:register_mob("nssm:morvalar6", {
 		self.dir = (self.dir or 0)
 		if (os.time() - self.morvalar6_timer) > 1 then
 
-			local s = self.object:getpos()
-			local p = self.attack:getpos()
+			local s = self.object:get_pos()
+			local p = self.attack:get_pos()
 			mobs:set_animation(self, "punch")
 			local m = 2
 
@@ -298,7 +298,7 @@ mobs:register_mob("nssm:morvalar6", {
 		end
 	end,
 	on_die = function(self)
-		local pos = self.object:getpos()
+		local pos = self.object:get_pos()
 		self.object:remove()
 		add_entity_and_particles("nssm:morvalar5", pos, "morparticle.png", 10)
 	end,
@@ -359,8 +359,8 @@ mobs:register_mob("nssm:morvalar5", {
 		self.dir = (self.dir or 0)
 		if (os.time() - self.morvalar5_timer) > 2 then
 
-			local s = self.object:getpos()
-			local p = self.attack:getpos()
+			local s = self.object:get_pos()
+			local p = self.attack:get_pos()
 			minetest.after(2, function(self)
 				mobs:set_animation(self, "punch")
 				tnt_boom_nssm(p, {damage_radius=6,radius=5,ignore_protection=false})
@@ -369,7 +369,7 @@ mobs:register_mob("nssm:morvalar5", {
 		end
 	end,
 	on_die = function(self)
-		local pos = self.object:getpos()
+		local pos = self.object:get_pos()
 		self.object:remove()
 		add_entity_and_particles("nssm:morvalar4", pos, "morparticle.png", 10)
 	end,
@@ -428,8 +428,8 @@ mobs:register_mob("nssm:morvalar4", {
 		self.morvalar4_timer = (self.morvalar4_timer or os.time())
 		if (os.time() - self.morvalar4_timer) > 1 then
 			self.morvalar4_timer = os.time()
-			local s = self.object:getpos()
-			local p = self.attack:getpos()
+			local s = self.object:get_pos()
+			local p = self.attack:get_pos()
 
 			mobs:set_animation(self, "punch")
 
@@ -487,12 +487,12 @@ mobs:register_mob("nssm:morvalar4", {
 						end
 					end
 				end
-				self.object:setpos(d)
+				self.object:set_pos(d)
 			end)
 		end
 	end,
 	on_die = function(self)
-		local pos = self.object:getpos()
+		local pos = self.object:get_pos()
 		self.object:remove()
 		add_entity_and_particles("nssm:morvalar3", pos, "morparticle.png", 10)
 	end,
@@ -553,7 +553,7 @@ mobs:register_mob("nssm:morvalar3", {
 		respawn_block(self)
 	end,
 	on_die = function(self)
-		local pos = self.object:getpos()
+		local pos = self.object:get_pos()
 		self.object:remove()
 		add_entity_and_particles("nssm:morvalar2", pos, "morparticle.png", 10)
 	end,
@@ -611,8 +611,8 @@ mobs:register_mob("nssm:morvalar2", {
 		self.morvalar2_timer = (self.morvalar2_timer or os.time())
 		if (os.time() - self.morvalar2_timer) > 1 then
 			self.morvalar2_timer = os.time()
-			local s = self.object:getpos()
-			local p = self.attack:getpos()
+			local s = self.object:get_pos()
+			local p = self.attack:get_pos()
 
 			local counter = 0
 			local objects = minetest.get_objects_inside_radius(s, 7)
@@ -653,7 +653,7 @@ mobs:register_mob("nssm:morvalar2", {
 		end
 	end,
 	on_die = function(self)
-		local pos = self.object:getpos()
+		local pos = self.object:get_pos()
 		self.object:remove()
 		add_entity_and_particles("nssm:morvalar1", pos, "morparticle.png", 10)
 	end,
@@ -712,8 +712,8 @@ mobs:register_mob("nssm:morvalar1", {
 		if (os.time() - self.morvalar1_timer) > 3 then
 			self.morvalar1_timer = os.time()
 
-			local s = self.object:getpos()
-			local p = self.attack:getpos()
+			local s = self.object:get_pos()
+			local p = self.attack:get_pos()
 
 			mobs:set_animation(self, "punch")
 
@@ -737,7 +737,7 @@ mobs:register_mob("nssm:morvalar1", {
 		end
 	end,
 	on_die = function(self)
-		local pos = self.object:getpos()
+		local pos = self.object:get_pos()
 		self.object:remove()
 		add_entity_and_particles("nssm:morvalar0", pos, "morparticle.png", 10)
 	end,
@@ -802,8 +802,8 @@ mobs:register_mob("nssm:morvalar0", {
 		if (os.time() - self.morvalar1_timer) > 1 then
 			self.morvalar1_timer = os.time()
 
-			local s = self.object:getpos()
-			local p = self.attack:getpos()
+			local s = self.object:get_pos()
+			local p = self.attack:get_pos()
 
 			mobs:set_animation(self, "punch")
 
@@ -813,11 +813,11 @@ mobs:register_mob("nssm:morvalar0", {
 			s.y = s.y+0.5
 			p.y = p.y+0.9
 			local dir = {x=(p.x-s.x)*m, y=(p.y-s.y)*m, z=(p.z-s.z)*m} --direction of the kamehameha
-			obj:setvelocity(dir)
+			obj:set_velocity(dir)
 		end
 	end,
 	on_die = function(self)
-		local pos = self.object:getpos()
+		local pos = self.object:get_pos()
 		self.object:remove()
 		minetest.add_particlespawner({
 			amount = 500,
@@ -844,7 +844,7 @@ mobs:register_mob("nssm:morvalar0", {
 minetest.register_entity("nssm:kamehameha_bad", {
 	textures = {"kamehameha.png"},
 	on_step = function(self, dtime)
-		local pos = self.object:getpos();
+		local pos = self.object:get_pos();
 		if self.timer == 0 then
 			self.timer = os.time()
 		end

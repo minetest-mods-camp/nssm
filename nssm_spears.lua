@@ -2,7 +2,7 @@
 --function
 function spears_shot (itemstack, player)
 	local spear = itemstack:get_name() .. '_entity'
-	local playerpos = player:getpos()
+	local playerpos = player:get_pos()
 	local obj = minetest.add_entity({x=playerpos.x,y=playerpos.y+1.5,z=playerpos.z}, spear)
 	local dir = player:get_look_dir()
 		if spear == "nssm:spear_of_peace_entity" then
@@ -13,9 +13,9 @@ function spears_shot (itemstack, player)
 			gravity = 9.8
 		end
 	local dr = .3
-	obj:setvelocity({x=dir.x*sp, y=dir.y*sp, z=dir.z*sp})
-	obj:setacceleration({x=-dir.x*dr, y=-gravity, z=-dir.z*dr})
-	obj:setyaw(player:get_look_yaw()+math.pi)
+	obj:set_velocity({x=dir.x*sp, y=dir.y*sp, z=dir.z*sp})
+	obj:set_acceleration({x=-dir.x*dr, y=-gravity, z=-dir.z*dr})
+	obj:set_yaw(player:get_look_yaw()+math.pi)
 	minetest.sound_play("spears_sound", {pos=playerpos})
 	obj:get_luaentity().wear = itemstack:get_wear()
 	return true
@@ -47,7 +47,7 @@ function spears_set_entity(kind, eq, toughness)
 	
 	SPEAR_ENTITY.on_step = function(self, dtime)
 		self.timer=self.timer+dtime
-		local pos = self.object:getpos()
+		local pos = self.object:get_pos()
 		local node = minetest.get_node(pos)
 		if not self.wear then
 			self.object:remove()
@@ -64,7 +64,7 @@ function spears_set_entity(kind, eq, toughness)
 				for k, obj in pairs(objs) do
 					if obj:get_luaentity() ~= nil then
 						if obj:get_luaentity().name ~= "nssm:spear_" .. kind .. "_entity" and obj:get_luaentity().name ~= "__builtin:item" then
-							local speed = vector.length(self.object:getvelocity())
+							local speed = vector.length(self.object:get_velocity())
 							local damage = (speed + eq)^1.12-20
 							obj:punch(self.object, 1.0, {
 								full_punch_interval=1.0,
@@ -207,7 +207,7 @@ spears_register_spear('felucco_horn', 'Felucco Horn', 7, 9, 'nssm:felucco_horn')
 	
 	SUPERSPEAR_ENTITY.on_step = function(self, dtime)
 		self.timer=self.timer+dtime
-		local pos = self.object:getpos()
+		local pos = self.object:get_pos()
 		local node = minetest.get_node(pos)
 		if not self.wear then
 			self.object:remove()
@@ -224,7 +224,7 @@ spears_register_spear('felucco_horn', 'Felucco Horn', 7, 9, 'nssm:felucco_horn')
 				for k, obj in pairs(objs) do
 					if obj:get_luaentity() ~= nil then
 						if obj:get_luaentity().name ~= "nssm:spear_" .. kind .. "_entity" and obj:get_luaentity().name ~= "__builtin:item" then
-							local speed = vector.length(self.object:getvelocity())
+							local speed = vector.length(self.object:get_velocity())
 							--minetest.chat_send_all(speed)
 							local damage = (speed + eq)^1.12-20
 							obj:punch(self.object, 1.0, {

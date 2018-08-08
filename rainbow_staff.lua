@@ -6,7 +6,7 @@ minetest.register_entity("nssm:rainbow", {
 	on_step = function (self, pos, node, dtime)
 		self.timer = self.timer or os.time()
 
-		local pos = self.object:getpos()
+		local pos = self.object:get_pos()
 		if minetest.is_protected(pos, "") then
 			return
 		end
@@ -36,10 +36,10 @@ minetest.register_tool("nssm:rainbow_staff", {
 	inventory_image = "rainbow_staff.png",
 	on_use = function(itemstack, placer, pointed_thing)
 		local dir = placer:get_look_dir();
-		local playerpos = placer:getpos();
+		local playerpos = placer:get_pos();
 		local obj = minetest.add_entity({x=playerpos.x+0+dir.x,y=playerpos.y+2+dir.y,z=playerpos.z+0+dir.z}, "nssm:rainbow")
 		local vec = {x=dir.x*6,y=dir.y*6,z=dir.z*6}
-		obj:setvelocity(vec)
+		obj:set_velocity(vec)
 		return itemstack
 	end,
 	groups = {not_in_creative_inventory=1,}

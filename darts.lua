@@ -6,12 +6,12 @@ mobs:register_arrow("nssm:duck_father", {
 	velocity = 8,
 	-- direct hit
 	hit_player = function(self, player)
-		local pos = self.object:getpos()
+		local pos = self.object:get_pos()
 		duck_explosion(pos)
 	end,
 
 	hit_mob = function(self, player)
-		local pos = self.object:getpos()
+		local pos = self.object:get_pos()
 		duck_explosion(pos)
 	end,
 
@@ -76,12 +76,12 @@ mobs:register_arrow("nssm:snow_arrow", {
 	velocity =20,
 	-- direct hit
 	hit_player = function(self, player)
-		local pos = self.object:getpos()
+		local pos = self.object:get_pos()
 		ice_explosion(pos)
 	end,
 
 	hit_mob = function(self, player)
-		local pos = self.object:getpos()
+		local pos = self.object:get_pos()
 		ice_explosion(pos)
 	end,
 	hit_node = function(self, pos, node)
@@ -149,7 +149,7 @@ mobs:register_arrow("nssm:webball", {
 	velocity = 8,
 	-- direct hit
 	hit_player = function(self, player)
-		local p = player:getpos()
+		local p = player:get_pos()
 		explosion_web(p)
 	end,
 
@@ -201,7 +201,7 @@ mobs:register_arrow("nssm:thickwebball", {
 	velocity = 8,
 	-- direct hit
 	hit_player = function(self, player)
-		local p = player:getpos()
+		local p = player:get_pos()
 		explosion_thickweb(p)
 	end,
 
@@ -256,7 +256,7 @@ mobs:register_arrow("nssm:phoenix_arrow", {
 
 	on_step = function(self, dtime)
 
-		local pos = self.object:getpos()
+		local pos = self.object:get_pos()
 		if minetest.is_protected(pos, "") then
 			return
 		end
@@ -296,7 +296,7 @@ mobs:register_arrow("nssm:super_gas", {
 	velocity = 8,
 	-- direct hit
 	hit_player = function(self, player)
-		local p = player:getpos()
+		local p = player:get_pos()
 		gas_explosion(p)
 	end,
 
@@ -335,7 +335,7 @@ mobs:register_arrow("nssm:roar_of_the_dragon", {
 
 	on_step = function(self, dtime)
 
-		local pos = self.object:getpos()
+		local pos = self.object:get_pos()
 
 		local n = minetest.get_node(pos).name
 
@@ -382,7 +382,7 @@ mobs:register_arrow("nssm:lava_arrow", {
 	velocity = 10,
 	-- direct hit
 	hit_player = function(self, player)
-		local pos = self.object:getpos()
+		local pos = self.object:get_pos()
 		if minetest.is_protected(pos, "") then
 			return
 		end

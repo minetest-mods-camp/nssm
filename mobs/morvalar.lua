@@ -38,7 +38,7 @@ mobs:register_mob("nssm:morvalar", {
 	damage = 8,
 	runaway = true,
 	jump = true,
-    sounds = {
+	sounds = {
 		random = "morvalar7",
 	},
 	armor = 50,
@@ -140,16 +140,16 @@ mobs:register_mob("nssm:morvalar", {
 
 							minetest.after(1, function (self)
 
-	                            local armor_stack = player_inv:get_stack("armor", armor_elements[steal_pos].pos)
-	                            armor_stack:take_item()
-	                            player_inv:set_stack('armor', armor_elements[steal_pos].pos, armor_stack)
+								local armor_stack = player_inv:get_stack("armor", armor_elements[steal_pos].pos)
+								armor_stack:take_item()
+								player_inv:set_stack('armor', armor_elements[steal_pos].pos, armor_stack)
 
-	                            armor_stack = armor_inv:get_stack("armor", armor_elements[steal_pos].pos)
-	                            armor_stack:take_item()
-	                            armor_inv:set_stack('armor', armor_elements[steal_pos].pos, armor_stack)
+								armor_stack = armor_inv:get_stack("armor", armor_elements[steal_pos].pos)
+								armor_stack:take_item()
+								armor_inv:set_stack('armor', armor_elements[steal_pos].pos, armor_stack)
 
-	                            armor:set_player_armor(self.attack, self.attack)
-	                            armor:update_inventory(self.attack)
+								armor:set_player_armor(self.attack, self.attack)
+								armor:update_inventory(self.attack)
 							end,self)
 						end
 					end
@@ -202,7 +202,7 @@ mobs:register_mob("nssm:morvalar6", {
 	damage = 8,
 	runaway = true,
 	jump = true,
-    sounds = {
+	sounds = {
 		random = "morvalar6",
 	},
 	armor = 50,
@@ -323,7 +323,7 @@ mobs:register_mob("nssm:morvalar5", {
 	damage = 4,
 	runaway = true,
 	jump = true,
-    sounds = {
+	sounds = {
 		random = "morvalar5",
 	},
 	armor = 40,
@@ -394,7 +394,7 @@ mobs:register_mob("nssm:morvalar4", {
 	damage = 4,
 	runaway = true,
 	jump = true,
-    sounds = {
+	sounds = {
 		random = "morvalar4",
 	},
 	armor = 30,
@@ -516,7 +516,7 @@ mobs:register_mob("nssm:morvalar3", {
 	damage = 16,
 	runaway = true,
 	jump = true,
-    sounds = {
+	sounds = {
 		random = "morvalar3",
 	},
 	armor = 30,
@@ -532,9 +532,9 @@ mobs:register_mob("nssm:morvalar3", {
 	on_rightclick = nil,
 	attack_type = "dogshoot",
 	dogshoot_switch = true,
-    arrow = "nssm:morarrow",
-    shoot_interval = 2,
-    shoot_offset = 0,
+	arrow = "nssm:morarrow",
+	shoot_interval = 2,
+	shoot_offset = 0,
 	animation = {
 		speed_normal = 15,
 		speed_run = 30,
@@ -547,7 +547,7 @@ mobs:register_mob("nssm:morvalar3", {
 		punch_start = 375,
 		punch_end = 395,
 		shoot_start = 400,
-    	shoot_end = 450,
+		shoot_end = 450,
 	},
 	do_custom = function(self)
 		respawn_block(self)
@@ -577,7 +577,7 @@ mobs:register_mob("nssm:morvalar2", {
 	damage = 4,
 	runaway = true,
 	jump = true,
-    sounds = {
+	sounds = {
 		random = "morvalar2",
 	},
 	armor = 50,
@@ -677,7 +677,7 @@ mobs:register_mob("nssm:morvalar1", {
 	damage = 4,
 	runaway = true,
 	jump = true,
-    sounds = {
+	sounds = {
 		random = "morvalar1",
 	},
 	armor = 20,
@@ -761,7 +761,7 @@ mobs:register_mob("nssm:morvalar0", {
 	damage = 4,
 	runaway = true,
 	jump = true,
-    sounds = {
+	sounds = {
 		random = "kamehameha",
 	},
 	drops = {
@@ -862,14 +862,14 @@ minetest.register_entity("nssm:kamehameha_bad", {
 			if obj:get_luaentity() then
 				local name = obj:get_luaentity().name
 				if name ~= "nssm:morvalar0" and name ~="nssm:kamehameha_bad" then
-		            obj:set_hp(obj:get_hp()-5)
-		            if (obj:get_hp() <= 0) then
-		                if (not obj:is_player()) then
-		                    obj:remove()
-		                end
-		            end
+					obj:set_hp(obj:get_hp()-5)
+					if (obj:get_hp() <= 0) then
+						if (not obj:is_player()) then
+							obj:remove()
+						end
+					end
 				end
-	        end
+			end
 		end
 		local objects = minetest.get_objects_inside_radius(pos, 1)
 		for _,obj in ipairs(objects) do

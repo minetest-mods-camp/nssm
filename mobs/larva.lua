@@ -15,7 +15,7 @@ mobs:register_mob("nssm:larva", {
 	jump_height =0,
 	walk_velocity = 0.4,
 	run_velocity = 0.4,
-    sounds = {
+	sounds = {
 		random = "sand",
 	},
 	damage = 1,

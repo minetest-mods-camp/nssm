@@ -13,7 +13,7 @@ mobs:register_mob("nssm:mese_dragon", {
 	fear_height = 5,
 	walk_velocity = 2,
 	run_velocity = 4,
-    sounds = {
+	sounds = {
 		shoot_attack = "mesed",
 		attack = "mese_dragon",
 		distance = 60,
@@ -30,7 +30,7 @@ mobs:register_mob("nssm:mese_dragon", {
 		chance = 1,
 		min = 99,
 		max = 99},
-    },
+	},
 	armor = 30,
 	drawtype = "front",
 	water_damage = 0,
@@ -62,8 +62,8 @@ mobs:register_mob("nssm:mese_dragon", {
 		punch_end = 275,
 		punch2_start = 330,
 		punch2_end = 370,
-    	dattack_start = 120,
-    	dattack_end = 160,
+		dattack_start = 120,
+		dattack_end = 160,
 	},
 	do_custom = function(self)
 		midas_ability(self, "default:mese_block", self.run_velocity,2, 3)

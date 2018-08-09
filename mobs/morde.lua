@@ -15,7 +15,7 @@ mobs:register_mob("nssm:morde", {
 	run_velocity = 3.5,
 	damage = 6,
 	jump = true,
-    sounds = {
+	sounds = {
 		random = "morde",
 	},
 	drops = {
@@ -82,21 +82,21 @@ mobs:register_mob("nssm:morde", {
 				}, nil)
 
 				minetest.add_particlespawner(
-			        6, --amount
-			        1, --time
-			        {x=p.x-0.5, y=p.y-0.5, z=p.z-0.5}, --minpos
-			        {x=p.x+0.5, y=p.y+0.5, z=p.z+0.5}, --maxpos
-			        {x=(s.x-p.x)*m, y=(s.y-p.y+1)*m, z=(s.z-p.z)*m}, --minvel
-			        {x=(s.x-p.x)*m, y=(s.y-p.y+1)*m, z=(s.z-p.z)*m}, --maxvel
-			        {x=s.x-p.x, y=s.y-p.y+1, z=s.z-p.z}, --minacc
-			        {x=s.x-p.x, y=s.y-p.y+1, z=s.z-p.z}, --maxacc
-			        0.2, --minexptime
-			        0.3, --maxexptime
-			        2, --minsize
-			        3, --maxsize
-			        false, --collisiondetection
-			        "morparticle.png" --texture
-			    )
+					6, --amount
+					1, --time
+					{x=p.x-0.5, y=p.y-0.5, z=p.z-0.5}, --minpos
+					{x=p.x+0.5, y=p.y+0.5, z=p.z+0.5}, --maxpos
+					{x=(s.x-p.x)*m, y=(s.y-p.y+1)*m, z=(s.z-p.z)*m}, --minvel
+					{x=(s.x-p.x)*m, y=(s.y-p.y+1)*m, z=(s.z-p.z)*m}, --maxvel
+					{x=s.x-p.x, y=s.y-p.y+1, z=s.z-p.z}, --minacc
+					{x=s.x-p.x, y=s.y-p.y+1, z=s.z-p.z}, --maxacc
+					0.2, --minexptime
+					0.3, --maxexptime
+					2, --minsize
+					3, --maxsize
+					false, --collisiondetection
+					"morparticle.png" --texture
+				)
 			end
 		end
 	end,
@@ -140,10 +140,10 @@ minetest.register_entity("nssm:mortick", {
 
 		local objects = minetest.get_objects_inside_radius(s, 8)
 		for _,obj in ipairs(objects) do
-	        if (obj:is_player()) then
+			if (obj:is_player()) then
 				self.attack = obj
-	        end
-	    end
+			end
+		end
 
 		--If found a player follow him
 		if self.attack ~= 0 then

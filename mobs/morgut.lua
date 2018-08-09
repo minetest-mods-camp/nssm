@@ -16,7 +16,7 @@ mobs:register_mob("nssm:morgut", {
 	damage = 4,
 	runaway = true,
 	jump = true,
-    sounds = {
+	sounds = {
 		random = "morgut",
 	},
 	drops = {

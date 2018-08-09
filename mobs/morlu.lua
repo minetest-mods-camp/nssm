@@ -16,7 +16,7 @@ mobs:register_mob("nssm:morlu", {
 	damage = 4,
 	runaway = true,
 	jump = true,
-    sounds = {
+	sounds = {
 		random = "morlu1",
 		random = "morlu2"
 	},
@@ -163,18 +163,18 @@ mobs:register_mob("nssm:morlu", {
 							minetest.after(1, function (self)
 								if self then
 
-		                            local armor_stack = player_inv:get_stack("armor", armor_elements[steal_pos].pos)
-		                            armor_stack:take_item()
-		                            player_inv:set_stack('armor', armor_elements[steal_pos].pos, armor_stack)
+									local armor_stack = player_inv:get_stack("armor", armor_elements[steal_pos].pos)
+									armor_stack:take_item()
+									player_inv:set_stack('armor', armor_elements[steal_pos].pos, armor_stack)
 
-		                            armor_stack = armor_inv:get_stack("armor", armor_elements[steal_pos].pos)
-		                            armor_stack:take_item()
-		                            armor_inv:set_stack('armor', armor_elements[steal_pos].pos, armor_stack)
+									armor_stack = armor_inv:get_stack("armor", armor_elements[steal_pos].pos)
+									armor_stack:take_item()
+									armor_inv:set_stack('armor', armor_elements[steal_pos].pos, armor_stack)
 
-		                            armor:set_player_armor(self.attack, self.attack)
-		                            --armor:update_armor(self.attack)
-		                            armor:update_inventory(self.attack)
-		                            --armor:update_player_visuals(self.attack)
+									armor:set_player_armor(self.attack, self.attack)
+									--armor:update_armor(self.attack)
+									armor:update_inventory(self.attack)
+									--armor:update_player_visuals(self.attack)
 
 									--Update personal inventory of armors:
 									if (self.invnum ~= nil) and (self.invnum <= 5) then

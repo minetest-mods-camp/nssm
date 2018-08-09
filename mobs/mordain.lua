@@ -12,8 +12,8 @@ mobs:register_mob("nssm:mordain", {
 	fear_height = 4,
 	walk_velocity = 1,
 	run_velocity = 3.5,
-    rotate = 270,
-    sounds = {
+	rotate = 270,
+	sounds = {
 		random = "mordain",
 	},
 	damage = 6,

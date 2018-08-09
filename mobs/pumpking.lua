@@ -14,7 +14,7 @@ mobs:register_mob("nssm:pumpking", {
 	view_range = 35,
 	walk_velocity = 2,
 	run_velocity = 4,
-    sounds = {
+	sounds = {
 		random = "king",
 		explode = "tnt_explode",
 	},

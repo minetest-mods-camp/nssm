@@ -47,9 +47,9 @@ mobs:register_mob("nssm:lava_titan", {
 	knock_back=0,
 	attack_type = "dogshoot",
 	dogshoot_switch = true,
-  	arrow = "nssm:lava_arrow",
-  	shoot_interval = 2,
-  	shoot_offset = 0,
+	arrow = "nssm:lava_arrow",
+	shoot_interval = 2,
+	shoot_offset = 0,
 	--[[
 	on_dist_attack = function(self, player)
 		local pos = player:get_pos()
@@ -77,8 +77,8 @@ mobs:register_mob("nssm:lava_titan", {
 		run_end = 110,
 		punch_start = 301,
 		punch_end = 340,
-    	shoot_start =340,
-    	shoot_end=400,
+		shoot_start =340,
+		shoot_end=400,
 	},
 	do_custom = function (self)
 		digging_attack(self, nil, self.run_velocity, {x=0, y=4, z=0})

@@ -13,8 +13,8 @@ mobs:register_mob("nssm:ant_queen", {
 	walk_velocity = 1.5,
 	run_velocity = 2,
 	lifetimer = 300,
-  	rotate = 270,
-    sounds = {
+	rotate = 270,
+	sounds = {
 		random = "ant",
 		attack = "ant",
 	},
@@ -87,11 +87,11 @@ mobs:register_mob("nssm:ant_queen", {
 				local pos1 = {x=s.x+math.random(-3,3), y=s.y-1, z=s.z+math.random(-3,3)}
 
 				local objects = minetest.get_objects_inside_radius(s, 10)
-			    for _,obj in ipairs(objects) do
-			        if (obj:get_luaentity() and obj:get_luaentity().name == "nssm:ant_soldier") then
-			        	counter = counter + 1
+				for _,obj in ipairs(objects) do
+					if (obj:get_luaentity() and obj:get_luaentity().name == "nssm:ant_soldier") then
+						counter = counter + 1
 					end
-			    end
+				end
 
 				if 	((pos1.x~=s.x) and (pos1.z~=s.z))
 				and (minetest.get_node(pos1).name == "air")

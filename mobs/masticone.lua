@@ -14,7 +14,7 @@ mobs:register_mob("nssm:masticone", {
 	rotate = 270,
 	walk_velocity = 1.5,
 	run_velocity = 2.5,
-  	sounds = {
+	sounds = {
 		random = "masticone",
 	},
 	damage = 5,

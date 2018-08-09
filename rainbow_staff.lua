@@ -1,4 +1,6 @@
+
 --rainbow!
+
 minetest.register_entity("nssm:rainbow", {
 	textures = {"transparent.png"},
 	velocity = 10,

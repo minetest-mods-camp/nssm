@@ -1,6 +1,7 @@
 
---function
-function spears_shot (itemstack, player)
+--functions
+
+local function spears_shot (itemstack, player)
 	local spear = itemstack:get_name() .. '_entity'
 	local playerpos = player:get_pos()
 	local obj = minetest.add_entity({x=playerpos.x,y=playerpos.y+1.5,z=playerpos.z}, spear)
@@ -22,7 +23,7 @@ function spears_shot (itemstack, player)
 end
 
 
-function spears_set_entity(kind, eq, toughness)
+local function spears_set_entity(kind, eq, toughness)
 	local SPEAR_ENTITY={
 		physical = false,
 		timer=0,
@@ -86,11 +87,11 @@ end
 
 --Tools
 
-function spears_register_spear(kind, desc, eq, toughness, material)
+local function spears_register_spear(kind, desc, eq, toughness, material)
 
 	minetest.register_tool("nssm:spear_" .. kind, {
 		description = desc .. " Spear",
-                wield_image = "spear_" .. kind .. ".png",
+		wield_image = "spear_" .. kind .. ".png",
 		inventory_image = "spear_" .. kind .. ".png^[transform4",
 		wield_scale= {x=2,y=1,z=1},
 		on_drop = function(itemstack, user, pointed_thing)
@@ -116,18 +117,18 @@ function spears_register_spear(kind, desc, eq, toughness, material)
 			damage_groups = {fleshy=eq},
 		}
 	})
-	
+
 	local SPEAR_ENTITY=spears_set_entity(kind, eq, toughness)
-	
+
 	minetest.register_entity("nssm:spear_" .. kind .. "_entity", SPEAR_ENTITY)
-	
+
 	minetest.register_craft({
 		output = 'nssm:spear_' .. kind,
 		recipe = {
 			{'group:wood', 'group:wood', material},
 		}
 	})
-	
+
 	minetest.register_craft({
 		output = 'nssm:spear_' .. kind,
 		recipe = {
@@ -153,36 +154,36 @@ spears_register_spear('felucco_horn', 'Felucco Horn', 7, 9, 'nssm:felucco_horn')
 
 
 --Spear of peace
-	minetest.register_tool("nssm:spear_of_peace", {
-		description = "Spear of Peace",
-                wield_image = "spear_of_peace.png",
-		inventory_image = "spear_of_peace.png^[transform4",
-		wield_scale= {x=4,y=2,z=2},
-		on_drop = function(itemstack, user, pointed_thing)
-			spears_shot(itemstack, user)
-			if not minetest.setting_getbool("creative_mode") then
-				itemstack:take_item()
-			end
-			return itemstack
-		end,
-		on_place = function(itemstack, user, pointed_thing)
-			minetest.add_item(pointed_thing.above, itemstack)
-			if not minetest.setting_getbool("creative_mode") then
-				itemstack:take_item()
-			end
-			return itemstack
-		end,
-		tool_capabilities = {
-			full_punch_interval = 0.7,
-			max_drop_level=1,
-			groupcaps={
-				snappy = {times={[3]=0.2, [2]=0.2, [1]=0.2}, uses=500, maxlevel=1},
+minetest.register_tool("nssm:spear_of_peace", {
+	description = "Spear of Peace",
+	wield_image = "spear_of_peace.png",
+	inventory_image = "spear_of_peace.png^[transform4",
+	wield_scale= {x=4,y=2,z=2},
+	on_drop = function(itemstack, user, pointed_thing)
+		spears_shot(itemstack, user)
+		if not minetest.setting_getbool("creative_mode") then
+			itemstack:take_item()
+		end
+		return itemstack
+	end,
+	on_place = function(itemstack, user, pointed_thing)
+		minetest.add_item(pointed_thing.above, itemstack)
+		if not minetest.setting_getbool("creative_mode") then
+			itemstack:take_item()
+		end
+		return itemstack
+	end,
+	tool_capabilities = {
+		full_punch_interval = 0.7,
+		max_drop_level=1,
+		groupcaps={
+			snappy = {times={[3]=0.2, [2]=0.2, [1]=0.2}, uses=500, maxlevel=1},
 			},
-			damage_groups = {fleshy=18},
-		}
-	})
-	
-	function spears_set_sentity(kind, eq, toughness)
+		damage_groups = {fleshy=18},
+	}
+})
+
+local function spears_set_sentity(kind, eq, toughness)
 	local SUPERSPEAR_ENTITY={
 		physical = false,
 		timer=0,
@@ -204,7 +205,7 @@ spears_register_spear('felucco_horn', 'Felucco Horn', 7, 9, 'nssm:felucco_horn')
 			end
 		end,
 	}
-	
+
 	SUPERSPEAR_ENTITY.on_step = function(self, dtime)
 		self.timer=self.timer+dtime
 		local pos = self.object:get_pos()
@@ -244,15 +245,14 @@ spears_register_spear('felucco_horn', 'Felucco Horn', 7, 9, 'nssm:felucco_horn')
 	end
 	return SUPERSPEAR_ENTITY
 end
-	
-	SUPERSPEAR_ENTITY=spears_set_sentity("of_peace", 30, 300)
-	
-	minetest.register_entity("nssm:spear_of_peace_entity", SUPERSPEAR_ENTITY)
-	
-		minetest.register_craft({
-		output = 'nssm:spear_of_peace',
-		recipe = {
-			{'nssm:wrathful_moranga', 'group:wood', 'group:wood'},
-		}
-	})
-	
+
+SUPERSPEAR_ENTITY=spears_set_sentity("of_peace", 30, 300)
+
+minetest.register_entity("nssm:spear_of_peace_entity", SUPERSPEAR_ENTITY)
+
+minetest.register_craft({
+	output = 'nssm:spear_of_peace',
+	recipe = {
+		{'nssm:wrathful_moranga', 'group:wood', 'group:wood'},
+	}
+})

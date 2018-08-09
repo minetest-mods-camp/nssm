@@ -63,10 +63,18 @@ dofile(path.."/mobs/white_werewolf.lua")
 dofile(path.."/mobs/mese_dragon.lua")
 
 --Others
-dofile(path.."/rainbow_staff.lua")
 dofile(path.."/darts.lua")
 dofile(path.."/nssm_materials.lua")
 dofile(path.."/nssm_spears.lua")
 dofile(path.."/nssm_api.lua")
 dofile(path.."/nssm_weapons.lua")
-dofile(path.."/nssm_armor.lua")
+
+if minetest.registered_nodes["nyancat:nyancat_rainbow"] then
+	dofile(path.."/rainbow_staff.lua") ; print ("NYAN!!!!!")
+end
+
+if minetest.get_modpath("3d_armor") then
+	dofile(path.."/nssm_armor.lua")
+end
+
+print("[MOD] NSSM loaded")

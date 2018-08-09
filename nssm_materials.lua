@@ -1,225 +1,226 @@
 --non eatable craftitems
 
 
-function nssm_register_noneatcraftitems (name, descr)
+local function nssm_craftitem (name, descr)
 
-minetest.register_craftitem("nssm:"..name, {
-	description = descr,
-	image = name..".png",
-})
-
+	minetest.register_craftitem("nssm:"..name, {
+		description = descr,
+		image = name..".png",
+	})
 end
 
-nssm_register_noneatcraftitems ('sky_feather','Sky Feather')
-nssm_register_noneatcraftitems ('snake_scute','Snake Scute')
-nssm_register_noneatcraftitems ('eyed_tentacle','Eyed Tentacle')
---nssm_register_noneatcraftitems ('king_duck_crown','King Duck Crown')
-nssm_register_noneatcraftitems ('great_energy_globe','Great Energy Globe')
-nssm_register_noneatcraftitems ('superior_energy_globe','Superior Energy Globe')
-nssm_register_noneatcraftitems ('ant_queen_abdomen','Ant Queen Abdomen')
---nssm_register_noneatcraftitems ('masticone_skull','Masticone Skull')
-nssm_register_noneatcraftitems ('masticone_skull_fragments','Masticone Skull Fragments')
---nssm_register_noneatcraftitems ('masticone_skull_crowned','Masticone Skull Crowned')
-nssm_register_noneatcraftitems ('tentacle_curly','Kraken Tentacle')
-nssm_register_noneatcraftitems ('lava_titan_eye','Lava Titan Eye')
-nssm_register_noneatcraftitems ('duck_beak','Duck Beak')
-nssm_register_noneatcraftitems ('ice_tooth','Ice Tooth')
-nssm_register_noneatcraftitems ('little_ice_tooth','Little Ice Tooth')
-nssm_register_noneatcraftitems ('digested_sand',"Digested Sand")
-nssm_register_noneatcraftitems ('black_ice_tooth','Black Ice Tooth')
-nssm_register_noneatcraftitems ('tarantula_chelicerae','Tarantula Chelicerae')
-nssm_register_noneatcraftitems ('crab_chela','Crab Chela')
-nssm_register_noneatcraftitems ('cursed_pumpkin_seed','Cursed Pumpkin Seed')
-nssm_register_noneatcraftitems ('mantis_claw','Mantis Claw')
-nssm_register_noneatcraftitems ('manticore_fur','Manticore Fur')
-nssm_register_noneatcraftitems ('ant_hard_skin','Ant Hard Skin')
-nssm_register_noneatcraftitems ('bloco_skin','Bloco Skin')
-nssm_register_noneatcraftitems ('crab_carapace_fragment','Crab Carapace Fragment')
-nssm_register_noneatcraftitems ('crocodile_skin','Crocodile Skin')
-nssm_register_noneatcraftitems ('manticore_spine','Manticore Spine')
-nssm_register_noneatcraftitems ('night_feather','Night Feather')
-nssm_register_noneatcraftitems ('sun_feather','Sun Feather')
-nssm_register_noneatcraftitems ('duck_feather','Duck Feather')
-nssm_register_noneatcraftitems ('black_duck_feather','Black Duck Feather')
-nssm_register_noneatcraftitems ('masticone_fang','Masticone Fang')
-nssm_register_noneatcraftitems ('white_wolf_fur','White Wolf Fur')
-nssm_register_noneatcraftitems ('stoneater_mandible','Stoneater Mandible')
-nssm_register_noneatcraftitems ('ant_mandible','Ant Mandible')
-nssm_register_noneatcraftitems ('life_energy','Life Energy')
-nssm_register_noneatcraftitems ('wolf_fur','Wolf Fur')
-nssm_register_noneatcraftitems ('felucco_fur','Felucco Fur')
-nssm_register_noneatcraftitems ('felucco_horn','Felucco Horn')
-nssm_register_noneatcraftitems ('energy_globe','Energy Globe')
-nssm_register_noneatcraftitems ('greedy_soul_fragment','Greedy Soul Fragment')
-nssm_register_noneatcraftitems ('lustful_soul_fragment','Lustful Soul Fragment')
-nssm_register_noneatcraftitems ('wrathful_soul_fragment','Wrathful Soul Fragment')
-nssm_register_noneatcraftitems ('proud_soul_fragment','Proud Soul Fragment')
-nssm_register_noneatcraftitems ('slothful_soul_fragment','Slothful Soul Fragment')
-nssm_register_noneatcraftitems ('envious_soul_fragment','Envious Soul Fragment')
-nssm_register_noneatcraftitems ('gluttonous_soul_fragment','Gluttonous Soul Fragment')
-nssm_register_noneatcraftitems ('gluttonous_moranga','Gluttonous Moranga')
-nssm_register_noneatcraftitems ('envious_moranga','Envious Moranga')
-nssm_register_noneatcraftitems ('proud_moranga','Proud Moranga')
-nssm_register_noneatcraftitems ('slothful_moranga','Slothful Moranga')
-nssm_register_noneatcraftitems ('lustful_moranga','Lustful Moranga')
-nssm_register_noneatcraftitems ('wrathful_moranga','Wrathful Moranga')
-nssm_register_noneatcraftitems ('greedy_moranga','Greedy Moranga')
-nssm_register_noneatcraftitems ('mantis_skin','Mantis_skin')
-nssm_register_noneatcraftitems ('sand_bloco_skin','Sand Bloco Skin')
-nssm_register_noneatcraftitems ('sandworm_skin','Sandworm Skin')
-nssm_register_noneatcraftitems ('sky_iron','Sky Iron')
-nssm_register_noneatcraftitems ('web_string','Cobweb String')
-nssm_register_noneatcraftitems ('dense_web_string','Dense Cobweb String')
-nssm_register_noneatcraftitems ('black_powder','Black Powder')
-nssm_register_noneatcraftitems ('morelentir_dust','Dark Starred Stone Dust')
-nssm_register_noneatcraftitems ('empty_evocation_bomb','Empty Evocation Bomb')
+nssm_craftitem ('sky_feather','Sky Feather')
+nssm_craftitem ('snake_scute','Snake Scute')
+nssm_craftitem ('eyed_tentacle','Eyed Tentacle')
+--nssm_craftitem ('king_duck_crown','King Duck Crown')
+nssm_craftitem ('great_energy_globe','Great Energy Globe')
+nssm_craftitem ('superior_energy_globe','Superior Energy Globe')
+nssm_craftitem ('ant_queen_abdomen','Ant Queen Abdomen')
+--nssm_craftitem ('masticone_skull','Masticone Skull')
+nssm_craftitem ('masticone_skull_fragments','Masticone Skull Fragments')
+--nssm_craftitem ('masticone_skull_crowned','Masticone Skull Crowned')
+nssm_craftitem ('tentacle_curly','Kraken Tentacle')
+nssm_craftitem ('lava_titan_eye','Lava Titan Eye')
+nssm_craftitem ('duck_beak','Duck Beak')
+nssm_craftitem ('ice_tooth','Ice Tooth')
+nssm_craftitem ('little_ice_tooth','Little Ice Tooth')
+nssm_craftitem ('digested_sand',"Digested Sand")
+nssm_craftitem ('black_ice_tooth','Black Ice Tooth')
+nssm_craftitem ('tarantula_chelicerae','Tarantula Chelicerae')
+nssm_craftitem ('crab_chela','Crab Chela')
+nssm_craftitem ('cursed_pumpkin_seed','Cursed Pumpkin Seed')
+nssm_craftitem ('mantis_claw','Mantis Claw')
+nssm_craftitem ('manticore_fur','Manticore Fur')
+nssm_craftitem ('ant_hard_skin','Ant Hard Skin')
+nssm_craftitem ('bloco_skin','Bloco Skin')
+nssm_craftitem ('crab_carapace_fragment','Crab Carapace Fragment')
+nssm_craftitem ('crocodile_skin','Crocodile Skin')
+nssm_craftitem ('manticore_spine','Manticore Spine')
+nssm_craftitem ('night_feather','Night Feather')
+nssm_craftitem ('sun_feather','Sun Feather')
+nssm_craftitem ('duck_feather','Duck Feather')
+nssm_craftitem ('black_duck_feather','Black Duck Feather')
+nssm_craftitem ('masticone_fang','Masticone Fang')
+nssm_craftitem ('white_wolf_fur','White Wolf Fur')
+nssm_craftitem ('stoneater_mandible','Stoneater Mandible')
+nssm_craftitem ('ant_mandible','Ant Mandible')
+nssm_craftitem ('life_energy','Life Energy')
+nssm_craftitem ('wolf_fur','Wolf Fur')
+nssm_craftitem ('felucco_fur','Felucco Fur')
+nssm_craftitem ('felucco_horn','Felucco Horn')
+nssm_craftitem ('energy_globe','Energy Globe')
+nssm_craftitem ('greedy_soul_fragment','Greedy Soul Fragment')
+nssm_craftitem ('lustful_soul_fragment','Lustful Soul Fragment')
+nssm_craftitem ('wrathful_soul_fragment','Wrathful Soul Fragment')
+nssm_craftitem ('proud_soul_fragment','Proud Soul Fragment')
+nssm_craftitem ('slothful_soul_fragment','Slothful Soul Fragment')
+nssm_craftitem ('envious_soul_fragment','Envious Soul Fragment')
+nssm_craftitem ('gluttonous_soul_fragment','Gluttonous Soul Fragment')
+nssm_craftitem ('gluttonous_moranga','Gluttonous Moranga')
+nssm_craftitem ('envious_moranga','Envious Moranga')
+nssm_craftitem ('proud_moranga','Proud Moranga')
+nssm_craftitem ('slothful_moranga','Slothful Moranga')
+nssm_craftitem ('lustful_moranga','Lustful Moranga')
+nssm_craftitem ('wrathful_moranga','Wrathful Moranga')
+nssm_craftitem ('greedy_moranga','Greedy Moranga')
+nssm_craftitem ('mantis_skin','Mantis_skin')
+nssm_craftitem ('sand_bloco_skin','Sand Bloco Skin')
+nssm_craftitem ('sandworm_skin','Sandworm Skin')
+nssm_craftitem ('sky_iron','Sky Iron')
+nssm_craftitem ('web_string','Cobweb String')
+nssm_craftitem ('dense_web_string','Dense Cobweb String')
+nssm_craftitem ('black_powder','Black Powder')
+nssm_craftitem ('morelentir_dust','Dark Starred Stone Dust')
+nssm_craftitem ('empty_evocation_bomb','Empty Evocation Bomb')
 
-function nssm_register_eatcraftitems (name, descr, gnam)
 
-minetest.register_craftitem("nssm:"..name, {
-	description = descr,
-	image =name..".png",
-	on_use = minetest.item_eat(gnam),
-	groups = { meat=1, eatable=1 },
-})
+local function nssm_craftitem_eat (name, descr, gnam)
 
+	minetest.register_craftitem("nssm:"..name, {
+		description = descr,
+		image =name..".png",
+		on_use = minetest.item_eat(gnam),
+		groups = { meat=1, eatable=1 },
+	})
 end
 
-nssm_register_eatcraftitems ('werewolf_leg','Werewolf Leg',3)
-nssm_register_eatcraftitems ('felucco_steak','Felucco Steak',3)
-nssm_register_eatcraftitems ('roasted_felucco_steak','Roasted Felucco Steak',6)
-nssm_register_eatcraftitems ('heron_leg','Moonheron Leg',2)
-nssm_register_eatcraftitems ('chichibios_heron_leg',"Chichibio's Moonheron Leg",4)
-nssm_register_eatcraftitems ('crocodile_tail','Crocodile Tail',3)
-nssm_register_eatcraftitems ('roasted_crocodile_tail','Roasted Crocodile Tail',6)
-nssm_register_eatcraftitems ('roasted_werewolf_leg','Roasted_Werewolf Leg',6)
-nssm_register_eatcraftitems ('duck_legs','Duck Legs',1)
-nssm_register_eatcraftitems ('roasted_duck_legs','Roasted Duck Leg',3)
-nssm_register_eatcraftitems ('ant_leg','Ant Leg',-1)
-nssm_register_eatcraftitems ('roasted_ant_leg','Roasted Ant Leg',4)
-nssm_register_eatcraftitems ('spider_leg','Spider Leg',-1)
-nssm_register_eatcraftitems ('roasted_spider_leg','Roasted Spider Leg',4)
---nssm_register_eatcraftitems ('brain','Brain',3)
---nssm_register_eatcraftitems ('roasted_brain','Roasted Brain',8)
-nssm_register_eatcraftitems ('tentacle','Tentacle',2)
-nssm_register_eatcraftitems ('roasted_tentacle','Roasted Tentacle',5)
-nssm_register_eatcraftitems ('worm_flesh','Worm Flesh',-2)
-nssm_register_eatcraftitems ('roasted_worm_flesh','Roasted Worm Flesh',4)
-nssm_register_eatcraftitems ('amphibian_heart','Amphibian Heart',1)
-nssm_register_eatcraftitems ('roasted_amphibian_heart','Roasted Amphibian Heart',8)
-nssm_register_eatcraftitems ('raw_scrausics_wing','Raw Scrausics Wing',1)
-nssm_register_eatcraftitems ('spicy_scrausics_wing','Spicy Scrausics Wing',6)
-nssm_register_eatcraftitems ('phoenix_nuggets','Phoenix Nuggets',20)
-nssm_register_eatcraftitems ('phoenix_tear','Phoenix Tear',20)
-nssm_register_eatcraftitems ('frosted_amphibian_heart','Frosted Amphibian Heart',-1)
-nssm_register_eatcraftitems ('surimi','Surimi',4)
-nssm_register_eatcraftitems ('amphibian_ribs','Amphibian Ribs',2)
-nssm_register_eatcraftitems ('roasted_amphibian_ribs','Roasted Amphibian Ribs',6)
-nssm_register_eatcraftitems ('dolidrosaurus_fin','Dolidrosaurus Fin',-2)
-nssm_register_eatcraftitems ('roasted_dolidrosaurus_fin','Roasted Dolidrosaurus Fin',4)
-nssm_register_eatcraftitems ('larva_meat','Larva Meat',-1)
-nssm_register_eatcraftitems ('larva_juice','Larva Juice',-3)
-nssm_register_eatcraftitems ('larva_soup','Larva Soup',10)
-nssm_register_eatcraftitems ('mantis_meat','Mantis Meat',1)
-nssm_register_eatcraftitems ('roasted_mantis_meat','Roasted Mantis Meat',4)
-nssm_register_eatcraftitems ('spider_meat','Spider Meat',-1)
-nssm_register_eatcraftitems ('roasted_spider_meat','Roasted Spider Meat',3)
-nssm_register_eatcraftitems ('silk_gland','Silk Gland',-1)
-nssm_register_eatcraftitems ('roasted_silk_gland','Roasted Silk Gland',3)
-nssm_register_eatcraftitems ('super_silk_gland','Super Silk Gland',-8)
-nssm_register_eatcraftitems ('roasted_super_silk_gland','Roasted Super Silk Gland',2)
+nssm_craftitem_eat ('werewolf_leg','Werewolf Leg',3)
+nssm_craftitem_eat ('felucco_steak','Felucco Steak',3)
+nssm_craftitem_eat ('roasted_felucco_steak','Roasted Felucco Steak',6)
+nssm_craftitem_eat ('heron_leg','Moonheron Leg',2)
+nssm_craftitem_eat ('chichibios_heron_leg',"Chichibio's Moonheron Leg",4)
+nssm_craftitem_eat ('crocodile_tail','Crocodile Tail',3)
+nssm_craftitem_eat ('roasted_crocodile_tail','Roasted Crocodile Tail',6)
+nssm_craftitem_eat ('roasted_werewolf_leg','Roasted_Werewolf Leg',6)
+nssm_craftitem_eat ('duck_legs','Duck Legs',1)
+nssm_craftitem_eat ('roasted_duck_legs','Roasted Duck Leg',3)
+nssm_craftitem_eat ('ant_leg','Ant Leg',-1)
+nssm_craftitem_eat ('roasted_ant_leg','Roasted Ant Leg',4)
+nssm_craftitem_eat ('spider_leg','Spider Leg',-1)
+nssm_craftitem_eat ('roasted_spider_leg','Roasted Spider Leg',4)
+--nssm_craftitem_eat ('brain','Brain',3)
+--nssm_craftitem_eat ('roasted_brain','Roasted Brain',8)
+nssm_craftitem_eat ('tentacle','Tentacle',2)
+nssm_craftitem_eat ('roasted_tentacle','Roasted Tentacle',5)
+nssm_craftitem_eat ('worm_flesh','Worm Flesh',-2)
+nssm_craftitem_eat ('roasted_worm_flesh','Roasted Worm Flesh',4)
+nssm_craftitem_eat ('amphibian_heart','Amphibian Heart',1)
+nssm_craftitem_eat ('roasted_amphibian_heart','Roasted Amphibian Heart',8)
+nssm_craftitem_eat ('raw_scrausics_wing','Raw Scrausics Wing',1)
+nssm_craftitem_eat ('spicy_scrausics_wing','Spicy Scrausics Wing',6)
+nssm_craftitem_eat ('phoenix_nuggets','Phoenix Nuggets',20)
+nssm_craftitem_eat ('phoenix_tear','Phoenix Tear',20)
+nssm_craftitem_eat ('frosted_amphibian_heart','Frosted Amphibian Heart',-1)
+nssm_craftitem_eat ('surimi','Surimi',4)
+nssm_craftitem_eat ('amphibian_ribs','Amphibian Ribs',2)
+nssm_craftitem_eat ('roasted_amphibian_ribs','Roasted Amphibian Ribs',6)
+nssm_craftitem_eat ('dolidrosaurus_fin','Dolidrosaurus Fin',-2)
+nssm_craftitem_eat ('roasted_dolidrosaurus_fin','Roasted Dolidrosaurus Fin',4)
+nssm_craftitem_eat ('larva_meat','Larva Meat',-1)
+nssm_craftitem_eat ('larva_juice','Larva Juice',-3)
+nssm_craftitem_eat ('larva_soup','Larva Soup',10)
+nssm_craftitem_eat ('mantis_meat','Mantis Meat',1)
+nssm_craftitem_eat ('roasted_mantis_meat','Roasted Mantis Meat',4)
+nssm_craftitem_eat ('spider_meat','Spider Meat',-1)
+nssm_craftitem_eat ('roasted_spider_meat','Roasted Spider Meat',3)
+nssm_craftitem_eat ('silk_gland','Silk Gland',-1)
+nssm_craftitem_eat ('roasted_silk_gland','Roasted Silk Gland',3)
+nssm_craftitem_eat ('super_silk_gland','Super Silk Gland',-8)
+nssm_craftitem_eat ('roasted_super_silk_gland','Roasted Super Silk Gland',2)
 
 --ore generation
 
 minetest.register_ore({
-		ore_type       = "scatter",
-		ore            = "nssm:modders_block",
-		wherein        = "default:stone",
-		clust_scarcity = 50*50*50,
-		clust_num_ores = 1,
-		clust_size     = 1,
-		y_min     = -115,
-		y_max     = -95,
-			})
+	ore_type	   = "scatter",
+	ore			= "nssm:modders_block",
+	wherein		= "default:stone",
+	clust_scarcity = 50*50*50,
+	clust_num_ores = 1,
+	clust_size	 = 1,
+	y_min	 = -115,
+	y_max	 = -95,
+})
+
 for i=1,9 do
-minetest.register_ore({
-		ore_type       = "scatter",
-		ore            = "nssm:ant_dirt",
-		wherein        = "default:cobble",
-		clust_scarcity = 1,
-		clust_num_ores = 1,
-		clust_size     = 1,
-		y_min     = -1,
-		y_max     = 40,
-			})
 
 minetest.register_ore({
-		ore_type       = "scatter",
-		ore            = "nssm:ant_dirt",
-		wherein        = "default:mossycobble",
-		clust_scarcity = 1,
-		clust_num_ores = 1,
-		clust_size     = 1,
-		y_min     = -1000,
-		y_max     = 40,
-			})
+	ore_type	   = "scatter",
+	ore			= "nssm:ant_dirt",
+	wherein		= "default:cobble",
+	clust_scarcity = 1,
+	clust_num_ores = 1,
+	clust_size	 = 1,
+	y_min	 = -1,
+	y_max	 = 40,
+})
 
 minetest.register_ore({
-		ore_type       = "scatter",
-		ore            = "nssm:ant_dirt",
-		wherein        = "default:sandstonebrick",
-		clust_scarcity = 1,
-		clust_num_ores = 1,
-		clust_size     = 1,
-		y_min     = -1000,
-		y_max     = 40,
-			})
+	ore_type	   = "scatter",
+	ore			= "nssm:ant_dirt",
+	wherein		= "default:mossycobble",
+	clust_scarcity = 1,
+	clust_num_ores = 1,
+	clust_size	 = 1,
+	y_min	 = -1000,
+	y_max	 = 40,
+})
 
 minetest.register_ore({
-		ore_type       = "scatter",
-		ore            = "nssm:ant_dirt",
-		wherein        = "stairs:stair_sandstonebrick",
-		clust_scarcity = 1,
-		clust_num_ores = 1,
-		clust_size     = 1,
-		y_min     = -1000,
-		y_max     = 40,
-			})
+	ore_type	   = "scatter",
+	ore			= "nssm:ant_dirt",
+	wherein		= "default:sandstonebrick",
+	clust_scarcity = 1,
+	clust_num_ores = 1,
+	clust_size	 = 1,
+	y_min	 = -1000,
+	y_max	 = 40,
+})
 
 minetest.register_ore({
-		ore_type       = "scatter",
-		ore            = "nssm:ant_dirt",
-		wherein        = "stairs:stair_cobble",
-		clust_scarcity = 1,
-		clust_num_ores = 1,
-		clust_size     = 1,
-		y_min     = -1000,
-		y_max     = 40,
-			})
-end
+	ore_type	   = "scatter",
+	ore			= "nssm:ant_dirt",
+	wherein		= "stairs:stair_sandstonebrick",
+	clust_scarcity = 1,
+	clust_num_ores = 1,
+	clust_size	 = 1,
+	y_min	 = -1000,
+	y_max	 = 40,
+})
 
 minetest.register_ore({
-		ore_type       = "scatter",
-		ore            = "nssm:web",
-		wherein        = "default:junglegrass",
-		clust_scarcity = 2*2*2,
-		clust_num_ores = 2,
-		clust_size     = 2,
-		y_min     = -20,
-		y_max     = 200,
-			})
+	ore_type	   = "scatter",
+	ore			= "nssm:ant_dirt",
+	wherein		= "stairs:stair_cobble",
+	clust_scarcity = 1,
+	clust_num_ores = 1,
+	clust_size	 = 1,
+	y_min	 = -1000,
+	y_max	 = 40,
+})
+
+end -- END for loop
 
 minetest.register_ore({
-		ore_type       = "scatter",
-		ore            = "nssm:web",
-		wherein        = "default:jungleleaves",
-		clust_scarcity = 4*4*4,
-		clust_num_ores = 5,
-		clust_size     = 5,
-		y_min     = -20,
-		y_max     = 200,
-			}
-)
+	ore_type	   = "scatter",
+	ore			= "nssm:web",
+	wherein		= "default:junglegrass",
+	clust_scarcity = 2*2*2,
+	clust_num_ores = 2,
+	clust_size	 = 2,
+	y_min	 = -20,
+	y_max	 = 200,
+})
+
+minetest.register_ore({
+	ore_type	   = "scatter",
+	ore			= "nssm:web",
+	wherein		= "default:jungleleaves",
+	clust_scarcity = 4*4*4,
+	clust_num_ores = 5,
+	clust_size	 = 5,
+	y_min	 = -20,
+	y_max	 = 200,
+})
 
 --nodes
 
@@ -256,7 +257,8 @@ minetest.register_node("nssm:venomous_gas", {
 	inventory_image = minetest.inventorycube("venomous_gas.png"),
 	drawtype = "airlike",
 	tiles = {
-		{name="venomous_gas_animated.png", animation={type="vertical_frames", aspect_w=16, aspect_h=16, length=3.0}}
+		{name="venomous_gas_animated.png",
+		animation={type="vertical_frames", aspect_w=16, aspect_h=16, length=3.0}}
 	},
 	paramtype = "light",
 	walkable = false,
@@ -282,7 +284,7 @@ minetest.register_node("nssm:web", {
 	description = "Web",
 	inventory_image = "web.png",
 	tiles = {"web.png"} ,
-    drawtype = "plantlike",
+	drawtype = "plantlike",
 	paramtype = "light",
 	walkable = false,
 	pointable = true,
@@ -303,7 +305,7 @@ minetest.register_node("nssm:thick_web", {
 	description = "Thick Web",
 	inventory_image = "thick_web.png",
 	tiles = {"thick_web.png"} ,
-    drawtype = "firelike",
+	drawtype = "firelike",
 	paramtype = "light",
 	walkable = false,
 	pointable = true,
@@ -396,6 +398,7 @@ minetest.register_abm({
 	end
 })
 
+--[[ These don't actually do anything
 minetest.register_abm({
 	nodenames = {"nssm:web"},
 	neighbors = {"default:junglegrass"},
@@ -434,6 +437,7 @@ minetest.register_abm({
 		end
 	end
 })
+]]
 
 minetest.register_node("nssm:phoenix_fire", {
 	description = "Phoenix Fire",
@@ -450,7 +454,7 @@ minetest.register_node("nssm:phoenix_fire", {
 	walkable = false,
 	buildable_to = false,
 	damage_per_second = 4,
-	})
+})
 
 minetest.register_abm({
 	nodenames = {"nssm:phoenix_fire"},
@@ -458,8 +462,8 @@ minetest.register_abm({
 	interval = 3,
 	chance = 2,
 	action = function(pos, node)
-			minetest.set_node({x = pos.x, y = pos.y , z = pos.z}, {name = "air"})
-		end
+		minetest.set_node({x = pos.x, y = pos.y , z = pos.z}, {name = "air"})
+	end
 })
 
 minetest.register_abm({
@@ -468,8 +472,8 @@ minetest.register_abm({
 	interval = 15,
 	chance = 3,
 	action = function(pos, node)
-			minetest.set_node({x = pos.x, y = pos.y , z = pos.z}, {name = "air"})
-		end
+		minetest.set_node({x = pos.x, y = pos.y , z = pos.z}, {name = "air"})
+	end
 })
 
 --tools
@@ -563,15 +567,15 @@ minetest.register_tool("nssm:mantis_battleaxe", {
 })
 
 minetest.register_node("nssm:rope", {
-    description = "Rope",
-    paramtype = "light",
+	description = "Rope",
+	paramtype = "light",
 	walkable = false,
-    climbable = true,
-    sunlight_propagates = true,
+	climbable = true,
+	sunlight_propagates = true,
 	drawtype = "plantlike",
-    drops = "nssm:rope",
-    tiles = { "rope.png" },
-    groups = {snappy=1},
+	drops = "nssm:rope",
+	tiles = { "rope.png" },
+	groups = {snappy=1},
 })
 
 minetest.register_tool("nssm:stoneater_pick", {
@@ -645,38 +649,19 @@ minetest.register_tool("nssm:felucco_knife", {
 
 if minetest.get_modpath("farming") then
 
-farming.register_hoe(":farming:felucco_hoe", {
-	description = "Felucco Hoe",
-	inventory_image = "felucco_hoe.png",
-	max_uses = 290,
-	material = "nssm:felucco_horn"
-})
+	farming.register_hoe(":farming:felucco_hoe", {
+		description = "Felucco Hoe",
+		inventory_image = "felucco_hoe.png",
+		max_uses = 290,
+		material = "nssm:felucco_horn"
+	})
 
-farming.register_hoe(":farming:ant_hoe", {
-	description = "Ant Hoe",
-	inventory_image = "ant_hoe.png",
-	max_uses = 350,
-	material = "nssm:ant_mandible"
-})
-
-minetest.register_craft({
-	output = 'nssm:ant_hoe',
-	recipe = {
-		{'nssm:ant_mandible', 'nssm:ant_mandible'},
-		{'', 'group:stick'},
-		{'', 'group:stick'},
-	}
-})
-
-minetest.register_craft({
-	output = 'nssm:felucco_hoe',
-	recipe = {
-		{'nssm:felucco_horn', 'nssm:felucco_horn'},
-		{'', 'group:stick'},
-		{'', 'group:stick'},
-	}
-})
-
+	farming.register_hoe(":farming:ant_hoe", {
+		description = "Ant Hoe",
+		inventory_image = "ant_hoe.png",
+		max_uses = 350,
+		material = "nssm:ant_mandible"
+	})
 end
 
 minetest.register_tool("nssm:ant_sword", {
@@ -691,8 +676,6 @@ minetest.register_tool("nssm:ant_sword", {
 		damage_groups = {fleshy=8},
 	},
 })
-
-
 
 minetest.register_tool("nssm:ant_shovel", {
 	description = "Ant Shovel",
@@ -732,8 +715,8 @@ minetest.register_tool("nssm:mantis_axe", {
 			choppy={times={[1]=2.20, [2]=1.00, [3]=0.60}, uses=30, maxlevel=3},
 		},
 		damage_groups = {fleshy=5},
-		},
-	})
+	},
+})
 
 minetest.register_tool("nssm:ant_billhook", {
 	description = "Ant Billhook",
@@ -746,8 +729,8 @@ minetest.register_tool("nssm:ant_billhook", {
 			snappy={times={[1]=1.40, [2]=1.00, [3]=0.60}, uses=30, maxlevel=3},
 		},
 		damage_groups = {fleshy=6},
-		},
-	})
+	},
+})
 
 minetest.register_tool("nssm:duck_beak_pick",{
 	description = "Duck Beak Pickaxe",
@@ -759,7 +742,7 @@ minetest.register_tool("nssm:duck_beak_pick",{
 			cracky = {times={[1]=1.0, [2]=0.8, [3]=0.20}, uses=3, maxlevel=3},
 		},
 		damage_groups = {fleshy=5},
-		},
+	},
 })
 
 minetest.register_tool("nssm:ant_pick", {
@@ -854,7 +837,7 @@ minetest.register_tool("nssm:axe_of_pride", {
 								player_inv:set_stack('main', found, items)
 								part = 1
 							end
-			            else
+					else
 							if (obj:get_luaentity().health) then
 								--minetest.chat_send_all("Entity")
 								obj:get_luaentity().health = obj:get_luaentity().health -10
@@ -868,7 +851,7 @@ minetest.register_tool("nssm:axe_of_pride", {
 								player_inv:set_stack('main', found, items)
 								part = 1
 							end
-			            end
+						end
 						if part == 1 then
 							local s = dropper:get_pos()
 							local p = obj:get_pos()
@@ -894,7 +877,7 @@ minetest.register_tool("nssm:axe_of_pride", {
 					end
 				end
 			end
-        end
+		end
 	end,
 })
 
@@ -912,8 +895,8 @@ minetest.register_tool("nssm:gratuitousness_battleaxe", {
 		damage_groups = {fleshy=18},
 	},
 	on_drop = function(itemstack, dropper, pos)
-	    local objects = minetest.get_objects_inside_radius(pos, 10)
-	    local flag = 0
+		local objects = minetest.get_objects_inside_radius(pos, 10)
+		local flag = 0
 		local vec = dropper:get_look_dir()
 		local pos = dropper:get_pos()
 		--vec.y = 0
@@ -959,78 +942,78 @@ minetest.register_tool("nssm:sword_of_eagerness", {
 		damage_groups = {fleshy=14},
 	},
 	on_drop = function(itemstack, dropper, pos)
-	    local objects = minetest.get_objects_inside_radius(pos, 10)
-	    local flag = 0
-	    for _,obj in ipairs(objects) do
+		local objects = minetest.get_objects_inside_radius(pos, 10)
+		local flag = 0
+		for _,obj in ipairs(objects) do
 			local part = 0
-	        if flag == 0 then
-	            local pname = dropper:get_player_name()
-	            local player_inv = minetest.get_inventory({type='player', name = pname})
+			if flag == 0 then
+				local pname = dropper:get_player_name()
+				local player_inv = minetest.get_inventory({type='player', name = pname})
 
-	            if player_inv:is_empty('main') then
-	                --minetest.chat_send_all("Inventory empty")
-	            else
-	                local found = 0
-	                for i = 1,32 do
-	                    local items = player_inv:get_stack('main', i)
-	                    local n = items:get_name()
-	                    if n == "nssm:energy_globe" then
-	                        found = i
-	                        break
-	                    end
-	                end
-	                if found == 0 then
-	                    minetest.chat_send_player(pname, "You haven't got any Energy Globe!")
-	                    return
-	                else
+				if player_inv:is_empty('main') then
+					--minetest.chat_send_all("Inventory empty")
+				else
+					local found = 0
+					for i = 1,32 do
+						local items = player_inv:get_stack('main', i)
+						local n = items:get_name()
+						if n == "nssm:energy_globe" then
+							found = i
+							break
+						end
+					end
+					if found == 0 then
+						minetest.chat_send_player(pname, "You haven't got any Energy Globe!")
+						return
+					else
 						local pos = obj:get_pos()
 						pos.y = pos.y + 15
-	                    if (obj:is_player()) then
-	                        if (obj:get_player_name()~=dropper:get_player_name()) then
+						if (obj:is_player()) then
+							if (obj:get_player_name()~=dropper:get_player_name()) then
 								part=1
 								obj:set_pos(pos)
-	                            --flag = 1
+								--flag = 1
 
-	                            local items = player_inv:get_stack('main', found)
-	                            items:take_item()
-	                            player_inv:set_stack('main', found, items)
-	                        end
-	                    else
-	                        if (obj:get_luaentity().health) then
+								local items = player_inv:get_stack('main', found)
+								items:take_item()
+								player_inv:set_stack('main', found, items)
+							end
+						else
+							if (obj:get_luaentity().health) then
 								obj:get_luaentity().old_y = pos.y
-	                            obj:set_pos(pos)
+								obj:set_pos(pos)
 								part=1
-	                            --flag = 1
+								--flag = 1
 
-	                            local items = player_inv:get_stack('main', found)
-	                            items:take_item()
-	                            player_inv:set_stack('main', found, items)
-	                        end
-	                    end
+								local items = player_inv:get_stack('main', found)
+								items:take_item()
+								player_inv:set_stack('main', found, items)
+							end
+						end
 						if part==1 then
 							local s = pos
 							s.y = s.y - 15
 							minetest.add_particlespawner(
-						    	25, --amount
-						        0.3, --time
-						        vector.subtract(s, 0.5), --minpos
-						        vector.add(s, 0.5), --maxpos
-						        {x=0, y=10, z=0}, --minvel
-						        {x=0.1, y=11, z=0.1}, --maxvel
-						        {x=0,y=1,z=0}, --minacc
-						        {x=0,y=1,z=0}, --maxacc
-						        0.5, --minexptime
-						        1, --maxexptime
-						        1, --minsize
-						        2, --maxsize
-						        false, --collisiondetection
-						        "slothful_soul_fragment.png" --texture
-						    )
+								25, --amount
+								0.3, --time
+								vector.subtract(s, 0.5), --minpos
+								vector.add(s, 0.5), --maxpos
+								{x=0, y=10, z=0}, --minvel
+								{x=0.1, y=11, z=0.1}, --maxvel
+								{x=0,y=1,z=0}, --minacc
+								{x=0,y=1,z=0}, --maxacc
+								0.5, --minexptime
+								1, --maxexptime
+								1, --minsize
+								2, --maxsize
+								false, --collisiondetection
+								"slothful_soul_fragment.png" --texture
+							)
 						end
-	                end
-	            end
-	        end
-	    end
+					end
+				end
+			end
+		end
 	end,
 })
 
@@ -1140,43 +1123,43 @@ minetest.register_tool("nssm:sword_of_envy", {
 		damage_groups = {fleshy=14},
 	},
 	on_drop = function(itemstack, dropper, pos)
-	    local objects = minetest.get_objects_inside_radius(pos, 10)
-	    local flag = 0
-	    for _,obj in ipairs(objects) do
-	        if flag == 0 then
-	            local pname = dropper:get_player_name()
-	            local player_inv = minetest.get_inventory({type='player', name = pname})
+		local objects = minetest.get_objects_inside_radius(pos, 10)
+		local flag = 0
+		for _,obj in ipairs(objects) do
+			if flag == 0 then
+				local pname = dropper:get_player_name()
+				local player_inv = minetest.get_inventory({type='player', name = pname})
 
-	            if player_inv:is_empty('main') then
-	                --minetest.chat_send_all("Inventory empty")
-	            else
-	                local found = 0
-	                for i = 1,32 do
-	                    local items = player_inv:get_stack('main', i)
-	                    local n = items:get_name()
-	                    if n == "nssm:energy_globe" then
-	                        found = i
-	                        break
-	                    end
-	                end
-	                if found == 0 then
-	                    minetest.chat_send_player(pname, "You haven't got any Energy Globe!")
-	                    return
-	                else
-	                    if (obj:is_player()) then
-	                        --minetest.chat_send_all("Giocatore")
-	                        if (obj:get_player_name()~=dropper:get_player_name()) then
-	                            local hpp = obj:get_hp()
+				if player_inv:is_empty('main') then
+					--minetest.chat_send_all("Inventory empty")
+				else
+					local found = 0
+					for i = 1,32 do
+						local items = player_inv:get_stack('main', i)
+						local n = items:get_name()
+						if n == "nssm:energy_globe" then
+							found = i
+							break
+						end
+					end
+					if found == 0 then
+						minetest.chat_send_player(pname, "You haven't got any Energy Globe!")
+						return
+					else
+						if (obj:is_player()) then
+							--minetest.chat_send_all("Giocatore")
+							if (obj:get_player_name()~=dropper:get_player_name()) then
+								local hpp = obj:get_hp()
 								obj:set_hp(dropper:get_hp())
 								dropper:set_hp(hpp)
-	                            flag = 1
+								flag = 1
 
-	                            local items = player_inv:get_stack('main', found)
-	                            items:take_item()
-	                            player_inv:set_stack('main', found, items)
-	                        end
-	                    else
-	                        if (obj:get_luaentity().health) then
+								local items = player_inv:get_stack('main', found)
+								items:take_item()
+								player_inv:set_stack('main', found, items)
+							end
+						else
+							if (obj:get_luaentity().health) then
 								local hpp = obj:get_luaentity().health
 								obj:get_luaentity().health = dropper:get_hp()
 								if hpp > 20 then
@@ -1184,18 +1167,18 @@ minetest.register_tool("nssm:sword_of_envy", {
 								else
 									dropper:set_hp(hpp)
 								end
-	                            check_for_death(obj:get_luaentity())
-	                            flag = 1
+								check_for_death(obj:get_luaentity())
+								flag = 1
 
-	                            local items = player_inv:get_stack('main', found)
-	                            items:take_item()
-	                            player_inv:set_stack('main', found, items)
-	                        end
-	                    end
-	                end
-	            end
-	        end
-	    end
+								local items = player_inv:get_stack('main', found)
+								items:take_item()
+								player_inv:set_stack('main', found, items)
+							end
+						end
+					end
+				end
+			end
+		end
 	end,
 })
 
@@ -1246,7 +1229,7 @@ minetest.register_tool("nssm:sword_of_gluttony", {
 								items:take_item()
 								player_inv:set_stack('main', found, items)
 							end
-			            else
+						else
 							if (obj:get_luaentity().health) then
 								if obj:get_luaentity().health <= 32 then
 									local pos = obj:get_pos()
@@ -1286,11 +1269,11 @@ minetest.register_tool("nssm:sword_of_gluttony", {
 									)
 								end
 							end
-			            end
+						end
 					end
 				end
 			end
-        end
+		end
 	end,
 })
 
@@ -1309,23 +1292,23 @@ minetest.register_tool("nssm:death_scythe", {
 	},
 	groups ={not_in_creative_inventory=1},
 	on_drop = function(itemstack, dropper, pos)
-	    local objects = minetest.get_objects_inside_radius(pos, 10)
-	    local flag = 0
+		local objects = minetest.get_objects_inside_radius(pos, 10)
+		local flag = 0
 		dropper:set_hp(dropper:get_hp()-9)
-	    for _,obj in ipairs(objects) do
+		for _,obj in ipairs(objects) do
 			flag = 0
-            if (obj:is_player()) then
-                if (obj:get_player_name()~=dropper:get_player_name()) then
-                    obj:set_hp(obj:get_hp()-40)
-                    flag = 1
-                end
-            else
-                if (obj:get_luaentity().health) then
-                    obj:get_luaentity().health = obj:get_luaentity().health -40
-                    check_for_death(obj:get_luaentity())
-                    flag = 1
-                end
-            end
+			if (obj:is_player()) then
+				if (obj:get_player_name()~=dropper:get_player_name()) then
+					obj:set_hp(obj:get_hp()-40)
+					flag = 1
+				end
+			else
+				if (obj:get_luaentity().health) then
+					obj:get_luaentity().health = obj:get_luaentity().health -40
+					check_for_death(obj:get_luaentity())
+					flag = 1
+				end
+			end
 			if flag == 1 then
 				for i = 1,math.random(1,2) do
 					drop = minetest.add_item(pos, "nssm:energy_globe 1")
@@ -1339,7 +1322,7 @@ minetest.register_tool("nssm:death_scythe", {
 					end
 				end
 			end
-	    end
+		end
 		local pos = dropper:get_pos()
 		local vec = {x=5,y=5,z=5}
 		local poslist = minetest.find_nodes_in_area(vector.subtract(pos, vec), vector.add(pos,vec), "default:dirt_with_grass")
@@ -1797,9 +1780,10 @@ if minetest.get_modpath("nssb") then
 	nssm_register_moranga ("envious")
 	nssm_register_moranga ("proud")
 end
+
 --Eggs
 
-function nssm_register_egg (name, descr)
+local function nssm_register_egg (name, descr)
 	minetest.register_craftitem("nssm:".. name, {
 		description = descr .. " Egg",
 		image = name.."_egg.png",
@@ -1815,7 +1799,7 @@ function nssm_register_egg (name, descr)
 	})
 end
 
-function nssm_register_egg2 (name, descr)				--mobs you can't catch
+local function nssm_register_egg2 (name, descr) --mobs you can't catch
 	minetest.register_craftitem("nssm:".. name.."_egg", {
 		description = descr .. " Egg",
 		image = name.."_egg.png",
@@ -1920,32 +1904,32 @@ minetest.register_craftitem("nssm:mese_egg", {
 
 --experimental morwa statue
 minetest.register_node("nssm:morwa_statue", {
-   description = 'Morwa Statue',
-   drawtype = 'mesh',
-   mesh = 'morwa_statue.b3d',
-   tiles = {'morwa_statue.png'},
-   inventory_image = 'morwa_statue.png',
-   groups = {not_in_creative_inventory=1},
-   paramtype = 'light',
-   paramtype2 = 'facedir',
-   selection_box = {
-      type = 'fixed',
-      fixed = {-1, -0.5, -1, 1, 3, 1}, -- Right, Bottom, Back, Left, Top, Front
-      },
-   collision_box = {
-      type = 'fixed',
-      fixed = {-1, -0.5, -1, 1, 3, 1}, -- Right, Bottom, Back, Left, Top, Front
-      },
+	description = 'Morwa Statue',
+	drawtype = 'mesh',
+	mesh = 'morwa_statue.b3d',
+	tiles = {'morwa_statue.png'},
+	inventory_image = 'morwa_statue.png',
+	groups = {not_in_creative_inventory=1},
+	paramtype = 'light',
+	paramtype2 = 'facedir',
+	selection_box = {
+		type = 'fixed',
+		fixed = {-1, -0.5, -1, 1, 3, 1}, -- Right, Bottom, Back, Left, Top, Front
+		},
+	collision_box = {
+		type = 'fixed',
+		fixed = {-1, -0.5, -1, 1, 3, 1}, -- Right, Bottom, Back, Left, Top, Front
+	},
 })
+
 --Abm to make the conversion between statue and the entity, caused by light
 
 minetest.register_abm({
 	nodenames = {"nssm:morwa_statue"},
 	neighbors = {"air"},
-	interval = 1,
+	interval = 2,
 	chance = 1,
-	action =
-	function(pos, node)
+	action = function(pos, node)
 		local pos1 = {x=pos.x, y=pos.y+1, z=pos.z}
 		local n = minetest.get_node(pos1).name
 		if n ~= "air" then
@@ -1958,9 +1942,8 @@ minetest.register_abm({
 		end
 	end
 })
+
 --Eggs recipes
-
-
 
 minetest.register_craft({
 	output = 'nssm:duck',

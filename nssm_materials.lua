@@ -841,7 +841,7 @@ minetest.register_tool("nssm:axe_of_pride", {
 							if (obj:get_luaentity().health) then
 								--minetest.chat_send_all("Entity")
 								obj:get_luaentity().health = obj:get_luaentity().health -10
-								check_for_death(obj:get_luaentity())
+--								check_for_death(obj:get_luaentity())
 
 								dropper:set_hp(dropper:get_hp()+10)
 								--flag = 1
@@ -1167,7 +1167,7 @@ minetest.register_tool("nssm:sword_of_envy", {
 								else
 									dropper:set_hp(hpp)
 								end
-								check_for_death(obj:get_luaentity())
+--								check_for_death(obj:get_luaentity())
 								flag = 1
 
 								local items = player_inv:get_stack('main', found)
@@ -1305,7 +1305,7 @@ minetest.register_tool("nssm:death_scythe", {
 			else
 				if (obj:get_luaentity().health) then
 					obj:get_luaentity().health = obj:get_luaentity().health -40
-					check_for_death(obj:get_luaentity())
+--					check_for_death(obj:get_luaentity())
 					flag = 1
 				end
 			end

@@ -230,7 +230,7 @@ local function default_on_step(
 					elseif obj:get_luaentity().health then
 						obj:get_luaentity().health = obj:get_luaentity().health - damage
 						--minetest.chat_send_all("Danneggiato: "..obj:get_entity_name().." Vita: "..obj:get_luaentity().health)
-						check_for_death(obj:get_luaentity())
+--						check_for_death(obj:get_luaentity())
 					end
 				end
 			end

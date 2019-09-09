@@ -128,6 +128,9 @@ mobs:register_arrow("nssm:spine", {
 			damage_groups = {fleshy = 2},
 		}, nil)
 	end,
+
+	hit_node = function(self, pos, node)
+	end
 })
 
 
@@ -144,6 +147,9 @@ mobs:register_arrow("nssm:morarrow", {
 			damage_groups = {fleshy = 3},
 		}, nil)
 	end,
+
+	hit_node = function(self, pos, node)
+	end
 })
 
 
@@ -316,7 +322,8 @@ end
 mobs:register_arrow("nssm:super_gas", {
 	visual = "sprite",
 	visual_size = {x = 1, y = 1},
-	textures = {"transparent.png"},
+--	textures = {"transparent.png"},
+	textures = {"tnt_smoke.png^[colorize:green:170"},
 	velocity = 8,
 	-- direct hit
 	hit_player = function(self, player)
@@ -403,4 +410,6 @@ mobs:register_arrow("nssm:lava_arrow", {
 			end
 		end
 	end,
+	hit_node = function(self, pos, node)
+	end
 })

@@ -38,24 +38,28 @@ local materials = {
 }
 
 for k, v in pairs(stats) do
+
 	minetest.register_tool("nssm:helmet_"..k, {
 		description = v.name.." Helmet",
 		inventory_image ="inv_helmet_"..k..".png",
 		groups = {armor_head=math.floor(4*v.armor), armor_heal=v.heal, armor_use=v.use},
 		wear = 0,
 	})
+
 	minetest.register_tool("nssm:chestplate_"..k, {
 		description = v.name.." Chestplate",
 		inventory_image ="inv_chestplate_"..k..".png",
 		groups = {armor_torso=math.floor(6*v.armor), armor_heal=v.heal, armor_use=v.use},
 		wear = 0,
 	})
+
 	minetest.register_tool("nssm:leggings_"..k, {
 		description = v.name.." Leggings",
 		inventory_image = "inv_leggings_"..k..".png",
 		groups = {armor_legs=math.floor(5*v.armor), armor_heal=v.heal, armor_use=v.use},
 		wear = 0,
 	})
+
 	minetest.register_tool("nssm:boots_"..k, {
 		description = v.name.." Boots",
 		inventory_image ="inv_boots_"..k..".png",
@@ -65,6 +69,7 @@ for k, v in pairs(stats) do
 end
 
 for k, v in pairs(materials) do
+
 	minetest.register_craft({
 		output = "nssm:helmet_"..k,
 		recipe = {
@@ -73,6 +78,7 @@ for k, v in pairs(materials) do
 			{"", "", ""},
 		},
 	})
+
 	minetest.register_craft({
 		output = "nssm:chestplate_"..k,
 		recipe = {
@@ -81,6 +87,7 @@ for k, v in pairs(materials) do
 			{v, v, v},
 		},
 	})
+
 	minetest.register_craft({
 		output = "nssm:leggings_"..k,
 		recipe = {
@@ -89,6 +96,7 @@ for k, v in pairs(materials) do
 			{v, "", v},
 		},
 	})
+
 	minetest.register_craft({
 		output = "nssm:boots_"..k,
 		recipe = {
@@ -118,6 +126,7 @@ if minetest.get_modpath("shields") then
 	}
 
 	for k, v in pairs(stats) do
+
 		minetest.register_tool("nssm:shield_"..k, {
 			description = v.name.." Shield",
 			inventory_image ="inv_shield_"..k..".png",
@@ -126,6 +135,7 @@ if minetest.get_modpath("shields") then
 		})
 
 		local m = materials[k]
+
 		minetest.register_craft({
 			output = "nssm:shield_"..k,
 			recipe = {
@@ -146,6 +156,7 @@ local stats = {
 }
 
 for k, v in pairs(stats) do
+
 	minetest.register_tool("nssm:helmet_"..k, {
 		description = v.name.." ",
 		inventory_image ="inv_helmet_"..k..".png",
@@ -169,6 +180,7 @@ minetest.register_craft({
 		{"default:steel_ingot", "default:steel_ingot", "default:steel_ingot"},
 	},
 })
+
 minetest.register_craft({
 	output = "nssm:helmet_masticone",
 	recipe = {
@@ -177,6 +189,7 @@ minetest.register_craft({
 		{"nssm:masticone_skull_fragments", "nssm:masticone_skull_fragments", "nssm:masticone_skull_fragments"},
 	},
 })
+
 minetest.register_craft({
 	output = "nssm:helmet_masticone_crowned",
 	recipe = {

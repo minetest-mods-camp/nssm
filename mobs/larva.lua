@@ -5,14 +5,16 @@ mobs:register_mob("nssm:larva", {
 	collisionbox = {-0.3, 0, -0.3, 0.3, 0.41, 0.3},
 	visual = "mesh",
 	mesh = "larva.x",
-	textures = {{"larva.png"}},
-	visual_size = {x=3, y=3},
+	textures = {
+		{"larva.png"}
+	},
+	visual_size = {x = 3, y = 3},
 	makes_footstep_sound = false,
 	view_range = 10,
 	rotate = 90,
 	jump = false,
 	fear_height = 4,
-	jump_height =0,
+	jump_height = 0,
 	walk_velocity = 0.4,
 	run_velocity = 0.4,
 	sounds = {
@@ -21,25 +23,18 @@ mobs:register_mob("nssm:larva", {
 	damage = 1,
 	reach = 1,
 	drops = {
-		{name = "nssm:life_energy",
-		chance = 3,
-		min = 1,
-		max = 1,},
-		{name = "nssm:larva_meat",
-		chance = 2,
-		min = 1,
-		max = 2,},
+		{name = "nssm:life_energy", chance = 3, min = 1, max = 1},
+		{name = "nssm:larva_meat", chance = 2, min = 1, max = 2},
 	},
 	armor = 80,
 	drawtype = "front",
 	water_damage = 2,
 	lava_damage = 4,
 	light_damage = 0,
-	group_attack=true,
-	attack_animals=true,
-	knock_back=2,
-	blood_texture="nssm_blood_blue.png",
-	on_rightclick = nil,
+	group_attack = true,
+	attack_animals = true,
+	knock_back = 2,
+	blood_texture = "nssm_blood_blue.png",
 	attack_type = "dogfight",
 	animation = {
 		speed_normal = 20,
@@ -53,13 +48,20 @@ mobs:register_mob("nssm:larva", {
 		punch_start = 180,
 		punch_end = 230,
 	},
+
 	do_custom = function (self)
-		self.metatimer = (self.metatimer) or os.time()
-		if os.time() - self.metatimer >20 then
+
+		self.metatimer = self.metatimer or os.time()
+
+		if os.time() - self.metatimer > 20 then
+
 			minetest.log("action",
 				"metatimer expired, metamorphosis! ")
-			local pos=self.object:get_pos()
+
+			local pos = self.object:get_pos()
+
 			self.object:remove()
+
 			minetest.add_particlespawner(
 				200, --amount
 				0.1, --time
@@ -76,11 +78,13 @@ mobs:register_mob("nssm:larva", {
 				false, --collisiondetection
 				"tnt_smoke.png" --texture
 			)
-			if math.random(1,2)==1 then
+
+			if math.random(1, 2) == 1 then
 				minetest.add_entity(pos, "nssm:mantis")
 			else
 				minetest.add_entity(pos, "nssm:mantis_beast")
 			end
+
 			return
 		end
 	end

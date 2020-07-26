@@ -1,12 +1,13 @@
 local path = minetest.get_modpath("nssm")
-nssm = {}
 
-nssm.mymapgenis = tonumber(minetest.setting_get('mymapgenis')) or 7
-nssm.multimobs = tonumber(minetest.setting_get('multimobs')) or 1000
+nssm = {
+	mymapgenis = tonumber(minetest.setting_get('mymapgenis')) or 7,
+	multimobs = tonumber(minetest.setting_get('multimobs')) or 1000
+}
 
 dofile(path.."/spawn.lua")
 
---Mobs
+-- Mobs
 dofile(path.."/mobs/ant_queen.lua")
 dofile(path.."/mobs/ant_soldier.lua")
 dofile(path.."/mobs/ant_worker.lua")

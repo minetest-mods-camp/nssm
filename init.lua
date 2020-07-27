@@ -5,8 +5,6 @@ nssm = {
 	multimobs = tonumber(minetest.setting_get('multimobs')) or 1000
 }
 
-dofile(path.."/spawn.lua")
-
 -- Mobs
 dofile(path.."/mobs/ant_queen.lua")
 dofile(path.."/mobs/ant_soldier.lua")
@@ -77,5 +75,8 @@ end
 if minetest.get_modpath("3d_armor") then
 	dofile(path.."/nssm_armor.lua")
 end
+
+--Spawn settings
+dofile(path.."/spawn.lua")
 
 print("[MOD] NSSM loaded")

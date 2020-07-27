@@ -4,7 +4,7 @@
 local mymapgenis = nssm.mymapgenis
 local mm = nssm.multimobs
 
-if (mymapgenis ~= 6) and (mymapgenis ~= 7) then
+if mymapgenis ~= 6 and mymapgenis ~= 7 then
 	mymapgenis = 7
 end
 

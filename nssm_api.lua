@@ -720,10 +720,16 @@ local function tnt_explode(pos, radius, ignore_protection, ignore_on_blast)
 	local a = VoxelArea:new({MinEdge = minp, MaxEdge = maxp})
 	local data = vm1:get_data()
 	local count = 0
-	local c_tnt = minetest.get_content_id("tnt:tnt")
+	local c_tnt
 	local c_tnt_burning = minetest.get_content_id("tnt:tnt_burning")
 	local c_tnt_boom = minetest.get_content_id("tnt:boom")
 	local c_air = minetest.get_content_id("air")
+
+	if minetest.registered_nodes["tnt:tnt"] then
+		c_tnt = minetest.get_content_id("tnt:tnt")
+	else
+		c_tnt = tnt_burning
+	end
 
 	for z = pos.z - 2, pos.z + 2 do
 	for y = pos.y - 2, pos.y + 2 do

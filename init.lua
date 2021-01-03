@@ -1,8 +1,8 @@
 local path = minetest.get_modpath("nssm")
 
 nssm = {
-	mymapgenis = tonumber(minetest.setting_get('mymapgenis')) or 7,
-	multimobs = tonumber(minetest.setting_get('multimobs')) or 1000
+	mymapgenis = tonumber(minetest.settings:get('mymapgenis')) or 7,
+	multimobs = tonumber(minetest.settings:get('multimobs')) or 1000
 }
 
 -- Mobs

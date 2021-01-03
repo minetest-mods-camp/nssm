@@ -5,9 +5,9 @@ local c_obsidian = minetest.get_content_id("default:obsidian")
 local c_brick = minetest.get_content_id("default:obsidianbrick")
 local c_chest = minetest.get_content_id("default:chest_locked")
 
-nssm.lessvirulent = minetest.setting_getbool("nssm.lessvirulent") or false
-nssm.safebones = minetest.setting_getbool("nssm.safebones") or false
-nssm.cryosave = minetest.setting_getbool("nssm.cryosave") or false
+nssm.lessvirulent = minetest.settings:get_bool("nssm.lessvirulent") or false
+nssm.safebones = minetest.settings:get_bool("nssm.safebones") or false
+nssm.cryosave = minetest.settings:get_bool("nssm.cryosave") or false
 
 function nssm:virulence(mobe)
 
@@ -409,7 +409,7 @@ local loss_prob = {}
 loss_prob["default:cobble"] = 3
 loss_prob["default:dirt"] = 4
 
-local tnt_radius = tonumber(minetest.setting_get("tnt_radius") or 3)
+local tnt_radius = tonumber(minetest.settings:get("tnt_radius") or 3)
 local cid_data = {}
 
 minetest.after(0, function()

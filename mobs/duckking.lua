@@ -35,6 +35,7 @@ mobs:register_mob("nssm:duckking", {
 	water_damage = 0,
 	floats = 1,
 	lava_damage = 5,
+	fire_damage = 5,
 	light_damage = 0,
 	attack_type = "dogshoot",
 	dogshoot_switch = true,

@@ -31,6 +31,7 @@ mobs:register_mob("nssm:duck", {
 	fear_height = 5,
 	floats = 1,
 	lava_damage = 5,
+	fire_damage = 5,
 	light_damage = 0,
 	group_attack = true,
 	attack_animals = true,

@@ -32,6 +32,7 @@ mobs:register_mob("nssm:ant_worker", {
 	drawtype = "front",
 	water_damage = 2,
 	lava_damage = 7,
+	fire_damage = 7,
 	light_damage = 0,
 	group_attack = true,
 	knock_back = 4,

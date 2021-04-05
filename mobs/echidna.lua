@@ -30,6 +30,7 @@ mobs:register_mob("nssm:echidna", {
 	water_damage = 0,
 	floats = 1,
 	lava_damage = 0,
+	fire_damage = 0,
 	light_damage = 0,
 	blood_texture = "nssm_blood.png",
 	blood_amount = 10,

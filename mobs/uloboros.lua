@@ -31,6 +31,7 @@ mobs:register_mob("nssm:uloboros", {
 	drawtype = "front",
 	water_damage = 1,
 	lava_damage = 7,
+	fire_damage = 7,
 	light_damage = 0,
 	group_attack = true,
 	attack_animals = true,

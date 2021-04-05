@@ -30,6 +30,7 @@ mobs:register_mob("nssm:morvy", {
 	water_damage = 0,
 	lava_damage = 0,
 	light_damage = 0,
+	fire_damage = 0,
 	group_attack = true,
 	attack_animals = true,
 	knock_back = 1,
@@ -115,22 +116,22 @@ mobs:register_mob("nssm:morvy", {
 
 					minetest.add_entity(pos1, bat)
 
-					minetest.add_particlespawner(
-						20, --amount
-						0.1, --time
-						{x=pos1.x-0.2, y=pos1.y-0.2, z=pos1.z-0.2}, --minpos
-						{x=pos1.x+0.2, y=pos1.y+0.2, z=pos1.z+0.2}, --maxpos
-						{x=0, y=0, z=0}, --minvel
-						{x=0.1, y=0.3, z=0.1}, --maxvel
-						{x=-0.5,y=1,z=-0.5}, --minacc
-						{x=0.5,y=1,z=0.5}, --maxacc
-						0.1, --minexptime
-						4, --maxexptime
-						2, --minsize
-						6, --maxsize
-						false, --collisiondetection
-						"morparticle.png" --texture
-						)
+					minetest.add_particlespawner({
+						amount = 20,
+						time = 0.1,
+						minpos = {x=pos1.x-0.2, y=pos1.y-0.2, z=pos1.z-0.2},
+						maxpos = {x=pos1.x+0.2, y=pos1.y+0.2, z=pos1.z+0.2},
+						minvel = {x=0, y=0, z=0},
+						maxvel = {x=0.1, y=0.3, z=0.1},
+						minacc = {x=-0.5,y=1,z=-0.5},
+						maxacc = {x=0.5,y=1,z=0.5},
+						minexptime = 0.1,
+						maxexptime = 4,
+						minsize = 2,
+						maxsize = 6,
+						collisiondetection = false,
+						texture = "morparticle.png"
+					})
 				end
 			end
 		end
@@ -170,6 +171,7 @@ mobs:register_mob("nssm:morbat1", {
 	drawtype = "front",
 	water_damage = 0,
 	lava_damage = 0,
+	fire_damage = 0,
 	light_damage = 0,
 	blood_texture="morparticle.png",
 	fly = true,
@@ -218,6 +220,7 @@ mobs:register_mob("nssm:morbat2", {
 	drawtype = "front",
 	water_damage = 0,
 	lava_damage = 0,
+	fire_damage = 0,
 	light_damage = 0,
 	blood_texture="morparticle.png",
 	fly = true,
@@ -268,6 +271,7 @@ mobs:register_mob("nssm:morbat3", {
 	drawtype = "front",
 	water_damage = 0,
 	lava_damage = 0,
+	fire_damage = 0,
 	light_damage = 0,
 	blood_texture = "morparticle.png",
 	fly = true,

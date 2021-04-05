@@ -30,6 +30,7 @@ mobs:register_mob("nssm:morgre", {
 	drawtype = "front",
 	water_damage = 0,
 	lava_damage = 0,
+	fire_damage = 0,
 	light_damage = 0,
 	group_attack = true,
 	attack_animals = true,

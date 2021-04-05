@@ -33,6 +33,7 @@ mobs:register_mob("nssm:enderduck", {
 	floats = 1,
 	lava_damage = 5,
 	light_damage = 0,
+	fire_damage = 4,
 	group_attack = true,
 	attack_animals = true,
 	knock_back = 4,

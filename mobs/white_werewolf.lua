@@ -28,6 +28,7 @@ mobs:register_mob("nssm:white_werewolf", {
 	drawtype = "front",
 	water_damage = 2,
 	lava_damage = 5,
+	fire_damage = 5,
 	light_damage = 0,
 	group_attack = true,
 	attack_animals = true,

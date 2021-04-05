@@ -49,6 +49,7 @@ mobs:register_mob("nssm:morvalar", {
 	fear_height = 4,
 	floats = 1,
 	lava_damage = 0,
+	fire_damage = 0,
 	blood_texture = "morparticle.png",
 	blood_amount = 10,
 	knock_back = 0,
@@ -135,22 +136,22 @@ mobs:register_mob("nssm:morvalar", {
 								nname = "3d_armor_inv_chestplate_diamond.png"
 							end
 
-							minetest.add_particlespawner(
-								1, --amount
-								1, --time
-								{x=p.x, y=p.y+1, z=p.z}, --minpos
-								{x=p.x, y=p.y+1, z=p.z}, --maxpos
-								{x=(s.x-p.x)*m, y=(s.y-p.y)*m, z=(s.z-p.z)*m}, --minvel
-								{x=(s.x-p.x)*m, y=(s.y-p.y)*m, z=(s.z-p.z)*m}, --maxvel
-								{x=s.x-p.x, y=s.y-p.y-1, z=s.z-p.z}, --minacc
-								{x=s.x-p.x, y=s.y-p.y-1, z=s.z-p.z}, --maxacc
-								0.5, --minexptime
-								0.5, --maxexptime
-								10, --minsize
-								10, --maxsize
-								false, --collisiondetection
-								nname --texture
-							)
+							minetest.add_particlespawner({
+								amount = 1,
+								time = 1,
+								minpos = {x=p.x, y=p.y+1, z=p.z},
+								maxpos = {x=p.x, y=p.y+1, z=p.z},
+								minvel = {x=(s.x-p.x)*m, y=(s.y-p.y)*m, z=(s.z-p.z)*m},
+								maxvel = {x=(s.x-p.x)*m, y=(s.y-p.y)*m, z=(s.z-p.z)*m},
+								minacc = {x=s.x-p.x, y=s.y-p.y-1, z=s.z-p.z},
+								maxacc = {x=s.x-p.x, y=s.y-p.y-1, z=s.z-p.z},
+								minexptime = 0.5,
+								maxexptime = 0.5,
+								minsize = 10,
+								maxsize = 10,
+								collisiondetection = false,
+								texture = nname
+							})
 
 							minetest.after(1, function (self)
 
@@ -234,6 +235,7 @@ mobs:register_mob("nssm:morvalar6", {
 	fear_height = 4,
 	floats = 1,
 	lava_damage = 0,
+	fire_damage = 0,
 	light_damage = 0,
 	blood_texture = "morparticle.png",
 	blood_amount = 10,
@@ -302,22 +304,22 @@ mobs:register_mob("nssm:morvalar6", {
 							}, nil)
 						else
 							s.y = s.y+1.8
-							minetest.add_particlespawner(
-								1, --amount
-								1, --time
-								{x=p.x, y=p.y+1, z=p.z}, --minpos
-								{x=p.x, y=p.y+1, z=p.z}, --maxpos
-								{x=(s.x-p.x)*m, y=(s.y-p.y)*m, z=(s.z-p.z)*m}, --minvel
-								{x=(s.x-p.x)*m, y=(s.y-p.y)*m, z=(s.z-p.z)*m}, --maxvel
-								{x=s.x-p.x, y=s.y-p.y-1, z=s.z-p.z}, --minacc
-								{x=s.x-p.x, y=s.y-p.y-1, z=s.z-p.z}, --maxacc
-								0.5, --minexptime
-								0.5, --maxexptime
-								10, --minsize
-								10, --maxsize
-								false, --collisiondetection
-								"roasted_duck_legs.png" --texture
-							)
+							minetest.add_particlespawner({
+								amount = 1,
+								time = 1,
+								minpos = {x=p.x, y=p.y+1, z=p.z},
+								maxpos = {x=p.x, y=p.y+1, z=p.z},
+								minvel = {x=(s.x-p.x)*m, y=(s.y-p.y)*m, z=(s.z-p.z)*m},
+								maxvel = {x=(s.x-p.x)*m, y=(s.y-p.y)*m, z=(s.z-p.z)*m},
+								minacc = {x=s.x-p.x, y=s.y-p.y-1, z=s.z-p.z},
+								maxacc = {x=s.x-p.x, y=s.y-p.y-1, z=s.z-p.z},
+								minexptime = 0.5,
+								maxexptime = 0.5,
+								minsize = 10,
+								maxsize = 10,
+								collisiondetection = false,
+								texture = "roasted_duck_legs.png"
+							})
 						end
 						self.morvalar6_timer = os.time()
 					end
@@ -361,6 +363,7 @@ mobs:register_mob("nssm:morvalar5", {
 	fear_height = 4,
 	floats = 1,
 	lava_damage = 0,
+	fire_damage = 0,
 	light_damage = 0,
 	blood_texture="morparticle.png",
 	blood_amount=10,
@@ -432,6 +435,7 @@ mobs:register_mob("nssm:morvalar4", {
 	fear_height = 4,
 	floats = 1,
 	lava_damage = 0,
+	fire_damage = 0,
 	light_damage = 0,
 	blood_texture="morparticle.png",
 	blood_amount=10,
@@ -554,6 +558,7 @@ mobs:register_mob("nssm:morvalar3", {
 	fear_height = 4,
 	floats = 1,
 	lava_damage = 0,
+	fire_damage = 0,
 	light_damage = 0,
 	blood_texture="morparticle.png",
 	blood_amount=10,
@@ -615,6 +620,7 @@ mobs:register_mob("nssm:morvalar2", {
 	fear_height = 4,
 	floats = 1,
 	lava_damage = 0,
+	fire_damage = 0,
 	light_damage = 0,
 	blood_texture="morparticle.png",
 	blood_amount=10,
@@ -715,6 +721,7 @@ mobs:register_mob("nssm:morvalar1", {
 	fear_height = 4,
 	floats = 1,
 	lava_damage = 0,
+	fire_damage = 0,
 	light_damage = 0,
 	blood_texture="morparticle.png",
 	blood_amount=10,
@@ -805,6 +812,7 @@ mobs:register_mob("nssm:morvalar0", {
 	fear_height = 4,
 	floats = 1,
 	lava_damage = 0,
+	fire_damage = 0,
 	light_damage = 0,
 	blood_texture="morparticle.png",
 	blood_amount=10,

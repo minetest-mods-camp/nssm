@@ -31,6 +31,7 @@ mobs:register_mob("nssm:ant_soldier", {
 	drawtype = "front",
 	water_damage = 2,
 	lava_damage = 7,
+	fire_damage = 7,
 	light_damage = 0,
 	group_attack = true,
 	attack_animals = false,

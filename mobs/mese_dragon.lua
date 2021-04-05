@@ -31,6 +31,7 @@ mobs:register_mob("nssm:mese_dragon", {
 	drawtype = "front",
 	water_damage = 0,
 	lava_damage = 0,
+	fire_damage = 0,
 	light_damage = 0,
 	on_rightclick = nil,
 	attack_type = "dogshoot",

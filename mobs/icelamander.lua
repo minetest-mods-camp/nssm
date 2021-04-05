@@ -31,6 +31,7 @@ mobs:register_mob("nssm:icelamander", {
 	drawtype = "front",
 	water_damage = 0,
 	lava_damage = 30,
+	fire_damage = 20,
 	light_damage = 0,
 	attack_type = "dogshoot",
 	dogshoot_switch = true,

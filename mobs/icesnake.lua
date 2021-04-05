@@ -31,6 +31,7 @@ mobs:register_mob("nssm:icesnake", {
 	drawtype = "front",
 	water_damage = 0,
 	lava_damage = 20,
+	fire_damage = 15,
 	light_damage = 0,
 	group_attack = true,
 	attack_animals = true,

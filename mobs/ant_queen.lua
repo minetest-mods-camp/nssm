@@ -33,6 +33,7 @@ mobs:register_mob("nssm:ant_queen", {
 	drawtype = "front",
 	water_damage = 2,
 	lava_damage = 7,
+	fire_damage = 7,
 	light_damage = 0,
 	blood_texture = "nssm_blood_blue.png",
 	blood_amount = 50,

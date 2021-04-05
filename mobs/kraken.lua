@@ -35,6 +35,7 @@ mobs:register_mob("nssm:kraken", {
 	drawtype = "front",
 	water_damage = 0,
 	lava_damage = 10,
+	fire_damage = 10,
 	light_damage = 0,
 	blood_texture = "nssm_blood_blue.png",
 	blood_amount = 100,

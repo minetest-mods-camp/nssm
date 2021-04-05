@@ -32,6 +32,7 @@ mobs:register_mob("nssm:snow_biter", {
 	drawtype = "front",
 	water_damage = 0,
 	lava_damage = 30,
+	fire_damage = 20,
 	light_damage = 0,
 	group_attack = true,
 	attack_animals = true,

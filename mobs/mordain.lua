@@ -28,6 +28,7 @@ mobs:register_mob("nssm:mordain", {
 	drawtype = "front",
 	water_damage = 0,
 	lava_damage = 1,
+	fire_damage = 1,
 --	light_damage = 2,
 	group_attack = true,
 	attack_animals = true,

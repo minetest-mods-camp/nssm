@@ -30,6 +30,7 @@ mobs:register_mob("nssm:sand_bloco", {
 	drawtype = "front",
 	water_damage = 10,
 	lava_damage = 1,
+	fire_damage = 1,
 	light_damage = 0,
 	group_attack = true,
 	attack_animals = true,

@@ -30,6 +30,7 @@ mobs:register_mob("nssm:larva", {
 	drawtype = "front",
 	water_damage = 2,
 	lava_damage = 4,
+	fire_damage = 4,
 	light_damage = 0,
 	group_attack = true,
 	attack_animals = true,
@@ -75,7 +76,7 @@ mobs:register_mob("nssm:larva", {
 				maxexptime = 1,
 				minsize = 3,
 				maxsize = 4,
-				collisiondetection  =false,
+				collisiondetection = false,
 				texture = "tnt_smoke.png"
 			})
 

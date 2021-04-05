@@ -33,6 +33,7 @@ mobs:register_mob("nssm:lava_titan", {
 	rotate = 270,
 	light_damage = 0,
 	lava_damage = 0,
+	fire_damage = 0,
 	floats = 0,
 	blood_texture = "stone_blood.png",
 	blood_amount = 50,

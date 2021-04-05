@@ -28,6 +28,7 @@ mobs:register_mob("nssm:stone_eater", {
 	drawtype = "front",
 	water_damage = 1,
 	lava_damage = 1,
+	fire_damage = 1,
 	group_attack = true,
 	attack_animals = true,
 	knock_back = 0,

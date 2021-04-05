@@ -31,6 +31,7 @@ mobs:register_mob("nssm:pumpking", {
 	drawtype = "front",
 	water_damage = 2,
 	lava_damage = 5,
+	fire_damage = 5,
 	light_damage = 0,
 	blood_texture = "nssm_blood.png",
 	blood_amount = 25,

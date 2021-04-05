@@ -33,6 +33,7 @@ mobs:register_mob("nssm:phoenix", {
 	drawtype = "front",
 	water_damage = 5,
 	lava_damage = 0,
+	fire_damage = 0,
 	light_damage = 0,
 	blood_texture = "nssm_blood.png",
 	blood_amount = 50,

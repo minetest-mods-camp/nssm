@@ -29,6 +29,7 @@ mobs:register_mob("nssm:manticore", {
 	water_damage = 2,
 	rotate = 270,
 	lava_damage = 5,
+	fire_damage = 5,
 	light_damage = 0,
 	attack_type = "dogshoot",
 	dogshoot_switch = true,
@@ -51,7 +52,7 @@ mobs:register_mob("nssm:manticore", {
 		run_end = 108,
 		punch_start = 110,
 		punch_end = 143,
-		shoot_start =180,
+		shoot_start = 180,
 		shoot_end=230,
 	}
 })

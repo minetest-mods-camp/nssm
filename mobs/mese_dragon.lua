@@ -107,7 +107,7 @@ mobs:register_mob("nssm:mese_dragon", {
 
 				self.attack_rip = 0
 
-				mobs:set_animation("punch1")
+				self:set_animation("punch1")
 
 				for dx = -17, 17 do
 					for dz = -17, 17 do
@@ -117,7 +117,7 @@ mobs:register_mob("nssm:mese_dragon", {
 
 						if n == "air" and math.random(1, 23) == 1 then
 							minetest.set_node(k, {name="nssm:mese_meteor"})
-							nodeupdate(k)
+							minetest.check_single_for_falling(k)
 						end
 					end
 				end

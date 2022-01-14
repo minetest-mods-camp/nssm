@@ -165,7 +165,14 @@ minetest.register_entity("nssm:mortick", {
 		if self.attack ~= 0 then
 
 			local p = self.attack:get_pos()
-			local yawp = self.attack:get_look_yaw()
+
+			-- Just incase player teleports away or leaves game
+			if not p then
+				self.attack = nil
+				return
+			end
+
+			local yawp = self.attack:get_look_horizontal() + math.pi / 2
 			local pi = math.pi
 
 			p.y = p.y + 1

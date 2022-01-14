@@ -208,7 +208,7 @@ mobs:register_mob("nssm:morlu", {
 									self.morlu_timer = os.time()
 									self.curr_attack = self.attack
 									self.state = ""
-									local pyaw = self.curr_attack: get_look_yaw()
+									local pyaw = self.curr_attack: get_look_horizontal() + math.pi / 2
 									self.dir = pyaw
 									self.object:set_yaw(pyaw)
 									if self then

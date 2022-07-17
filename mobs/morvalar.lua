@@ -15,7 +15,9 @@ function respawn_block(self)
 		if os.time() - self.stop_timer > time_limit then
 			minetest.chat_send_all("Time is over!")
 			self.object:remove()
-			minetest.set_node(posmorvalarblock, {name="nssb:morvalar_block"})
+			if minetest.get_modpath("nssb") then
+				minetest.set_node(posmorvalarblock, {name="nssb:morvalar_block"})
+			end
 		end
 	end
 end
@@ -873,7 +875,9 @@ mobs:register_mob("nssm:morvalar0", {
 			vertical = false,
 			texture = "morparticle.png",
 		})
-		minetest.set_node(posmorvalarblock, {name="nssb:dis_morvalar_block"})
+		if minetest.get_modpath("nssb") then
+			minetest.set_node(posmorvalarblock, {name="nssb:dis_morvalar_block"})
+		end
 		--minetest.add_entity(pos, "nssm:morvalar3")
 	end,
 })
@@ -926,7 +930,7 @@ minetest.register_entity("nssm:kamehameha_bad", {
 
 		local nodename = minetest.get_node(pos).name
 		if nodename ~= "air" then
-			explosion(pos, 5, 0, 1, true)
+			mobs:boom(self, pos, 5)--, 0, 1, true)
 			self.object:remove()
 		end
 	end,

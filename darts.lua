@@ -9,19 +9,19 @@ local function duck_explosion(pos)
 	minetest.add_particlespawner({
 		amount = 10,
 		time = 0.2,
-		minpos = {x=pos.x-1, y=pos.y-1, z=pos.z-1},
-		maxpos = {x=pos.x+1, y=pos.y+4, z=pos.z+1},
-		minvel = {x=0, y=0, z=0},
-		maxvel = {x=1, y=1, z=1},
-		minacc = {x=-0.5,y=5,z=-0.5},
-		maxacc = {x=0.5,y=5,z=0.5},
+		minpos = {x = pos.x - 1, y = pos.y - 1, z = pos.z - 1},
+		maxpos = {x = pos.x + 1, y = pos.y + 4, z = pos.z + 1},
+		minvel = {x = 0, y = 0, z = 0},
+		maxvel = {x = 1, y = 1, z = 1},
+		minacc = {x = -0.5, y = 5, z = -0.5},
+		maxacc = {x = 0.5, y = 5, z = 0.5},
 		minexptime = 1,
 		maxexptime = 3,
 		minsize = 4,
 		maxsize = 6,
 		collisiondetection = false,
 		vertical = false,
-		texture = "duck_egg_fragments.png",
+		texture = "duck_egg_fragments.png"
 	})
 
 	core.after(0.4, function()
@@ -33,25 +33,26 @@ local function duck_explosion(pos)
 			minetest.add_particlespawner({
 				amount = 100,
 				time = 0.2,
-				minpos = {x=pos.x-1, y=pos.y-1, z=pos.z-1},
-				maxpos = {x=pos.x+1, y=pos.y+4, z=pos.z+1},
-				minvel = {x=0, y=0, z=0},
-				maxvel = {x=1, y=5, z=1},
-				minacc = {x=-0.5,y=5,z=-0.5},
-				maxacc = {x=0.5,y=5,z=0.5},
+				minpos = {x = pos.x - 1, y = pos.y - 1, z = pos.z - 1},
+				maxpos = {x = pos.x + 1, y = pos.y + 4, z = pos.z + 1},
+				minvel = {x = 0, y = 0, z = 0},
+				maxvel = {x = 1, y = 5, z = 1},
+				minacc = {x = -0.5, y = 5, z = -0.5},
+				maxacc = {x = 0.5, y = 5, z = 0.5},
 				minexptime = 1,
 				maxexptime = 3,
 				minsize = 2,
 				maxsize = 4,
 				collisiondetection = false,
 				vertical = false,
-				texture = "tnt_smoke.png",
+				texture = "tnt_smoke.png"
 			})
 
 			minetest.add_entity(pos, "nssm:duck")
 		end
 	end)
 end
+
 
 -- arrow (duck_arrow)
 mobs:register_arrow("nssm:duck_father", {
@@ -73,7 +74,7 @@ mobs:register_arrow("nssm:duck_father", {
 
 	hit_node = function(self, pos, node)
 		duck_explosion(pos)
-	end,
+	end
 })
 
 
@@ -83,7 +84,7 @@ local function ice_explosion(pos)
 
 		for j = pos.y - 1, pos.y + 4, 1 do
 
-			for k = pos.z-math.random(0, 1), pos.z + math.random(0, 1), 1 do
+			for k = pos.z - math.random(0, 1), pos.z + math.random(0, 1), 1 do
 
 				local p = {x = i, y = j, z = k}
 				local n = minetest.get_node(p).name
@@ -98,6 +99,7 @@ local function ice_explosion(pos)
 		end
 	end
 end
+
 
 -- snow_arrow
 mobs:register_arrow("nssm:snow_arrow", {
@@ -119,7 +121,7 @@ mobs:register_arrow("nssm:snow_arrow", {
 
 	hit_node = function(self, pos, node)
 		ice_explosion(pos)
-	end,
+	end
 })
 
 
@@ -134,14 +136,14 @@ mobs:register_arrow("nssm:spine", {
 	hit_player = function(self, player)
 		player:punch(self.object, 1.0, {
 			full_punch_interval = 1.0,
-			damage_groups = {fleshy = 2},
+			damage_groups = {fleshy = 2}
 		}, nil)
 	end,
 
 	hit_mob = function(self, player)
 		player:punch(self.object, 1.0, {
 			full_punch_interval = 1.0,
-			damage_groups = {fleshy = 2},
+			damage_groups = {fleshy = 2}
 		}, nil)
 	end,
 
@@ -153,14 +155,14 @@ mobs:register_arrow("nssm:spine", {
 --morbat arrow
 mobs:register_arrow("nssm:morarrow", {
 	visual = "sprite",
-	visual_size = {x=0.5, y=0.5},
+	visual_size = {x = 0.5, y = 0.5},
 	textures = {"morarrow.png"},
 	velocity= 13,
 
 	hit_player = function(self, player)
 		player:punch(self.object, 1.0, {
 			full_punch_interval = 1.0,
-			damage_groups = {fleshy = 3},
+			damage_groups = {fleshy = 3}
 		}, nil)
 	end,
 
@@ -215,7 +217,7 @@ mobs:register_arrow("nssm:webball", {
 	hit_mob = function(self, player)
 		player:punch(self.object, 1.0, {
 			full_punch_interval = 1.0,
-			damage_groups = {fleshy = 1},
+			damage_groups = {fleshy = 1}
 		}, nil)
 	end,
 
@@ -254,6 +256,7 @@ function explosion_thickweb(pos)
 	end
 end
 
+
 -- thick_web arrow
 mobs:register_arrow("nssm:thickwebball", {
 	visual = "sprite",
@@ -270,7 +273,7 @@ mobs:register_arrow("nssm:thickwebball", {
 	hit_mob = function(self, player)
 		player:punch(self.object, 1.0, {
 			full_punch_interval = 1.0,
-			damage_groups = {fleshy = 6},
+			damage_groups = {fleshy = 6}
 		}, nil)
 	end,
 
@@ -310,7 +313,7 @@ mobs:register_arrow("nssm:phoenix_arrow", {
 			self.object:remove()
 		end
 
-		if math.random(1, 2) == 2 then
+		if math.random(2) == 2 then
 			minetest.set_node(pos, {name = "nssm:phoenix_fire"})
 		end
 
@@ -328,7 +331,7 @@ mobs:register_arrow("nssm:phoenix_arrow", {
 				minetest.set_node(p, {name = "nssm:phoenix_fire"})
 			end
 		end
-	end,
+	end
 })
 
 
@@ -357,6 +360,7 @@ function gas_explosion(pos)
 		end
 	end
 end
+
 
 mobs:register_arrow("nssm:super_gas", {
 	visual = "sprite",
@@ -419,7 +423,7 @@ mobs:register_arrow("nssm:roar_of_the_dragon", {
 
 		minetest.set_node(pos, {name = "air"})
 
-		if math.random(1, 2) == 1 then
+		if math.random(2) == 1 then
 
 			local p = {
 				x = pos.x + math.random(-1, 1),

@@ -31,7 +31,7 @@ function drops(drop)
 		drop:setvelocity({
 			x = math.random(-10, 10) / 9,
 			y = 5,
-			z = math.random(-10, 10) / 9,
+			z = math.random(-10, 10) / 9
 		})
 	end
 end
@@ -53,21 +53,21 @@ end
 function add_entity_and_particles(entity, pos, particles, multiplier)
 
 	minetest.add_particlespawner({
-		amount = 100*multiplier,
+		amount = 100 * multiplier,
 		time = 2,
-		minpos = {x=pos.x-2, y=pos.y-1, z=pos.z-2},
-		maxpos = {x=pos.x+2, y=pos.y+4, z=pos.z+2},
-		minvel = {x=0, y=0, z=0},
-		maxvel = {x=1, y=2, z=1},
-		minacc = {x=-0.5,y=0.6,z=-0.5},
-		maxacc = {x=0.5,y=0.7,z=0.5},
+		minpos = {x = pos.x - 2, y = pos.y - 1, z = pos.z - 2},
+		maxpos = {x = pos.x + 2, y = pos.y + 4, z = pos.z + 2},
+		minvel = {x = 0, y = 0, z = 0},
+		maxvel = {x = 1, y = 2, z = 1},
+		minacc = {x = -0.5, y = 0.6, z = -0.5},
+		maxacc = {x = 0.5, y = 0.7, z = 0.5},
 		minexptime = 2,
 		maxexptime = 3,
 		minsize = 3,
 		maxsize = 5,
 		collisiondetection = false,
 		vertical = false,
-		texture = particles,
+		texture = particles
 	})
 
 	minetest.add_entity(pos, entity)
@@ -114,10 +114,11 @@ function check_for_death_hydra(self)
 		self.health = hp
 
 		if self.sounds.damage ~= nil then
+
 			minetest.sound_play(self.sounds.damage,{
 				object = self.object,
 				max_hear_distance = self.sounds.distance
-			})
+			}, true)
 		end
 
 		return false
@@ -127,10 +128,11 @@ function check_for_death_hydra(self)
 	local obj = nil
 
 	if self.sounds.death ~= nil then
+
 		minetest.sound_play(self.sounds.death,{
 			object = self.object,
 			max_hear_distance = self.sounds.distance
-		})
+		}, true)
 	end
 
 	self.object:remove()
@@ -145,7 +147,9 @@ function round(n)
 		return n % 1 >= 0.5 and math.ceil(n) or math.floor(n)
 	else
 		n = -n
+
 		local t = n % 1 >= 0.5 and math.ceil(n) or math.floor(n)
+
 		return -t
 	end
 end
@@ -153,22 +157,22 @@ end
 
 function explosion_particles(pos, exp_radius)
 
-	minetest.add_particlespawner(
-		100*exp_radius/2, --amount
-		0.1, --time
-		{x=pos.x-exp_radius, y=pos.y-exp_radius, z=pos.z-exp_radius}, --minpos
-		{x=pos.x+exp_radius, y=pos.y+exp_radius, z=pos.z+exp_radius}, --maxpos
-		{x=0, y=0, z=0}, --minvel
-		{x=0.1, y=0.3, z=0.1}, --maxvel
-		{x=-0.5,y=1,z=-0.5}, --minacc
-		{x=0.5,y=1,z=0.5}, --maxacc
-		0.1, --minexptime
-		4, --maxexptime
-		6, --minsize
-		12, --maxsize
-		false, --collisiondetection
-		"tnt_smoke.png" --texture
-	)
+	minetest.add_particlespawner({
+		amount = 100 * exp_radius / 2,
+		time = 0.1,
+		minpos = {x = pos.x - exp_radius, y = pos.y - exp_radius, z = pos.z - exp_radius},
+		maxpos = {x = pos.x + exp_radius, y = pos.y + exp_radius, z = pos.z + exp_radius},
+		minvel = {x = 0, y = 0, z = 0},
+		maxvel = {x = 0.1, y = 0.3, z = 0.1},
+		minacc = {x = -0.5, y = 1, z = -0.5},
+		maxacc = {x = 0.5, y = 1, z = 0.5},
+		minexptime = 0.1,
+		maxexptime = 4,
+		minsize = 6,
+		maxsize = 12,
+		collisiondetection = false,
+		texture = "tnt_smoke.png"
+	})
 end
 
 
@@ -196,7 +200,7 @@ function digging_attack(
 		--minetest.chat_send_all("La posizione davanti:"..minetest.pos_to_string(posp))
 		posp = vector.subtract(posp,per)
 
-		for j = 1,3 do
+		for j = 1, 3 do
 			--minetest.chat_send_all("pos1:"..minetest.pos_to_string(posp).." per.y= "..dim.y)
 			if minetest.is_protected(posp, "") then
 				return
@@ -209,7 +213,6 @@ function digging_attack(
 				--minetest.chat_send_all("pos2:"..minetest.pos_to_string(posp).." per.y= "..per.y)
 
 				local n = minetest.get_node(pos1).name
-				--local up = {x=pos.x+dx, y=pos.y+dy, z=pos.z+dz}
 
 				if group == nil then
 
@@ -217,7 +220,6 @@ function digging_attack(
 					or minetest.is_protected(pos1, "")
 					or (n == "bones:bones" and not nssm:affectbones(self) ) then
 					else
-						--minetest.set_node(p, {name="air"})
 						minetest.remove_node(pos1)
 					end
 				else
@@ -225,13 +227,13 @@ function digging_attack(
 					and (minetest.get_item_group(n, "unbreakable") ~= 1)
 					and (n ~= "bones:bones")
 					and not (minetest.is_protected(pos1, "")) ) then
-						--minetest.set_node(p, {name="air"})
 						minetest.remove_node(pos1)
 					end
 				end
 
 				pos1.y = pos1.y + 1
 			end
+
 			posp.y = s.y
 			posp = vector.add(posp,per)
 			--minetest.chat_send_all("pos3:"..minetest.pos_to_string(posp).." per.y= "..per.y)
@@ -323,10 +325,10 @@ function webber_ability(		--puts randomly around the block defined as w_block
 
 	local pos = self.object:get_pos()
 
-	if (math.random(1, 55) == 1) then
+	if (math.random(55) == 1) then
 
-		local dx = math.random(1, radius)
-		local dz = math.random(1, radius)
+		local dx = math.random(radius)
+		local dz = math.random(radius)
 		local p = {x = pos.x + dx, y = pos.y - 1, z = pos.z + dz}
 		local t = {x = pos.x + dx, y = pos.y, z = pos.z + dz}
 		local n = minetest.get_node(p).name
@@ -390,7 +392,7 @@ function midas_ability(		--ability to transform every blocks it touches in the m
 				if minetest.get_item_group(n, "unbreakable") == 1
 				or minetest.is_protected(p, "") or n=="air"
 				or (n == "bones:bones" and not nssm:affectbones(self))
-				or n==m_block then
+				or n == m_block then
 				else
 					minetest.set_node(p, {name = m_block})
 				end
@@ -398,7 +400,6 @@ function midas_ability(		--ability to transform every blocks it touches in the m
 		end
 	end
 end
-
 
 
 --	NEW EXPLOSION FUNCTION
@@ -459,7 +460,7 @@ local function add_effects(pos, radius, drops)
 		size = radius * 10,
 		collisiondetection = false,
 		vertical = false,
-		texture = "tnt_boom.png",
+		texture = "tnt_boom.png"
 	})
 
 	minetest.add_particlespawner({
@@ -475,7 +476,7 @@ local function add_effects(pos, radius, drops)
 		maxexptime = 2.5,
 		minsize = radius * 3,
 		maxsize = radius * 5,
-		texture = "tnt_smoke.png",
+		texture = "tnt_smoke.png"
 	})
 
 	-- we just dropped some items. Look at the items entities and pick
@@ -513,7 +514,7 @@ local function add_effects(pos, radius, drops)
 		minsize = radius * 0.66,
 		maxsize = radius * 2,
 		texture = texture,
-		collisiondetection = true,
+		collisiondetection = true
 	})
 end
 
@@ -579,7 +580,7 @@ local function calc_velocity(pos1, pos2, old_vel, power)
 	vel = vector.add(vel, {
 		x = math.random() - 0.5,
 		y = math.random() - 0.5,
-		z = math.random() - 0.5,
+		z = math.random() - 0.5
 	})
 
 	-- Limit to terminal velocity
@@ -650,7 +651,7 @@ local function entity_physics(pos, radius, drops)
 
 					obj:punch(obj, 1.0, {
 						full_punch_interval = 1.0,
-						damage_groups = {fleshy = damage},
+						damage_groups = {fleshy = damage}
 					}, nil)
 				end
 			end
@@ -683,7 +684,8 @@ local function add_drop(drops, item)
 end
 
 
-local function destroy(drops, npos, cid, c_air, c_fire, on_blast_queue, ignore_protection, ignore_on_blast)
+local function destroy(drops, npos, cid, c_air, c_fire, on_blast_queue,
+		ignore_protection, ignore_on_blast)
 
 	if not ignore_protection and minetest.is_protected(npos, "") then
 		return cid
@@ -838,7 +840,9 @@ end
 
 function tnt_boom_nssm(pos, def)
 
-	minetest.sound_play("tnt_explode", {pos = pos, gain = 1.5, max_hear_distance = 2*64})
+	minetest.sound_play("tnt_explode", {
+		pos = pos, gain = 1.5, max_hear_distance = 2 * 64}, true)
+
 	minetest.set_node(pos, {name = "tnt:boom"})
 
 	local drops, radius = tnt_explode(pos, def.radius, def.ignore_protection,

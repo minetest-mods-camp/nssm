@@ -164,7 +164,8 @@ minetest.register_entity("nssm:mortick", {
 		local objects = minetest.get_objects_inside_radius(s, 8)
 
 		for _,obj in ipairs(objects) do
-			if (obj:is_player()) then
+
+			if obj:is_player() then
 				self.attack = obj
 			end
 		end
@@ -200,7 +201,7 @@ minetest.register_entity("nssm:mortick", {
 			self.object:set_yaw(yaws)
 
 			--damage player every ten seconds:
-			if (self.timer > 10) then
+			if self.timer > 10 then
 				self.timer = 0
 				self.attack:set_hp(self.attack:get_hp() - self.damage)
 			end

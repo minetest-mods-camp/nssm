@@ -95,9 +95,9 @@ mobs:register_mob("nssm:ant_queen", {
 					end
 				end
 
-				if ((pos1.x ~= s.x) and (pos1.z ~= s.z))
-				and (minetest.get_node(pos1).name == "air")
-				and (counter < 4) then
+				if pos1.x ~= s.x and pos1.z ~= s.z
+				and minetest.get_node(pos1).name == "air"
+				and counter < 4 then
 
 					explosion_particles(pos1, 1)
 

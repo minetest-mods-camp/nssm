@@ -13,8 +13,11 @@ function respawn_block(self)
 		self.hp_record = self.health
 	else
 		if os.time() - self.stop_timer > time_limit then
+
 			minetest.chat_send_all("Time is over!")
+
 			self.object:remove()
+
 			if minetest.get_modpath("nssb") then
 				minetest.set_node(posmorvalarblock, {name="nssb:morvalar_block"})
 			end
@@ -99,7 +102,8 @@ mobs:register_mob("nssm:morvalar", {
 		local pname = self.attack:get_player_name()
 		local player_inv = minetest.get_inventory({type = "player", name = pname})
 
-					if player_inv:is_empty('armor') then
+					if player_inv:is_empty("armor") then
+
 						-- punch player if he doesn't own an armor
 						self.attack:punch(self.object, 1.0, {
 							full_punch_interval = 1.0,
@@ -196,6 +200,7 @@ mobs:register_mob("nssm:morvalar", {
 
 						-- play attack sound
 						if self.sounds.attack then
+
 							minetest.sound_play(self.sounds.attack, {
 								object = self.object,
 								max_hear_distance = self.sounds.distance
@@ -284,7 +289,9 @@ mobs:register_mob("nssm:morvalar6", {
 
 			local s = self.object:get_pos()
 			local p = self.attack:get_pos()
+
 			mobs:set_animation(self, "punch")
+
 			local m = 2
 
 			minetest.after(1, function (self)
@@ -295,30 +302,35 @@ mobs:register_mob("nssm:morvalar6", {
 					local player_inv = minetest.get_inventory({
 						type = "player", name = pname})
 
-					if player_inv:is_empty("main") then
-						--minetest.chat_send_all("Inventory empty")
-					else
+					if not player_inv:is_empty("main") then
+
 						local imhungry = 0
 
 						for i = 1, 32 do
-							--minetest.chat_send_all("Inventory is not empty")
+
 							local items = player_inv:get_stack("main", i)
 							local n = items:get_name()
-							if minetest.get_item_group(n, "eatable")==1 then
+
+							if minetest.get_item_group(n, "eatable") == 1 then
+
 								imhungry = 1
+
 								for t = 0, 2 do
 									items:take_item()
 								end
+
 								player_inv:set_stack("main", i, items)
 							end
 						end
 						if imhungry == 0 then
+
 							self.attack:punch(self.object, 1.0, {
 								full_punch_interval = 1.0,
 								damage_groups = {fleshy = self.damage}
 							}, nil)
 						else
 							s.y = s.y + 1.8
+
 							minetest.add_particlespawner({
 								amount = 1,
 								time = 1,
@@ -347,13 +359,16 @@ mobs:register_mob("nssm:morvalar6", {
 						self.morvalar6_timer = os.time()
 					end
 				end
-
 			end, self)
 		end
 	end,
+
 	on_die = function(self)
+
 		local pos = self.object:get_pos()
+
 		self.object:remove()
+
 		add_entity_and_particles("nssm:morvalar5", pos, "morparticle.png", 10)
 	end
 })
@@ -405,27 +420,40 @@ mobs:register_mob("nssm:morvalar5", {
 		punch_start = 215,
 		punch_end = 245
 	},
+
 	do_custom = function(self)
 		respawn_block(self)
 	end,
+
 	custom_attack = function (self)
+
 		self.morvalar5_timer = (self.morvalar5_timer or os.time())
 
 		self.dir = (self.dir or 0)
+
 		if (os.time() - self.morvalar5_timer) > 2 then
 
 			local s = self.object:get_pos()
 			local p = self.attack:get_pos()
+
 			minetest.after(2, function(self)
+
 				mobs:set_animation(self, "punch")
+
 				tnt_boom_nssm(p, {damage_radius = 6, radius = 5, ignore_protection = false})
+
 				self.morvalar5_timer = os.time()
+
 			end, self)
 		end
 	end,
+
 	on_die = function(self)
+
 		local pos = self.object:get_pos()
+
 		self.object:remove()
+
 		add_entity_and_particles("nssm:morvalar4", pos, "morparticle.png", 10)
 	end
 })
@@ -483,9 +511,13 @@ mobs:register_mob("nssm:morvalar4", {
 	end,
 
 	custom_attack = function(self)
+
 		self.morvalar4_timer = (self.morvalar4_timer or os.time())
+
 		if (os.time() - self.morvalar4_timer) > 1 then
+
 			self.morvalar4_timer = os.time()
+
 			local s = self.object:get_pos()
 			local p = self.attack:get_pos()
 
@@ -493,13 +525,16 @@ mobs:register_mob("nssm:morvalar4", {
 
 			if minetest.line_of_sight({x = p.x, y = p.y + 1.5, z = p.z},
 					{x = s.x, y = s.y + 1.5, z = s.z}) == true then
+
 				-- play attack sound
 				if self.sounds.attack then
+
 					minetest.sound_play(self.sounds.attack, {
 						object = self.object,
 						max_hear_distance = self.sounds.distance
 					}, true)
 				end
+
 				-- punch player
 				self.attack:punch(self.object, 1.0, {
 					full_punch_interval = 1.0,
@@ -508,10 +543,10 @@ mobs:register_mob("nssm:morvalar4", {
 			end
 
 			minetest.after(1.4, function()
+
 				local ty = s.y
 				local flag = 0
 				local m = 3
-
 				local v = {x = (p.x - s.x) * m, y = ty, z = (p.z - s.z) * m}
 				local d = {x = s.x + v.x, y = ty, z = s.z + v.z}
 
@@ -519,8 +554,10 @@ mobs:register_mob("nssm:morvalar4", {
 
 				for j = -3, 3 do
 					ty = d.y + j
+
 					local current = minetest.get_node({x = d.x, y = ty, z = d.z}).name
 					local up = minetest.get_node({x = d.x, y = ty + 1, z = d.z}).name
+
 					if up == "air" and current ~= "air" then
 						d.y = d.y + j + 1.5
 						flag = 1
@@ -529,15 +566,22 @@ mobs:register_mob("nssm:morvalar4", {
 				end
 
 				while flag ~= 1 do
+
 					d.x = p.x + math.random(-m, m)
 					d.z = p.z + math.random(-m, m)
 					d.y = p.y
+
 					local dist = dist_pos(d, p)
+
 					if dist >= 2 then
+
 						for j = -3, 3 do
+
 							ty = d.y + j
+
 							local current = minetest.get_node({x = d.x, y = ty, z = d.z}).name
 							local up = minetest.get_node({x = d.x, y = ty + 1, z = d.z}).name
+
 							if up == "air" and current ~= "air" then
 								d.y = d.y + j + 1.5
 								flag = 1
@@ -550,9 +594,13 @@ mobs:register_mob("nssm:morvalar4", {
 			end)
 		end
 	end,
+
 	on_die = function(self)
+
 		local pos = self.object:get_pos()
+
 		self.object:remove()
+
 		add_entity_and_particles("nssm:morvalar3", pos, "morparticle.png", 10)
 	end
 })
@@ -615,8 +663,11 @@ mobs:register_mob("nssm:morvalar3", {
 	end,
 
 	on_die = function(self)
+
 		local pos = self.object:get_pos()
+
 		self.object:remove()
+
 		add_entity_and_particles("nssm:morvalar2", pos, "morparticle.png", 10)
 	end
 })
@@ -673,16 +724,22 @@ mobs:register_mob("nssm:morvalar2", {
 	end,
 
 	custom_attack = function(self)
+
 		self.morvalar2_timer = (self.morvalar2_timer or os.time())
+
 		if (os.time() - self.morvalar2_timer) > 1 then
+
 			self.morvalar2_timer = os.time()
+
 			local s = self.object:get_pos()
 			local p = self.attack:get_pos()
-
 			local counter = 0
 			local objects = minetest.get_objects_inside_radius(s, 7)
+
 			for _,obj in ipairs(objects) do
+
 				if obj:get_luaentity() then
+
 					local name = obj:get_luaentity().name
 					if (name == "nssm:mordain"
 					or name == "nssm:morde"
@@ -695,15 +752,20 @@ mobs:register_mob("nssm:morvalar2", {
 					end
 				end
 			end
-			minetest.chat_send_all("Ne ho contati: "..counter)
+
+			minetest.chat_send_all("Ne ho contati: " .. counter)
+
 			if counter < 2 then
+
 				mobs:set_animation(self, "punch")
 
 				local v = vector.subtract(p,s)
-				--local v = {x = s.x-p.x, y = s.y-p.y , z= s.z-p.z}
+
 				v = vector.normalize(v)
+
 				local per = perpendicular_vector(v)
 				local p1 = vector.add(s, v)
+
 				p1 = vector.subtract(p1, vector.multiply(per, 4))
 
 				add_entity_and_particles("nssm:morwa", p1, "morparticle.png", 1)
@@ -723,9 +785,13 @@ mobs:register_mob("nssm:morvalar2", {
 			end
 		end
 	end,
+
 	on_die = function(self)
+
 		local pos = self.object:get_pos()
+
 		self.object:remove()
+
 		add_entity_and_particles("nssm:morvalar1", pos, "morparticle.png", 10)
 	end
 })
@@ -782,8 +848,11 @@ mobs:register_mob("nssm:morvalar1", {
 	end,
 
 	custom_attack = function (self)
+
 		self.morvalar1_timer = (self.morvalar1_timer or os.time())
+
 		if (os.time() - self.morvalar1_timer) > 3 then
+
 			self.morvalar1_timer = os.time()
 
 			local s = self.object:get_pos()
@@ -795,15 +864,19 @@ mobs:register_mob("nssm:morvalar1", {
 
 			if minetest.line_of_sight({x = p.x, y = p.y +1.5, z = p.z},
 					{x = s.x, y = s.y +1.5, z = s.z}) == true then
+
 				-- play attack sound
 				if self.sounds.attack then
+
 					minetest.sound_play(self.sounds.attack, {
 						object = self.object,
 						max_hear_distance = self.sounds.distance
 					}, true)
 				end
+
 				-- punch player
 				self.health = self.health + (self.damage * 3)
+
 				self.attack:punch(self.object, 1.0, {
 					full_punch_interval = 1.0,
 					damage_groups = {fleshy = self.damage}
@@ -813,8 +886,11 @@ mobs:register_mob("nssm:morvalar1", {
 	end,
 
 	on_die = function(self)
+
 		local pos = self.object:get_pos()
+
 		self.object:remove()
+
 		add_entity_and_particles("nssm:morvalar0", pos, "morparticle.png", 10)
 	end
 })
@@ -874,8 +950,11 @@ mobs:register_mob("nssm:morvalar0", {
 	end,
 
 	custom_attack = function (self)
+
 		self.morvalar1_timer = (self.morvalar1_timer or os.time())
+
 		if (os.time() - self.morvalar1_timer) > 1 then
+
 			self.morvalar1_timer = os.time()
 
 			local s = self.object:get_pos()
@@ -888,15 +967,20 @@ mobs:register_mob("nssm:morvalar0", {
 
 			s.y = s.y+0.5
 			p.y = p.y+0.9
+
 			--direction of the kamehameha
 			local dir = {x = (p.x - s.x) * m, y = (p.y - s.y) * m, z = (p.z - s.z) * m}
+
 			obj:set_velocity(dir)
 		end
 	end,
 
 	on_die = function(self)
+
 		local pos = self.object:get_pos()
+
 		self.object:remove()
+
 		minetest.add_particlespawner({
 			amount = 500,
 			time = 2,
@@ -914,6 +998,7 @@ mobs:register_mob("nssm:morvalar0", {
 			vertical = false,
 			texture = "morparticle.png"
 		})
+
 		if minetest.get_modpath("nssb") then
 			minetest.set_node(posmorvalarblock, {name="nssb:dis_morvalar_block"})
 		end
@@ -923,8 +1008,11 @@ mobs:register_mob("nssm:morvalar0", {
 
 minetest.register_entity("nssm:kamehameha_bad", {
 	textures = {"kamehameha.png"},
+
 	on_step = function(self, dtime)
+
 		local pos = self.object:get_pos()
+
 		if self.timer == 0 then
 			self.timer = os.time()
 		end
@@ -934,16 +1022,24 @@ minetest.register_entity("nssm:kamehameha_bad", {
 		end
 
 		local objects = minetest.get_objects_inside_radius(pos, 2)
+
 		for _,obj in ipairs(objects) do
+
 			if obj:is_player() then
 				minetest.chat_send_all("Dentro il raggio grande")
 				obj:set_hp(obj:get_hp()-5)
 			end
+
 			if obj:get_luaentity() then
+
 				local name = obj:get_luaentity().name
+
 				if name ~= "nssm:morvalar0" and name ~="nssm:kamehameha_bad" then
+
 					obj:set_hp(obj:get_hp() - 5)
+
 					if (obj:get_hp() <= 0) then
+
 						if (not obj:is_player()) then
 							obj:remove()
 						end
@@ -951,28 +1047,43 @@ minetest.register_entity("nssm:kamehameha_bad", {
 				end
 			end
 		end
+
 		local objects = minetest.get_objects_inside_radius(pos, 1)
+
 		for _,obj in ipairs(objects) do
+
 			if obj:is_player() then
+
 				tnt_boom_nssm(pos, {damage_radius = 6, radius = 5, ignore_protection = false})
+
 				self.object:remove()
+
 				minetest.chat_send_all("Dentro il raggio piccolo")
 			end
+
 			if obj:get_luaentity() then
+
 				local name = obj:get_luaentity().name
+
 				if name ~= "nssm:morvalar0" and name ~="nssm:kamehameha_bad" then
+
 					tnt_boom_nssm(pos, {damage_radius = 6, radius = 5, ignore_protection = false})
+
 					self.object:remove()
 				end
 			end
 		end
 
 		local nodename = minetest.get_node(pos).name
+
 		if nodename ~= "air" then
-			mobs:boom(self, pos, 5)--, 0, 1, true)
+
+			mobs:boom(self, pos, 5)
+
 			self.object:remove()
 		end
 	end,
+
 	life_time = 40,
 	timer = 0,
 	custom_timer = 0

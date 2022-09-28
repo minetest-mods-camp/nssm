@@ -55,6 +55,7 @@ mobs:register_mob("nssm:snow_biter", {
 		punch2_start = 200,
 		punch2_end = 215
 	},
+
 	do_custom = function(self)
 		putting_ability(self, "default:ice", self.run_velocity)
 	end

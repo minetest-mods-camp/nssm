@@ -63,12 +63,16 @@ mobs:register_arrow("nssm:duck_father", {
 
 	-- direct hit
 	hit_player = function(self, player)
+
 		local pos = self.object:get_pos()
+
 		duck_explosion(pos)
 	end,
 
 	hit_mob = function(self, player)
+
 		local pos = self.object:get_pos()
+
 		duck_explosion(pos)
 	end,
 
@@ -106,16 +110,20 @@ mobs:register_arrow("nssm:snow_arrow", {
 	visual = "sprite",
 	visual_size = {x = 1, y = 1},
 	textures = {"transparent.png"},
-	velocity =20,
+	velocity = 20,
 
 	-- direct hit
 	hit_player = function(self, player)
+
 		local pos = self.object:get_pos()
+
 		ice_explosion(pos)
 	end,
 
 	hit_mob = function(self, player)
+
 		local pos = self.object:get_pos()
+
 		ice_explosion(pos)
 	end,
 
@@ -134,6 +142,7 @@ mobs:register_arrow("nssm:spine", {
 
 	-- direct hit
 	hit_player = function(self, player)
+
 		player:punch(self.object, 1.0, {
 			full_punch_interval = 1.0,
 			damage_groups = {fleshy = 2}
@@ -141,6 +150,7 @@ mobs:register_arrow("nssm:spine", {
 	end,
 
 	hit_mob = function(self, player)
+
 		player:punch(self.object, 1.0, {
 			full_punch_interval = 1.0,
 			damage_groups = {fleshy = 2}
@@ -152,7 +162,7 @@ mobs:register_arrow("nssm:spine", {
 })
 
 
---morbat arrow
+-- morbat arrow
 mobs:register_arrow("nssm:morarrow", {
 	visual = "sprite",
 	visual_size = {x = 0.5, y = 0.5},
@@ -160,6 +170,7 @@ mobs:register_arrow("nssm:morarrow", {
 	velocity= 13,
 
 	hit_player = function(self, player)
+
 		player:punch(self.object, 1.0, {
 			full_punch_interval = 1.0,
 			damage_groups = {fleshy = 3}
@@ -188,12 +199,12 @@ local function explosion_web(pos)
 				local current = minetest.get_node(p).name
 				local ontop  = minetest.get_node(k).name
 
-				if (current ~= "air") and
-					(current ~= "nssm:web") and
-					(ontop == "air") and not
-					minetest.is_protected(p,"") and not
-					minetest.is_protected(k,"") then
-						minetest.set_node(k, {name="nssm:web"})
+				if current ~= "air"
+				and current ~= "nssm:web"
+				and ontop == "air"
+				and not minetest.is_protected(p,"")
+				and not minetest.is_protected(k,"") then
+					minetest.set_node(k, {name = "nssm:web"})
 				end
 			end
 		end
@@ -210,11 +221,14 @@ mobs:register_arrow("nssm:webball", {
 
 	-- direct hit
 	hit_player = function(self, player)
+
 		local p = player:get_pos()
+
 		explosion_web(p)
 	end,
 
 	hit_mob = function(self, player)
+
 		player:punch(self.object, 1.0, {
 			full_punch_interval = 1.0,
 			damage_groups = {fleshy = 1}
@@ -244,12 +258,12 @@ function explosion_thickweb(pos)
 				local current = minetest.get_node(p).name
 				local ontop  = minetest.get_node(k).name
 
-				if (current ~= "air") and
-					(current ~= "nssm:thick_web") and
-					(ontop == "air") and not
-					minetest.is_protected(p,"") and not
-					minetest.is_protected(k,"") then
-						minetest.set_node(k, {name="nssm:thick_web"})
+				if current ~= "air"
+				and current ~= "nssm:thick_web"
+				and ontop == "air"
+				and not minetest.is_protected(p,"")
+				and not minetest.is_protected(k,"") then
+					minetest.set_node(k, {name = "nssm:thick_web"})
 				end
 			end
 		end
@@ -370,7 +384,9 @@ mobs:register_arrow("nssm:super_gas", {
 
 	-- direct hit
 	hit_player = function(self, player)
+
 		local p = player:get_pos()
+
 		gas_explosion(p)
 	end,
 

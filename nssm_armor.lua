@@ -1,4 +1,4 @@
---Armors
+-- Armors
 local stats = {
 	wolf = {name = "Werewolf", armor = 2.8, heal = 0, use = 800},
 	whitewolf = {name = "White Werewolf", armor = 2.8, heal = 0, use = 800},
@@ -168,12 +168,12 @@ if minetest.get_modpath("shields") then
 end
 
 
---Special objects (pumpking helmet, masticone helmet, crowned masticone helmet, crown,)
+--Special objects (pumpking helmet, masticone helmet, crowned masticone helmet, crown)
 local stats = {
 	pumpking = {name = "Pumpking Head", armor = 4, heal = 0, use = 100},
 	masticone = {name = "Masticone Head", armor = 4, heal = 0, use = 100},
 	crown = {name = "Dukking Crown", armor = 2, heal = 0, use = 50},
-	masticone_crowned = {name = "Masticone Crowned Head", armor = 6, heal = 0, use = 20},
+	masticone_crowned = {name = "Masticone Crowned Head", armor = 6, heal = 0, use = 20}
 }
 
 for k, v in pairs(stats) do
@@ -206,12 +206,14 @@ minetest.register_craft({
 	}
 })
 
+local tmp = "nssm:masticone_skull_fragments"
+
 minetest.register_craft({
 	output = "nssm:helmet_masticone",
 	recipe = {
-		{"nssm:masticone_skull_fragments", "nssm:masticone_skull_fragments", "nssm:masticone_skull_fragments"},
-		{"nssm:masticone_skull_fragments", "nssm:masticone_skull_fragments", "nssm:masticone_skull_fragments"},
-		{"nssm:masticone_skull_fragments", "nssm:masticone_skull_fragments", "nssm:masticone_skull_fragments"}
+		{tmp, tmp, tmp},
+		{tmp, tmp, tmp},
+		{tmp, tmp, tmp}
 	}
 })
 

@@ -94,6 +94,7 @@ end
 
 
 function dist_pos(p, s)
+
 	local v = {
 		x = math.abs(s.x - p.x),
 		y = math.abs(s.y - p.y),
@@ -183,7 +184,6 @@ function digging_attack(
 	dim 		--vector representing the dimensions of the mob
 	)
 
-	--if math.random(1,nssm:virulence(self)) ~= 1 then return end
 	if self.attack and self.attack:is_player() then
 
 		local s = self.object:get_pos()
@@ -196,12 +196,10 @@ function digging_attack(
 		local per = perpendicular_vector(dir)
 		local posp = vector.add(s,dir)
 
-		--minetest.chat_send_all("La mia posizione:"..minetest.pos_to_string(s))
-		--minetest.chat_send_all("La posizione davanti:"..minetest.pos_to_string(posp))
 		posp = vector.subtract(posp,per)
 
 		for j = 1, 3 do
-			--minetest.chat_send_all("pos1:"..minetest.pos_to_string(posp).." per.y= "..dim.y)
+
 			if minetest.is_protected(posp, "") then
 				return
 			end
@@ -209,8 +207,6 @@ function digging_attack(
 			local pos1 = posp
 
 			for i = 0, dim.y do
-
-				--minetest.chat_send_all("pos2:"..minetest.pos_to_string(posp).." per.y= "..per.y)
 
 				local n = minetest.get_node(pos1).name
 
@@ -223,7 +219,7 @@ function digging_attack(
 						minetest.remove_node(pos1)
 					end
 				else
-					if ((minetest.get_item_group(n, group)==1)
+					if ((minetest.get_item_group(n, group) == 1)
 					and (minetest.get_item_group(n, "unbreakable") ~= 1)
 					and (n ~= "bones:bones")
 					and not (minetest.is_protected(pos1, "")) ) then
@@ -236,7 +232,6 @@ function digging_attack(
 
 			posp.y = s.y
 			posp = vector.add(posp,per)
-			--minetest.chat_send_all("pos3:"..minetest.pos_to_string(posp).." per.y= "..per.y)
 		end
 	end
 end
@@ -247,20 +242,20 @@ function putting_ability(		--puts under the mob the block defined as 'p_block'
 	p_block, 	--definition of the block to use
 	max_vel	--max velocity of the mob
 	)
-	--if math.random(1,nssm:virulence(self)) ~= 1 then return end
 
 	local v = self.object:get_velocity()
 	local dx = 0
 	local dz = 0
 
-	if (math.abs(v.x)>math.abs(v.z)) then
-		if (v.x)>0 then
+	if math.abs(v.x) > math.abs(v.z) then
+
+		if (v.x) > 0 then
 			dx = 1
 		else
 			dx = -1
 		end
 	else
-		if (v.z)>0 then
+		if (v.z) > 0 then
 			dz = 1
 		else
 			dz = -1
@@ -270,7 +265,7 @@ function putting_ability(		--puts under the mob the block defined as 'p_block'
 	local pos = self.object:get_pos()
 	local pos1
 
-	pos.y=pos.y - 1
+	pos.y = pos.y - 1
 
 	pos1 = {x = pos.x + dx, y = pos.y, z = pos.z + dz}
 
@@ -282,8 +277,7 @@ function putting_ability(		--puts under the mob the block defined as 'p_block'
 	}
 
 	if n ~= p_block and not minetest.is_protected(pos, "")
-	and (n == "bones:bones"
-	and nssm:affectbones(self) )
+	and (n == "bones:bones" and nssm:affectbones(self) )
 	and n ~= "air" then
 
 		minetest.set_node(pos, {name=p_block})
@@ -308,7 +302,7 @@ function putting_ability(		--puts under the mob the block defined as 'p_block'
 			local metai = minetest.get_meta(pos1)
 
 			metai:from_table(oldmetainf[2]) -- this is enough to save the meta
-			metai:set_string("nssm",n1)
+			metai:set_string("nssm", n1)
 		end
 	end
 end
@@ -320,12 +314,12 @@ function webber_ability(		--puts randomly around the block defined as w_block
 	radius		--max distance the block can be put
 	)
 
-	if (nssm:virulence(self) ~= 0)
-	and (math.random(1, nssm:virulence(self)) ~= 1) then return end
+	if nssm:virulence(self) ~= 0
+	and math.random(1, nssm:virulence(self)) ~= 1 then return end
 
 	local pos = self.object:get_pos()
 
-	if (math.random(55) == 1) then
+	if math.random(55) == 1 then
 
 		local dx = math.random(radius)
 		local dz = math.random(radius)
@@ -334,8 +328,7 @@ function webber_ability(		--puts randomly around the block defined as w_block
 		local n = minetest.get_node(p).name
 		local k = minetest.get_node(t).name
 
-		if ((n ~= "air")
-		and(k == "air"))
+		if (n ~= "air" and k == "air")
 		and not minetest.is_protected(t, "") then
 			minetest.set_node(t, {name = w_block})
 		end
@@ -350,7 +343,6 @@ function midas_ability(		--ability to transform every blocks it touches in the m
 	mult, 		--multiplier of the dimensions of the area around that need the transformation
 	height 		--height of the mob
 	)
-	--if math.random(1,nssm:virulence(self)) ~= 1 then return end
 
 	local v = self.object:get_velocity()
 	local pos = self.object:get_pos()
@@ -390,7 +382,7 @@ function midas_ability(		--ability to transform every blocks it touches in the m
 				local n = minetest.get_node(p).name
 
 				if minetest.get_item_group(n, "unbreakable") == 1
-				or minetest.is_protected(p, "") or n=="air"
+				or minetest.is_protected(p, "") or n == "air"
 				or (n == "bones:bones" and not nssm:affectbones(self))
 				or n == m_block then
 				else
@@ -400,7 +392,6 @@ function midas_ability(		--ability to transform every blocks it touches in the m
 		end
 	end
 end
-
 
 --	NEW EXPLOSION FUNCTION
 
@@ -529,9 +520,8 @@ local function eject_drops(drops, pos, radius)
 
 		while count > 0 do
 
-			local take = math.max(1,math.min(radius * radius,
-					count,
-					item:get_stack_max()))
+			local take = math.max(1, math.min(radius * radius,
+					count, item:get_stack_max()))
 
 			rand_pos(pos, drop_pos, radius)
 
@@ -544,9 +534,11 @@ local function eject_drops(drops, pos, radius)
 			if obj then
 				obj:get_luaentity().collect = true
 				obj:set_acceleration({x = 0, y = -10, z = 0})
-				obj:set_velocity({x = math.random(-3, 3),
-						y = math.random(0, 10),
-						z = math.random(-3, 3)})
+				obj:set_velocity({
+					x = math.random(-3, 3),
+					y = math.random(0, 10),
+					z = math.random(-3, 3)
+				})
 			end
 
 			count = count - take
@@ -627,9 +619,9 @@ local function entity_physics(pos, radius, drops)
 
 			if objdef and objdef.on_blast then
 
-				if ((name == "nssm:pumpking")
-				or (name == "nssm:morvalar0")
-				or (name== "nssm:morvalar5")) then
+				if name == "nssm:pumpking"
+				or name == "nssm:morvalar0"
+				or name == "nssm:morvalar5" then
 					do_damage = false
 					do_knockback = false
 				else
@@ -641,8 +633,7 @@ local function entity_physics(pos, radius, drops)
 
 				local obj_vel = obj:get_velocity()
 
-				obj:set_velocity(calc_velocity(pos, obj_pos,
-						obj_vel, radius * 10))
+				obj:set_velocity(calc_velocity(pos, obj_pos, obj_vel, radius * 10))
 			end
 
 			if do_damage then
@@ -702,9 +693,11 @@ local function destroy(drops, npos, cid, c_air, c_fire, on_blast_queue,
 		return c_fire
 	else
 		local node_drops = minetest.get_node_drops(def.name, "")
+
 		for _, item in pairs(node_drops) do
 			add_drop(drops, item)
 		end
+
 		return c_air
 	end
 end
@@ -788,8 +781,7 @@ local function tnt_explode(pos, radius, ignore_protection, ignore_on_blast)
 
 			if cid ~= c_air then
 				data[vi] = destroy(drops, p, cid, c_air, c_fire,
-					on_blast_queue, ignore_protection,
-					ignore_on_blast)
+						on_blast_queue, ignore_protection, ignore_on_blast)
 			end
 		end
 
@@ -813,7 +805,6 @@ local function tnt_explode(pos, radius, ignore_protection, ignore_on_blast)
 		local r = vector.length(rad)
 
 		if r / radius < 1.4 then
-			--nodeupdate_single(s)
 			core.check_single_for_falling(s)
 		end
 	end

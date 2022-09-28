@@ -201,21 +201,25 @@ mobs:register_mob("nssm:morlu", {
 									--armor:update_player_visuals(self.attack)
 
 									--Update personal inventory of armors:
-									if (self.invnum ~= nil) and (self.invnum <= 5) then
+									if self.invnum ~= nil and self.invnum <= 5 then
 										self.invnum = self.invnum + 1
 										self.inventory[self.invnum].name =
 												armor_elements[steal_pos].name
 									end
 
 									mobs:set_animation(self, "run")
+
 									self.flag = 1
 									self.morlu_timer = os.time()
 									self.curr_attack = self.attack
 									self.state = ""
+
 									local pyaw = self.curr_attack:get_look_horizontal() +
 											math.pi / 2
+
 									self.dir = pyaw
 									self.object:set_yaw(pyaw)
+
 									if self then
 										set_velocity(self, 4)
 									end
@@ -235,6 +239,7 @@ mobs:register_mob("nssm:morlu", {
 
 						-- play attack sound
 						if self.sounds.attack then
+
 							minetest.sound_play(self.sounds.attack, {
 								object = self.object,
 								max_hear_distance = self.sounds.distance
@@ -265,11 +270,11 @@ mobs:register_mob("nssm:morlu", {
 					local items = ItemStack(self.inventory[i].name .. " 1")
 					local obj = minetest.add_item(pos, items)
 
-						obj:set_velocity({
-							x = math.random(-1, 1),
-							y = 6,
-							z = math.random(-1, 1)
-						})
+					obj:set_velocity({
+						x = math.random(-1, 1),
+						y = 6,
+						z = math.random(-1, 1)
+					})
 				end
 			end
 		end

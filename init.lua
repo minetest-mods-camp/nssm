@@ -58,10 +58,10 @@ dofile(path .. "/mobs/uloboros.lua")
 dofile(path .. "/mobs/werewolf.lua")
 dofile(path .. "/mobs/white_werewolf.lua")
 
---Final Boss
+-- Final Boss
 dofile(path .. "/mobs/mese_dragon.lua")
 
---Others
+-- Others
 dofile(path .. "/darts.lua")
 dofile(path .. "/nssm_materials.lua")
 dofile(path .. "/nssm_spears.lua")
@@ -76,7 +76,7 @@ if minetest.get_modpath("3d_armor") then
 	dofile(path .. "/nssm_armor.lua")
 end
 
---Spawn settings
+-- Spawn settings
 dofile(path .. "/spawn.lua")
 
 

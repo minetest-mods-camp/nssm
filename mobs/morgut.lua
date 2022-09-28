@@ -136,11 +136,10 @@ mobs:register_mob("nssm:morgut", {
 						local player_inv = minetest.get_inventory(
 								{type = "player", name = pname})
 
-						if player_inv:is_empty("main") then
-							--minetest.chat_send_all("Inventory empty")
-						else
+						if not player_inv:is_empty("main") then
+
 							for i = 1, 32 do
-								--minetest.chat_send_all("Inventory is not empty")
+
 								local items = player_inv:get_stack("main", i)
 								local n = items:get_name()
 
@@ -154,11 +153,13 @@ mobs:register_mob("nssm:morgut", {
 										if found == 0 then
 
 											if self.inventory[j].num == 0 then
-												--found an empty place
+
+												-- found an empty place
 												found = 2
 												index = j
 											else
-												--found a corrsponding itemstack
+
+												-- found a corrsponding itemstack
 												if self.inventory[j].name == n then
 
 									self.inventory[j].num = self.inventory[j].num + 1

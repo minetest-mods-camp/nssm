@@ -16,14 +16,14 @@ mobs:register_mob("nssm:daddy_long_legs", {
 	run_velocity = 3.3,
 	rotate = 90,
 	sounds = {
-		random = "daddy",
+		random = "daddy"
 	},
 	damage = 3,
 	jump = true,
 	drops = {
 		{name = "nssm:life_energy", chance = 1, min = 1, max = 2},
 		{name = "nssm:spider_leg", chance = 3, min = 1, max = 8},
-		{name = "nssm:spider_meat", chance = 4, min = 1, max = 2},
+		{name = "nssm:spider_meat", chance = 4, min = 1, max = 2}
 	},
 	armor = 70,
 	drawtype = "front",
@@ -47,6 +47,6 @@ mobs:register_mob("nssm:daddy_long_legs", {
 		run_start = 80,
 		run_end = 120,
 		punch_start = 140,
-		punch_end = 165,
+		punch_end = 165
 	}
 })

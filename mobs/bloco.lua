@@ -16,7 +16,7 @@ mobs:register_mob("nssm:bloco", {
 	run_velocity = 2.5,
 	rotate = 270,
 	sounds = {
-		random = "bloco",
+		random = "bloco"
 	},
 	damage = 4,
 	reach = 2,
@@ -24,7 +24,7 @@ mobs:register_mob("nssm:bloco", {
 	drops = {
 		{name = "nssm:life_energy", chance = 1, min = 1, max = 1},
 		{name = "default:stone", chance = 1, min = 2, max = 3},
-		{name = "nssm:bloco_skin", chance = 3, min = 1, max = 2},
+		{name = "nssm:bloco_skin", chance = 3, min = 1, max = 2}
 	},
 	armor = 40,
 	drawtype = "front",
@@ -37,12 +37,12 @@ mobs:register_mob("nssm:bloco", {
 	knock_back = 0,
 	blood_texture = "stone_blood.png",
 	immune_to = {
-		{'default:sword_stone', -2},
-		{'default:stone', -2},
-		{'default:cobble', -2},
-		{'default:axe_stone', -2},
-		{'default:shovel_stone', -2},
-		{'default:pick_stone', -2}
+		{"default:sword_stone", -2},
+		{"default:stone", -2},
+		{"default:cobble", -2},
+		{"default:axe_stone", -2},
+		{"default:shovel_stone", -2},
+		{"default:pick_stone", -2}
 	},
 	stepheight = 1.1,
 	attack_type = "dogfight",
@@ -56,6 +56,6 @@ mobs:register_mob("nssm:bloco", {
 		run_start = 120,
 		run_end = 160,
 		punch_start = 170,
-		punch_end = 190,
+		punch_end = 190
 	}
 })

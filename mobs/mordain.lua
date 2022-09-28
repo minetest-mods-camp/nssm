@@ -16,13 +16,13 @@ mobs:register_mob("nssm:mordain", {
 	run_velocity = 3.5,
 	rotate = 270,
 	sounds = {
-		random = "mordain",
+		random = "mordain"
 	},
 	damage = 6,
 	jump = true,
 	drops = {
 		{name = "nssm:life_energy", chance = 1, min = 1, max = 1},
-		{name = "nssm:slothful_soul_fragment", chance = 3, min = 1, max = 1},
+		{name = "nssm:slothful_soul_fragment", chance = 3, min = 1, max = 1}
 	},
 	armor = 80,
 	drawtype = "front",
@@ -46,7 +46,7 @@ mobs:register_mob("nssm:mordain", {
 		run_start = 170,
 		run_end = 200,
 		punch_start = 210,
-		punch_end = 225,
+		punch_end = 225
 	},
 
 	custom_attack = function(self)
@@ -71,7 +71,7 @@ mobs:register_mob("nssm:mordain", {
 					minetest.sound_play(self.sounds.attack, {
 						object = self.object,
 						max_hear_distance = self.sounds.distance
-					})
+					}, true)
 				end
 
 				-- punch player
@@ -115,7 +115,7 @@ mobs:register_mob("nssm:mordain", {
 
 					if up == "air" and current ~= "air" then
 
-						d.y = d.y + j+1.5
+						d.y = d.y + j + 1.5
 
 						flag = 1
 
@@ -133,7 +133,7 @@ mobs:register_mob("nssm:mordain", {
 
 					if dist >= 2 then
 
-						for j = -3,3 do
+						for j = -3, 3 do
 
 							ty = d.y + j
 
@@ -149,7 +149,7 @@ mobs:register_mob("nssm:mordain", {
 
 							if up == "air" and current ~= "air" then
 
-								d.y = d.y + j+1.5
+								d.y = d.y + j + 1.5
 
 								flag = 1
 

@@ -22,7 +22,7 @@ mobs:register_mob("nssm:crocodile", {
 	drops = {
 		{name = "nssm:life_energy", chance = 1, min = 1, max = 2},
 		{name = "nssm:crocodile_tail", chance = 2, min = 1, max = 1},
-		{name = "nssm:crocodile_skin", chance = 3, min = 1, max = 1},
+		{name = "nssm:crocodile_skin", chance = 3, min = 1, max = 1}
 	},
 	armor = 60,
 	drawtype = "front",

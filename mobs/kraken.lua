@@ -24,12 +24,12 @@ mobs:register_mob("nssm:kraken", {
 	jump_chance = 0,
 	jump_height = 0,
 	sounds = {
-		random = "kraken",
+		random = "kraken"
 	},
 	drops = {
 		{name = "nssm:life_energy", chance = 1, min = 6, max = 7},
 		{name = "nssm:tentacle", chance = 1, min = 30, max = 40},
-		{name = "nssm:tentacle_curly", chance = 1, min = 1, max = 1},
+		{name = "nssm:tentacle_curly", chance = 1, min = 1, max = 1}
 	},
 	armor = 50,
 	drawtype = "front",
@@ -52,6 +52,6 @@ mobs:register_mob("nssm:kraken", {
 		run_start = 60,
 		run_end = 100,
 		punch_start = 120,
-		punch_end = 150,
+		punch_end = 150
 	}
 })

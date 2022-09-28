@@ -18,14 +18,14 @@ mobs:register_mob("nssm:mese_dragon", {
 	sounds = {
 		shoot_attack = "mesed",
 		attack = "mese_dragon",
-		distance = 60,
+		distance = 60
 	},
 	damage = 18,
 	jump = true,
 	jump_height = 10,
 	drops = {
 		{name = "nssm:rainbow_staff", chance = 1, min = 1, max = 1},
-		{name = "nssm:energy_globe", chance = 1, min = 99, max = 99},
+		{name = "nssm:energy_globe", chance = 1, min = 99, max = 99}
 	},
 	armor = 30,
 	drawtype = "front",
@@ -60,7 +60,7 @@ mobs:register_mob("nssm:mese_dragon", {
 		punch2_start = 330,
 		punch2_end = 370,
 		dattack_start = 120,
-		dattack_end = 160,
+		dattack_end = 160
 	},
 
 	do_custom = function(self)
@@ -93,11 +93,11 @@ mobs:register_mob("nssm:mese_dragon", {
 					minetest.sound_play(self.sounds.attack, {
 						object = self.object,
 						max_hear_distance = self.sounds.distance
-					})
+					}, true)
 				end
 
 				-- punch player
-				self.attack:punch(self.object, 1.0,  {
+				self.attack:punch(self.object, 1.0, {
 					full_punch_interval = 1.0,
 					damage_groups = {fleshy = self.damage}
 				}, nil)
@@ -115,7 +115,7 @@ mobs:register_mob("nssm:mese_dragon", {
 						local k = {x = s.x + dx, y = s.y + 20, z = s.z + dz}
 						local n = minetest.get_node(k).name
 
-						if n == "air" and math.random(1, 23) == 1 then
+						if n == "air" and math.random(23) == 1 then
 							minetest.set_node(k, {name="nssm:mese_meteor"})
 							minetest.check_single_for_falling(k)
 						end

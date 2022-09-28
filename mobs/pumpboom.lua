@@ -23,7 +23,7 @@ mobs:register_mob("nssm:pumpboom_small", {
 	jump = true,
 	drops = {
 		{name = "nssm:life_energy", chance = 1, min = 1, max = 2},
-		{name = "nssm:black_powder", chance = 2, min = 1, max = 2},
+		{name = "nssm:black_powder", chance = 2, min = 1, max = 2}
 	},
 	armor = 100,
 	drawtype = "front",
@@ -47,7 +47,7 @@ mobs:register_mob("nssm:pumpboom_small", {
 		run_start = 81,
 		run_end = 97,
 		punch_start = 70,
-		punch_end = 80,
+		punch_end = 80
 	}
 })
 
@@ -75,7 +75,7 @@ mobs:register_mob("nssm:pumpboom_medium", {
 	jump = true,
 	drops = {
 		{name = "nssm:life_energy", chance = 1, min = 2, max = 3},
-		{name = "nssm:black_powder", chance = 2, min = 1, max = 3},
+		{name = "nssm:black_powder", chance = 2, min = 1, max = 3}
 	},
 	armor = 100,
 	drawtype = "front",
@@ -99,7 +99,7 @@ mobs:register_mob("nssm:pumpboom_medium", {
 		run_start = 81,
 		run_end = 97,
 		punch_start = 70,
-		punch_end = 80,
+		punch_end = 80
 	}
 })
 
@@ -127,7 +127,7 @@ mobs:register_mob("nssm:pumpboom_large", {
 	jump = true,
 	drops = {
 		{name = "nssm:life_energy", chance = 1, min = 3, max = 4},
-		{name = "nssm:black_powder", chance = 2, min = 2, max = 4},
+		{name = "nssm:black_powder", chance = 2, min = 2, max = 4}
 	},
 	armor = 100,
 	drawtype = "front",
@@ -151,6 +151,6 @@ mobs:register_mob("nssm:pumpboom_large", {
 		run_start = 81,
 		run_end = 97,
 		punch_start = 70,
-		punch_end = 80,
+		punch_end = 80
 	}
 })

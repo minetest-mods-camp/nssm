@@ -18,11 +18,11 @@ mobs:register_mob("nssm:morde", {
 	damage = 6,
 	jump = true,
 	sounds = {
-		random = "morde",
+		random = "morde"
 	},
 	drops = {
 		{name = "nssm:life_energy", chance = 1, min = 2, max = 4},
-		{name = "nssm:proud_soul_fragment", chance = 3, min = 1, max = 1},
+		{name = "nssm:proud_soul_fragment", chance = 3, min = 1, max = 1}
 	},
 	armor = 60,
 	drawtype = "front",
@@ -48,7 +48,7 @@ mobs:register_mob("nssm:morde", {
 		run_start = 100,
 		run_end = 120,
 		punch_start = 130,
-		punch_end = 160,
+		punch_end = 160
 	},
 
 	custom_attack = function (self)
@@ -77,7 +77,7 @@ mobs:register_mob("nssm:morde", {
 					minetest.sound_play(self.sounds.attack, {
 						object = self.object,
 						max_hear_distance = self.sounds.distance
-					})
+					}, true)
 				end
 
 				-- punch player
@@ -89,12 +89,20 @@ mobs:register_mob("nssm:morde", {
 				minetest.add_particlespawner({
 					amount = 6,
 					time = 1,
-					minpos = {x=p.x-0.5, y=p.y-0.5, z=p.z-0.5},
-					maxpos = {x=p.x+0.5, y=p.y+0.5, z=p.z+0.5},
-					minvel = {x=(s.x-p.x)*m, y=(s.y-p.y+1)*m, z=(s.z-p.z)*m},
-					maxvel = {x=(s.x-p.x)*m, y=(s.y-p.y+1)*m, z=(s.z-p.z)*m},
-					minacc = {x=s.x-p.x, y=s.y-p.y+1, z=s.z-p.z},
-					maxacc = {x=s.x-p.x, y=s.y-p.y+1, z=s.z-p.z},
+					minpos = {x = p.x - 0.5, y = p.y - 0.5, z = p.z - 0.5},
+					maxpos = {x = p.x + 0.5, y = p.y + 0.5, z = p.z + 0.5},
+					minvel = {
+						x = (s.x - p.x) * m,
+						y = (s.y - p.y + 1) * m,
+						z = (s.z - p.z) * m
+					},
+					maxvel = {
+						x = (s.x - p.x) * m,
+						y = (s.y - p.y + 1) * m,
+						z = (s.z - p.z) * m
+					},
+					minacc = {x = s.x - p.x, y = s.y - p.y + 1, z = s.z - p.z},
+					maxacc = {x = s.x - p.x, y = s.y - p.y + 1, z = s.z - p.z},
 					minexptime = 0.2,
 					maxexptime = 0.3,
 					minsize = 2,
@@ -113,7 +121,7 @@ mobs:register_mob("nssm:morde", {
 		self.object:remove()
 
 		minetest.add_entity(pos, "nssm:mortick")
-	end,
+	end
 })
 
 minetest.register_entity("nssm:mortick", {
@@ -134,7 +142,7 @@ minetest.register_entity("nssm:mortick", {
 		self.timer = self.timer + dtime
 
 		local s = self.object:get_pos()
-		local s1 = {x=s.x, y = s.y-1, z = s.z}
+		local s1 = {x=s.x, y = s.y - 1, z = s.z}
 
 		--[[
 		if (os.time()-self.mortick_timer > self.lifetime) then

@@ -15,13 +15,13 @@ mobs:register_mob("nssm:morwa", {
 	walk_velocity = 0.5,
 	run_velocity = 4,
 	sounds = {
-		random = "morwa",
+		random = "morwa"
 	},
 	damage = 8,
 	jump = true,
 	drops = {
 		{name = "nssm:life_energy", chance = 1, min = 3, max = 4},
-		{name = "nssm:wrathful_soul_fragment", chance = 3, min = 1, max = 1},
+		{name = "nssm:wrathful_soul_fragment", chance = 3, min = 1, max = 1}
 	},
 	armor = 50,
 	drawtype = "front",
@@ -53,7 +53,7 @@ mobs:register_mob("nssm:morwa", {
 		punch_start = 130,
 		punch_end = 160,
 		shoot_start =176,
-		shoot_end=226,
+		shoot_end=226
 	},
 
 	do_custom = function (self)
@@ -66,5 +66,5 @@ mobs:register_mob("nssm:morwa", {
 			self.object:remove()
 			minetest.set_node(pos, {name = "nssm:morwa_statue"})
 		end
-	end,
+	end
 })

@@ -16,7 +16,7 @@ mobs:register_mob("nssm:icesnake", {
 	walk_velocity = 1.2,
 	run_velocity = 3,
 	sounds = {
-		random = "icesnake",
+		random = "icesnake"
 	},
 	damage = 4,
 	reach = 2,
@@ -25,7 +25,7 @@ mobs:register_mob("nssm:icesnake", {
 		{name = "nssm:life_energy", chance = 1, min = 1, max = 2},
 		{name = "nssm:frosted_amphibian_heart", chance = 2, min = 1, max = 1},
 		{name = "nssm:little_ice_tooth", chance = 2, min = 0, max = 4},
-		{name = "nssm:amphibian_ribs", chance = 2, min = 1, max = 3},
+		{name = "nssm:amphibian_ribs", chance = 2, min = 1, max = 3}
 	},
 	armor = 70,
 	drawtype = "front",
@@ -49,9 +49,10 @@ mobs:register_mob("nssm:icesnake", {
 		run_start = 80,
 		run_end = 120,
 		punch_start = 130,
-		punch_end = 160,
+		punch_end = 160
 	},
+
 	do_custom = function(self)
 		putting_ability(self, "default:ice", self.run_velocity)
-	end,
+	end
 })

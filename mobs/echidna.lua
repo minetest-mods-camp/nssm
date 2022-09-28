@@ -19,11 +19,11 @@ mobs:register_mob("nssm:echidna", {
 	damage = 12,
 	jump = true,
 	sounds = {
-		random = "echidna",
+		random = "echidna"
 	},
 	drops = {
 		{name = "nssm:life_energy", chance = 1, min = 6, max = 7},
-		{name = "nssm:snake_scute", chance = 1, min = 1, max = 1},
+		{name = "nssm:snake_scute", chance = 1, min = 1, max = 1}
 	},
 	armor = 40,
 	drawtype = "front",
@@ -39,7 +39,7 @@ mobs:register_mob("nssm:echidna", {
 	jump_height = 8,
 	attack_type = "dogshoot",
 	dogshoot_switch = true,
-	arrow = "nssm:super_gas";
+	arrow = "nssm:super_gas",
 	reach = 5,
 	shoot_interval = 3,
 	animation = {
@@ -54,6 +54,6 @@ mobs:register_mob("nssm:echidna", {
 		punch_start = 160,
 		punch_end = 190,
 		shoot_start = 200,
-		shoot_end = 240,
+		shoot_end = 240
 	}
 })

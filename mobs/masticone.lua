@@ -17,14 +17,14 @@ mobs:register_mob("nssm:masticone", {
 	walk_velocity = 1.5,
 	run_velocity = 2.5,
 	sounds = {
-		random = "masticone",
+		random = "masticone"
 	},
 	damage = 5,
 	jump = true,
 	drops = {
 		{name = "nssm:life_energy", chance = 1, min = 7, max = 8},
 		{name = "nssm:masticone_fang", chance = 1, min = 1, max = 2},
-		{name = "nssm:masticone_skull_fragments", chance = 2, min = 1, max = 2},
+		{name = "nssm:masticone_skull_fragments", chance = 2, min = 1, max = 2}
 	},
 	armor = 60,
 	drawtype = "front",
@@ -50,8 +50,9 @@ mobs:register_mob("nssm:masticone", {
 		run_start = 20,
 		run_end = 40,
 		punch_start = 150,
-		punch_end = 180,
+		punch_end = 180
 	},
+
 	on_die = function(self, pos)
 
 		self.object:remove()
@@ -90,5 +91,5 @@ mobs:register_mob("nssm:masticone", {
 				end
 			end
 		end)
-	end,
+	end
 })

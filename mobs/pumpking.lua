@@ -18,14 +18,14 @@ mobs:register_mob("nssm:pumpking", {
 	run_velocity = 4,
 	sounds = {
 		random = "king",
-		explode = "tnt_explode",
+		explode = "tnt_explode"
 	},
 	damage = 13,
 	jump = true,
 	drops = {
 		{name = "nssm:life_energy", chance = 1, min = 7, max = 9},
 		{name = "nssm:cursed_pumpkin_seed", chance = 1, min = 1, max = 1},
-		{name = "nssm:black_powder", chance = 1, min = 9, max = 12},
+		{name = "nssm:black_powder", chance = 1, min = 9, max = 12}
 	},
 	armor = 40,
 	drawtype = "front",
@@ -40,11 +40,16 @@ mobs:register_mob("nssm:pumpking", {
 	jump_height = 12,
 	attack_type = "dogfight",
 	animation = {
-		stand_start = 165,		stand_end = 210,
-		walk_start = 220,		walk_end = 260,
-		run_start = 220,		run_end = 260,
-		punch_start = 300,		punch_end = 330,
-		speed_normal = 15,		speed_run = 15,
+		stand_start = 165,
+		stand_end = 210,
+		walk_start = 220,
+		walk_end = 260,
+		run_start = 220,
+		run_end = 260,
+		punch_start = 300,
+		punch_end = 330,
+		speed_normal = 15,
+		speed_run = 15
 	},
 
 	on_die=function(self,pos)

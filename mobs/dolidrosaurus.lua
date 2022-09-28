@@ -26,11 +26,11 @@ mobs:register_mob("nssm:dolidrosaurus", {
 	jump_chance = 0,
 	jump_height = 0,
 	sounds = {
-		random = "crocod",
+		random = "crocod"
 	},
 	drops = {
 		{name = "nssm:life_energy", chance = 1, min = 1, max = 3},
-		{name = "nssm:dolidrosaurus_fin", chance = 2, min = 1, max = 3},
+		{name = "nssm:dolidrosaurus_fin", chance = 2, min = 1, max = 3}
 	},
 	armor = 60,
 	drawtype = "front",
@@ -54,6 +54,6 @@ mobs:register_mob("nssm:dolidrosaurus", {
 		run_start = 140,
 		run_end = 180,
 		punch_start = 190,
-		punch_end = 220,
+		punch_end = 220
 	}
 })

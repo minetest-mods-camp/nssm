@@ -15,14 +15,14 @@ mobs:register_mob("nssm:manticore", {
 	walk_velocity = 2,
 	run_velocity = 4,
 	sounds = {
-		random = "manticore",
+		random = "manticore"
 	},
 	damage = 6,
 	jump = true,
 	drops = {
 		{name = "nssm:life_energy", chance = 1, min = 3, max = 4},
 		{name = "nssm:manticore_spine", chance = 3, min = 2, max = 5},
-		{name = "nssm:manticore_fur", chance = 3, min = 1, max = 2},
+		{name = "nssm:manticore_fur", chance = 3, min = 1, max = 2}
 	},
 	armor = 60,
 	drawtype = "front",
@@ -53,6 +53,6 @@ mobs:register_mob("nssm:manticore", {
 		punch_start = 110,
 		punch_end = 143,
 		shoot_start = 180,
-		shoot_end=230,
+		shoot_end = 230
 	}
 })

@@ -16,7 +16,7 @@ mobs:register_mob("nssm:uloboros", {
 	run_velocity = 2.5,
 	rotate = 270,
 	sounds = {
-		random = "uloboros",
+		random = "uloboros"
 	},
 	damage = 5,
 	reach = 2,
@@ -25,7 +25,7 @@ mobs:register_mob("nssm:uloboros", {
 		{name = "nssm:life_energy", chance = 1, min = 1, max = 4},
 		{name = "nssm:spider_leg", chance = 2, min = 1, max = 8},
 		{name = "nssm:silk_gland", chance = 4, min = 1, max = 3},
-		{name = "nssm:spider_meat", chance = 4, min = 1, max = 2},
+		{name = "nssm:spider_meat", chance = 4, min = 1, max = 2}
 	},
 	armor = 80,
 	drawtype = "front",
@@ -49,9 +49,10 @@ mobs:register_mob("nssm:uloboros", {
 		run_start = 120,
 		run_end = 160,
 		punch_start = 80,
-		punch_end = 110,
+		punch_end = 110
 	},
+
 	do_custom = function(self)
 		webber_ability(self, "nssm:web", 2)
-	end,
+	end
 })

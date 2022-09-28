@@ -16,7 +16,7 @@ mobs:register_mob("nssm:mantis_beast", {
 	walk_velocity = 2.5,
 	run_velocity = 3.5,
 	sounds = {
-		random = "manti",
+		random = "manti"
 	},
 	damage = 5,
 	reach = 2,
@@ -25,7 +25,7 @@ mobs:register_mob("nssm:mantis_beast", {
 		{name = "nssm:mantis_claw", chance = 2, min = 1, max = 6},
 		{name = "nssm:life_energy", chance = 1, min = 2, max = 3},
 		{name = "nssm:mantis_skin", chance = 3, min = 1, max = 2},
-		{name = "nssm:mantis_meat", chance = 2, min = 1, max = 2},
+		{name = "nssm:mantis_meat", chance = 2, min = 1, max = 2}
 	},
 	armor = 70,
 	drawtype = "front",
@@ -49,6 +49,6 @@ mobs:register_mob("nssm:mantis_beast", {
 		run_start = 70,
 		run_end = 110,
 		punch_start = 140,
-		punch_end = 165,
+		punch_end = 165
 	}
 })

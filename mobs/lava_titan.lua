@@ -17,7 +17,7 @@ mobs:register_mob("nssm:lava_titan", {
 	run_velocity = 1.3,
 	floats = 1,
 	sounds = {
-		random = "lava_titan",
+		random = "lava_titan"
 	},
 	damage = 8,
 	jump = false,
@@ -25,7 +25,7 @@ mobs:register_mob("nssm:lava_titan", {
 	drops = {
 		{name = "nssm:life_energy", chance = 1, min = 7, max = 9},
 		{name = "nssm:lava_titan_eye", chance = 1, min = 1, max = 1},
-		{name = "bucket:bucket_lava", chance = 2, min = 1, max = 3},
+		{name = "bucket:bucket_lava", chance = 2, min = 1, max = 3}
 	},
 	armor = 20,
 	drawtype = "front",
@@ -70,9 +70,10 @@ mobs:register_mob("nssm:lava_titan", {
 		run_end = 110,
 		punch_start = 301,
 		punch_end = 340,
-		shoot_start =340,
-		shoot_end=400,
+		shoot_start = 340,
+		shoot_end = 400
 	},
+
 	do_custom = function (self)
 		digging_attack(self, nil, self.run_velocity, {x = 0, y = 4, z = 0})
 		--digging_ability(self, nil, self.run_velocity, {x=0, y=5, z=0})

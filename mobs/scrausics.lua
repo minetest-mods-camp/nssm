@@ -18,13 +18,13 @@ mobs:register_mob("nssm:scrausics", {
 	floats=1,
 	sounds = {
 		random = "scrausics",
-		distance = 40,
+		distance = 40
 	},
 	damage = 4,
 	jump = true,
 	drops = {
 		{name = "nssm:life_energy", chance = 1, min = 3, max = 4},
-		{name = "nssm:raw_scrausics_wing", chance = 1, min = 1, max = 2},
+		{name = "nssm:raw_scrausics_wing", chance = 1, min = 1, max = 2}
 	},
 	armor = 80,
 	drawtype = "front",
@@ -48,6 +48,6 @@ mobs:register_mob("nssm:scrausics", {
 		run_start = 190,
 		run_end = 210,
 		punch_start = 20,
-		punch_end = 50,
+		punch_end = 50
 	}
 })

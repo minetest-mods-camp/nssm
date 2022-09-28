@@ -17,13 +17,13 @@ mobs:register_mob("nssm:moonheron", {
 	stepheight = 3,
 	sounds = {
 		random = "moonheron",
-		distance =40,
+		distance = 40
 	},
 	damage = 5,
 	jump = true,
 	drops = {
 		{name = "nssm:life_energy", chance = 1, min = 2, max = 3},
-		{name = "nssm:heron_leg", chance = 1, min = 1, max = 1},
+		{name = "nssm:heron_leg", chance = 1, min = 1, max = 1}
 	},
 	armor = 70,
 	floats = 1,
@@ -47,6 +47,6 @@ mobs:register_mob("nssm:moonheron", {
 		run_start = 20,
 		run_end = 60,
 		punch_start = 80,
-		punch_end = 120,
+		punch_end = 120
 	}
 })

@@ -15,7 +15,7 @@ mobs:register_mob("nssm:flying_duck", {
 	fall_speed = 0,
 	stepheight = 3,
 	sounds = {
-		random = "duck",
+		random = "duck"
 	},
 	damage = 3,
 	reach = 2,
@@ -24,7 +24,7 @@ mobs:register_mob("nssm:flying_duck", {
 		{name = "nssm:life_energy", chance = 1, min = 1, max = 2},
 		{name = "nssm:duck_legs", chance = 2, min = 1, max = 2},
 		{name = "nssm:duck_beak", chance = 5, min = 1, max = 1},
-		{name = "nssm:duck_feather", chance = 2, min = 4, max = 8},
+		{name = "nssm:duck_feather", chance = 2, min = 4, max = 8}
 	},
 	armor = 80,
 	drawtype = "front",
@@ -48,6 +48,6 @@ mobs:register_mob("nssm:flying_duck", {
 		run_start = 160,
 		run_end = 220,
 		punch_start = 110,
-		punch_end = 140,
+		punch_end = 140
 	}
 })

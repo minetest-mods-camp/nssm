@@ -15,7 +15,7 @@ mobs:register_mob("nssm:felucco", {
 	fear_height = 4,
 	run_velocity = 5,
 	sounds = {
-		random = "felucco",
+		random = "felucco"
 	},
 	damage = 5,
 	jump = true,
@@ -23,7 +23,7 @@ mobs:register_mob("nssm:felucco", {
 		{name = "nssm:life_energy", chance = 1, min = 3, max = 4},
 		{name = "nssm:felucco_steak", chance = 2, min = 1, max = 2},
 		{name = "nssm:felucco_fur", chance = 2, min = 1, max = 1},
-		{name = "nssm:felucco_horn", chance = 3, min = 1, max = 2},
+		{name = "nssm:felucco_horn", chance = 3, min = 1, max = 2}
 	},
 	armor = 70,
 	drawtype = "front",
@@ -47,6 +47,6 @@ mobs:register_mob("nssm:felucco", {
 		run_start = 140,
 		run_end = 160,
 		punch_start = 200,
-		punch_end = 240,
+		punch_end = 240
 	}
 })

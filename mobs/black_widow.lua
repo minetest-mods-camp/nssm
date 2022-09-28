@@ -16,7 +16,7 @@ mobs:register_mob("nssm:black_widow", {
 	run_velocity = 2.5,
 	rotate = 270,
 	sounds = {
-		random = "black_widow",
+		random = "black_widow"
 	},
 	damage = 4,
 	reach = 2,
@@ -25,7 +25,7 @@ mobs:register_mob("nssm:black_widow", {
 		{name = "nssm:life_energy", chance = 1, min = 1, max = 2},
 		{name = "nssm:spider_leg", chance = 3, min = 1, max = 8},
 		{name = "nssm:silk_gland", chance = 4, min = 1, max = 3},
-		{name = "nssm:spider_meat", chance = 4, min = 1, max = 2},
+		{name = "nssm:spider_meat", chance = 4, min = 1, max = 2}
 	},
 	armor = 70,
 	drawtype = "front",
@@ -49,9 +49,10 @@ mobs:register_mob("nssm:black_widow", {
 		run_start = 120,
 		run_end = 140,
 		punch_start = 150,
-		punch_end = 160,
+		punch_end = 160
 	},
+
 	do_custom = function(self)
 		webber_ability(self, "nssm:web", 2)
-	end,
+	end
 })

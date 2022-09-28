@@ -17,7 +17,7 @@ mobs:register_mob("nssm:ant_worker", {
 	run_velocity = 2,
 	rotate = 270,
 	sounds = {
-		random = "ant",
+		random = "ant"
 	},
 	damage = 2,
 	reach = 2,
@@ -26,7 +26,7 @@ mobs:register_mob("nssm:ant_worker", {
 		{name = "nssm:life_energy", chance = 2, min = 1, max = 1},
 		{name = "nssm:ant_leg", chance = 2, min = 1, max = 6},
 		{name = "nssm:ant_mandible", chance = 3, min = 1, max = 2},
-		{name = "nssm:ant_hard_skin", chance = 3, min = 1, max = 2},
+		{name = "nssm:ant_hard_skin", chance = 3, min = 1, max = 2}
 	},
 	armor = 70,
 	drawtype = "front",
@@ -49,6 +49,6 @@ mobs:register_mob("nssm:ant_worker", {
 		run_start = 120,
 		run_end = 160,
 		punch_start = 50,
-		punch_end = 70,
+		punch_end = 70
 	}
 })

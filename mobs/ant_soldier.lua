@@ -16,7 +16,7 @@ mobs:register_mob("nssm:ant_soldier", {
 	run_velocity = 3,
 	rotate = 270,
 	sounds = {
-		random = "ant",
+		random = "ant"
 	},
 	damage = 6,
 	jump = true,
@@ -24,7 +24,7 @@ mobs:register_mob("nssm:ant_soldier", {
 		{name = "nssm:life_energy", chance = 1, min = 1, max = 2},
 		{name = "nssm:ant_leg", chance = 2, min = 1, max = 6},
 		{name = "nssm:ant_mandible", chance = 3, min = 1, max = 2},
-		{name = "nssm:ant_hard_skin", chance = 3, min = 1, max = 2},
+		{name = "nssm:ant_hard_skin", chance = 3, min = 1, max = 2}
 	},
 	reach = 2,
 	armor = 70,
@@ -49,6 +49,6 @@ mobs:register_mob("nssm:ant_soldier", {
 		run_start = 90,
 		run_end = 130,
 		punch_start = 60,
-		punch_end = 80,
+		punch_end = 80
 	}
 })

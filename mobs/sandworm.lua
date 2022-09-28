@@ -19,13 +19,13 @@ mobs:register_mob("nssm:sandworm", {
 	damage = 6,
 	sounds = {
 		random = "sandworm",
-		distance = 40,
+		distance = 40
 	},
 	jump = false,
 	drops = {
 		{name = "nssm:worm_flesh", chance = 2, min = 1, max = 3},
 		{name = "nssm:sandworm_skin", chance = 2, min = 1, max = 3},
-		{name = "nssm:life_energy", chance = 1, min = 2, max = 3},
+		{name = "nssm:life_energy", chance = 1, min = 2, max = 3}
 	},
 	armor = 60,
 	drawtype = "front",
@@ -49,9 +49,9 @@ mobs:register_mob("nssm:sandworm", {
 		run_start = 110,
 		run_end = 140,
 		punch_start = 150,
-		punch_end = 180,
+		punch_end = 180
 	},
 	do_custom = function(self)
 		digging_attack(self, "sand", self.run_velocity, {x = 0, y = 3, z = 0})
-	end,
+	end
 })

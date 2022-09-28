@@ -19,7 +19,7 @@ mobs:register_mob("nssm:phoenix", {
 	stepheight = 3,
 	sounds = {
 		random = "phoenix",
-		distance = 45,
+		distance = 45
 	},
 	damage = 2,
 	jump = false,
@@ -27,7 +27,7 @@ mobs:register_mob("nssm:phoenix", {
 		{name = "nssm:life_energy", chance = 1, min = 7, max = 8},
 		{name = "nssm:sun_feather", chance = 1, min = 1, max = 1},
 		{name = "nssm:phoenix_tear", chance = 1, min = 5, max = 6},
-		{name = "nssm:phoenix_nuggets", chance = 6, min = 10, max = 20},
+		{name = "nssm:phoenix_nuggets", chance = 6, min = 10, max = 20}
 	},
 	armor = 40,
 	drawtype = "front",
@@ -54,6 +54,6 @@ mobs:register_mob("nssm:phoenix", {
 		punch_start = 80,
 		punch_end = 110,
 		shoot_start = 80,
-		shoot_end = 110,
+		shoot_end = 110
 	}
 })

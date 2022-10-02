@@ -42,7 +42,7 @@ minetest.register_entity("nssm:rainbow", {
 minetest.register_tool("nssm:rainbow_staff", {
 	description = "Rainbow Staff",
 	inventory_image = "rainbow_staff.png",
-	groups = {not_in_creative_inventory = 1}
+	groups = {not_in_creative_inventory = 1},
 
 	on_use = function(itemstack, placer, pointed_thing)
 

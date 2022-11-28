@@ -323,8 +323,8 @@ minetest.register_node("nssm:thick_web", {
 	liquid_range = 0,
 	liquid_alternative_flowing = "nssm:thick_web",
 	liquid_alternative_source = "nssm:thick_web",
-	liquid_viscosity = 30,
-	groups = {flammable = 2, liquid = 1}
+	liquid_viscosity = 28,--30,
+	groups = {flammable = 2, snappy = 1, level = 2, liquid = 1}
 })
 
 minetest.register_node("nssm:ink", {
@@ -424,7 +424,7 @@ minetest.register_node("nssm:phoenix_fire", {
 	},
 	inventory_image = "phoenix_fire.png",
 	light_source = 14,
-	groups = {igniter = 1, snappy = 1},
+	groups = {snappy = 1}, -- igniter = 1
 	drop = "",
 	walkable = false,
 	buildable_to = false,

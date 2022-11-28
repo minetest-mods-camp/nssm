@@ -331,7 +331,7 @@ mobs:register_arrow("nssm:phoenix_arrow", {
 			minetest.set_node(pos, {name = "nssm:phoenix_fire"})
 		end
 
-		if math.random(1, 6) == 1 then
+		if math.random(6) == 1 then
 
 			local p = {
 				x = pos.x + math.random(-1, 1),

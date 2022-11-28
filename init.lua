@@ -2,8 +2,10 @@ local path = minetest.get_modpath("nssm")
 
 nssm = {
 	mymapgenis = tonumber(minetest.settings:get("mymapgenis")) or 7,
-	multimobs = tonumber(minetest.settings:get("multimobs")) or 1000
+	multimobs = tonumber(minetest.settings:get("multimobs")) or 1000,
+	spiders_litter_web = minetest.settings:get_bool("spiders_litter_web", true)
 }
+
 
 -- Mobs
 dofile(path .. "/mobs/ant_queen.lua")

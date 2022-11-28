@@ -53,6 +53,9 @@ mobs:register_mob("nssm:black_widow", {
 	},
 
 	do_custom = function(self)
-		webber_ability(self, "nssm:web", 2)
+
+		if nssm.spiders_litter_web then
+			webber_ability(self, "nssm:web", 2)
+		end
 	end
 })

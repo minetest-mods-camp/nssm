@@ -127,6 +127,8 @@ local function spears_set_entity(kind, eq, toughness)
 								})
 							end
 						end
+
+						break -- only harm first entity hit
 					end
 				end
 			end

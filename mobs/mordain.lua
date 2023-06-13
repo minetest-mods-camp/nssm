@@ -129,7 +129,7 @@ mobs:register_mob("nssm:mordain", {
 					d.z = p.z + math.random(-m, m)
 					d.y = p.y
 
-					local dist = dist_pos(d, p)
+					local dist = nssm:dist_pos(d, p)
 
 					if dist >= 2 then
 

@@ -9,7 +9,7 @@ nssm.lessvirulent = minetest.settings:get_bool("nssm.lessvirulent") or false
 nssm.safebones = minetest.settings:get_bool("nssm.safebones") or false
 nssm.cryosave = minetest.settings:get_bool("nssm.cryosave") or false
 
-function nssm:virulence(mobe)
+local function virulence(mobe)
 
 	if not nssm.lessvirulent then
 		return 0
@@ -23,21 +23,21 @@ function nssm:affectbones(mobe) -- as function for adaptable heuristic
 	return not nssm.safebones
 end
 
-
+--[[
 function drops(drop)
 
 	if drop then
 
-		drop:setvelocity({
+		drop:set_velocity({
 			x = math.random(-10, 10) / 9,
 			y = 5,
 			z = math.random(-10, 10) / 9
 		})
 	end
 end
+]]
 
-
-function perpendicular_vector(vec) --returns a vector rotated of 90° in 2D
+local function perpendicular_vector(vec) --returns a vector rotated of 90° in 2D
 
 	local ang = math.pi / 2
 	local c = math.cos(ang)
@@ -50,7 +50,7 @@ function perpendicular_vector(vec) --returns a vector rotated of 90° in 2D
 end
 
 
-function add_entity_and_particles(entity, pos, particles, multiplier)
+function nssm:add_entity_and_particles(entity, pos, particles, multiplier)
 
 	minetest.add_particlespawner({
 		amount = 100 * multiplier,
@@ -75,7 +75,7 @@ end
 
 
 -- get node but use fallback for nil or unknown
-function node_ok(pos, fallback)
+function nssm:node_ok(pos, fallback)
 
 	fallback = fallback or "default:dirt"
 
@@ -93,7 +93,7 @@ function node_ok(pos, fallback)
 end
 
 
-function dist_pos(p, s)
+function nssm:dist_pos(p, s)
 
 	local v = {
 		x = math.abs(s.x - p.x),
@@ -104,7 +104,7 @@ function dist_pos(p, s)
 	return math.sqrt(v.x ^ 2 + v.y ^ 2 + v.z ^ 2)
 end
 
-
+--[[
 --check_for_death functions customized for monsters who respawns (Masticone)
 function check_for_death_hydra(self)
 
@@ -140,9 +140,9 @@ function check_for_death_hydra(self)
 
 	return true
 end
+]]
 
-
-function round(n)
+local function round(n)
 
 	if (n > 0) then
 		return n % 1 >= 0.5 and math.ceil(n) or math.floor(n)
@@ -156,7 +156,7 @@ function round(n)
 end
 
 
-function explosion_particles(pos, exp_radius)
+function nssm:explosion_particles(pos, exp_radius)
 
 	minetest.add_particlespawner({
 		amount = 100 * exp_radius / 2,
@@ -177,7 +177,7 @@ function explosion_particles(pos, exp_radius)
 end
 
 
-function digging_attack(
+function nssm:digging_attack(
 	self,		--the entity of the mob
 	group,		--group of the blocks the mob can dig: nil=everything
 	max_vel,	--max velocity of the mob
@@ -237,7 +237,7 @@ function digging_attack(
 end
 
 
-function putting_ability(		--puts under the mob the block defined as 'p_block'
+function nssm:putting_ability(		--puts under the mob the block defined as 'p_block'
 	self,		--the entity of the mob
 	p_block, 	--definition of the block to use
 	max_vel	--max velocity of the mob
@@ -308,14 +308,14 @@ function putting_ability(		--puts under the mob the block defined as 'p_block'
 end
 
 
-function webber_ability(		--puts randomly around the block defined as w_block
+function nssm:webber_ability(		--puts randomly around the block defined as w_block
 	self,		--the entity of the mob
 	w_block, 	--definition of the block to use
 	radius		--max distance the block can be put
 	)
 
-	if nssm:virulence(self) ~= 0
-	and math.random(1, nssm:virulence(self)) ~= 1 then return end
+	if virulence(self) ~= 0
+	and math.random(1, virulence(self)) ~= 1 then return end
 
 	local pos = self.object:get_pos()
 
@@ -336,7 +336,7 @@ function webber_ability(		--puts randomly around the block defined as w_block
 end
 
 
-function midas_ability(		--ability to transform every blocks it touches in the m_block block
+function nssm:midas_ability(		--ability to transform every blocks it touches in the m_block block
 	self,		--the entity of the mob
 	m_block,
 	max_vel,	--max velocity of the mob
@@ -829,7 +829,7 @@ local function tnt_explode(pos, radius, ignore_protection, ignore_on_blast)
 end
 
 
-function tnt_boom_nssm(pos, def)
+function nssm:tnt_boom_nssm(pos, def)
 
 	minetest.sound_play("tnt_explode", {
 		pos = pos, gain = 1.5, max_hear_distance = 2 * 64}, true)

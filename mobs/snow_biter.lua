@@ -57,6 +57,6 @@ mobs:register_mob("nssm:snow_biter", {
 	},
 
 	do_custom = function(self)
-		putting_ability(self, "default:ice", self.run_velocity)
+		nssm:putting_ability(self, "default:ice", self.run_velocity)
 	end
 })

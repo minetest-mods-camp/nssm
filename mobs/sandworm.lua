@@ -53,6 +53,6 @@ mobs:register_mob("nssm:sandworm", {
 	},
 
 	do_custom = function(self)
-		digging_attack(self, "sand", self.run_velocity, {x = 0, y = 3, z = 0})
+		nssm:digging_attack(self, "sand", self.run_velocity, {x = 0, y = 3, z = 0})
 	end
 })

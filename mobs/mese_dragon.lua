@@ -64,7 +64,7 @@ mobs:register_mob("nssm:mese_dragon", {
 	},
 
 	do_custom = function(self)
-		midas_ability(self, "default:mese_block", self.run_velocity, 2, 3)
+		nssm:midas_ability(self, "default:mese_block", self.run_velocity, 2, 3)
 	end,
 
 	custom_attack = function(self)

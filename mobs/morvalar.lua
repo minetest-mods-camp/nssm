@@ -440,7 +440,8 @@ mobs:register_mob("nssm:morvalar5", {
 
 				mobs:set_animation(self, "punch")
 
-				tnt_boom_nssm(p, {damage_radius = 6, radius = 5, ignore_protection = false})
+				nssm:tnt_boom_nssm(p, {
+						damage_radius = 6, radius = 5, ignore_protection = false})
 
 				self.morvalar5_timer = os.time()
 
@@ -571,7 +572,7 @@ mobs:register_mob("nssm:morvalar4", {
 					d.z = p.z + math.random(-m, m)
 					d.y = p.y
 
-					local dist = dist_pos(d, p)
+					local dist = nssm:dist_pos(d, p)
 
 					if dist >= 2 then
 
@@ -1054,7 +1055,8 @@ minetest.register_entity("nssm:kamehameha_bad", {
 
 			if obj:is_player() then
 
-				tnt_boom_nssm(pos, {damage_radius = 6, radius = 5, ignore_protection = false})
+				nssm:tnt_boom_nssm(pos, {
+						damage_radius = 6, radius = 5, ignore_protection = false})
 
 				self.object:remove()
 
@@ -1067,7 +1069,8 @@ minetest.register_entity("nssm:kamehameha_bad", {
 
 				if name ~= "nssm:morvalar0" and name ~="nssm:kamehameha_bad" then
 
-					tnt_boom_nssm(pos, {damage_radius = 6, radius = 5, ignore_protection = false})
+					nssm:tnt_boom_nssm(pos, {
+							damage_radius = 6, radius = 5, ignore_protection = false})
 
 					self.object:remove()
 				end

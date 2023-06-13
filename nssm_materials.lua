@@ -395,7 +395,7 @@ minetest.register_node("nssm:pumpbomb", {
 
 		minetest.set_node(pos, {name = "air"})
 
-		tnt_boom_nssm(pos, {damage_radius = 4, radius = 3, ignore_protection = false})
+		nssm:tnt_boom_nssm(pos, {damage_radius = 4, radius = 3, ignore_protection = false})
 	end
 })
 

@@ -59,6 +59,6 @@ mobs:register_mob("nssm:lava_titan", {
 	},
 
 	do_custom = function (self)
-		digging_attack(self, nil, self.run_velocity, {x = 0, y = 4, z = 0})
+		nssm:digging_attack(self, nil, self.run_velocity, {x = 0, y = 4, z = 0})
 	end
 })

@@ -319,7 +319,7 @@ mobs:register_arrow("nssm:phoenix_arrow", {
 })
 
 
-function gas_explosion(pos)
+local function gas_explosion(pos)
 
 	if minetest.is_protected(pos, "") then
 		return
@@ -375,7 +375,6 @@ mobs:register_arrow("nssm:roar_of_the_dragon", {
 	on_step = function(self, dtime)
 
 		local pos = self.object:get_pos()
-
 		local n = minetest.get_node(pos).name
 
 		if self.timer == 0 then
@@ -390,9 +389,10 @@ mobs:register_arrow("nssm:roar_of_the_dragon", {
 
 		for _,obj in ipairs(objects) do
 
-			local name = obj:get_entity_name()
+			local ent = obj and obj:get_luaentity()
+			local name = ent and ent.name
 
-			if name ~= "nssm:roar_of_the_dragon"
+			if name and name ~= "nssm:roar_of_the_dragon"
 			and name ~= "nssm:mese_dragon" then
 
 				obj:set_hp(obj:get_hp() - 0.05)

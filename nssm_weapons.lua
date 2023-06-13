@@ -22,7 +22,7 @@ end
 
 local function hit(pos, self)
 
-	local node = node_ok(pos).name
+	local node = nssm:node_ok(pos).name
 
 	self.hit_node(self, pos, node)
 	self.object:remove()
@@ -216,7 +216,7 @@ local function search_on_step(
 
 		if min_dist < 1 then
 
-			local node = node_ok(pos).name
+			local node = nssm:node_ok(pos).name
 
 			self.hit_node(self, pos, node)
 			self.object:remove()
@@ -231,7 +231,7 @@ local function search_on_step(
 
 	if n ~= "air" and n ~= "default:water_source" and n ~= "default:water_flowing" then
 
-		local node = node_ok(pos).name
+		local node = nssm:node_ok(pos).name
 
 		self.hit_node(self, pos, node)
 		self.object:remove()
@@ -259,7 +259,7 @@ local function default_on_step(
 
 	if os.time() - self.life_time > max_time then
 
-		local node = node_ok(pos).name
+		local node = nssm:node_ok(pos).name
 
 		self.hit_node(self, pos, node)
 		self.object:remove()
@@ -298,7 +298,7 @@ local function default_on_step(
 
 	if n == not_transparent or minetest.get_item_group(n, not_transparent) == 1 then
 
-		local node = node_ok(pos).name
+		local node = nssm:node_ok(pos).name
 
 		self.hit_node(self, pos, node)
 		self.object:remove()

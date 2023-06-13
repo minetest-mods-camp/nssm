@@ -55,7 +55,7 @@ mobs:register_mob("nssm:uloboros", {
 	do_custom = function(self)
 
 		if nssm.spiders_litter_web then
-			webber_ability(self, "nssm:web", 2)
+			nssm:webber_ability(self, "nssm:web", 2)
 		end
 	end
 })

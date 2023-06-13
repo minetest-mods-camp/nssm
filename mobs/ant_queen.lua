@@ -97,7 +97,7 @@ mobs:register_mob("nssm:ant_queen", {
 				and minetest.get_node(pos1).name == "air"
 				and counter < 4 then
 
-					explosion_particles(pos1, 1)
+					nssm:explosion_particles(pos1, 1)
 
 					minetest.add_entity(pos1, "nssm:ant_soldier")
 				end

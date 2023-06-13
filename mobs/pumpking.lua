@@ -84,7 +84,7 @@ mobs:register_mob("nssm:pumpking", {
 					minetest.sound_play(self.sounds.attack, {
 					object = self.object,
 					max_hear_distance = self.sounds.distance
-					})
+					}, true)
 				end
 
 				local pos1 = {

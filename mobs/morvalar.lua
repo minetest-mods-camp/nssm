@@ -1,7 +1,7 @@
 local time_limit = 120
 local posmorvalarblock = {x = 827, y = -30094, z = -817}
 
-function respawn_block(self)
+local function respawn_block(self)
 	--start a timer if it doesn't exist
 	self.stop_timer = self.stop_timer or os.time()
 
@@ -223,7 +223,7 @@ mobs:register_mob("nssm:morvalar", {
 
 		self.object:remove()
 
-		add_entity_and_particles("nssm:morvalar6", pos, "morparticle.png", 10)
+		nssm:add_entity_and_particles("nssm:morvalar6", pos, "morparticle.png", 10)
 	end
 })
 
@@ -369,7 +369,7 @@ mobs:register_mob("nssm:morvalar6", {
 
 		self.object:remove()
 
-		add_entity_and_particles("nssm:morvalar5", pos, "morparticle.png", 10)
+		nssm:add_entity_and_particles("nssm:morvalar5", pos, "morparticle.png", 10)
 	end
 })
 
@@ -455,7 +455,7 @@ mobs:register_mob("nssm:morvalar5", {
 
 		self.object:remove()
 
-		add_entity_and_particles("nssm:morvalar4", pos, "morparticle.png", 10)
+		nssm:add_entity_and_particles("nssm:morvalar4", pos, "morparticle.png", 10)
 	end
 })
 
@@ -602,7 +602,7 @@ mobs:register_mob("nssm:morvalar4", {
 
 		self.object:remove()
 
-		add_entity_and_particles("nssm:morvalar3", pos, "morparticle.png", 10)
+		nssm:add_entity_and_particles("nssm:morvalar3", pos, "morparticle.png", 10)
 	end
 })
 
@@ -669,7 +669,7 @@ mobs:register_mob("nssm:morvalar3", {
 
 		self.object:remove()
 
-		add_entity_and_particles("nssm:morvalar2", pos, "morparticle.png", 10)
+		nssm:add_entity_and_particles("nssm:morvalar2", pos, "morparticle.png", 10)
 	end
 })
 
@@ -769,19 +769,19 @@ mobs:register_mob("nssm:morvalar2", {
 
 				p1 = vector.subtract(p1, vector.multiply(per, 4))
 
-				add_entity_and_particles("nssm:morwa", p1, "morparticle.png", 1)
+				nssm:add_entity_and_particles("nssm:morwa", p1, "morparticle.png", 1)
 				p1 = vector.add(p1,per)
-				add_entity_and_particles("nssm:mordain", p1, "morparticle.png", 1)
+				nssm:add_entity_and_particles("nssm:mordain", p1, "morparticle.png", 1)
 				p1 = vector.add(p1,per)
-				add_entity_and_particles("nssm:morgre", p1, "morparticle.png", 1)
+				nssm:add_entity_and_particles("nssm:morgre", p1, "morparticle.png", 1)
 				p1 = vector.add(p1,per)
-				add_entity_and_particles("nssm:morlu", p1, "morparticle.png", 1)
+				nssm:add_entity_and_particles("nssm:morlu", p1, "morparticle.png", 1)
 				p1 = vector.add(p1,per)
-				add_entity_and_particles("nssm:morgut", p1, "morparticle.png", 1)
+				nssm:add_entity_and_particles("nssm:morgut", p1, "morparticle.png", 1)
 				p1 = vector.add(p1,per)
-				add_entity_and_particles("nssm:morde", p1, "morparticle.png", 1)
+				nssm:add_entity_and_particles("nssm:morde", p1, "morparticle.png", 1)
 				p1 = vector.add(p1,per)
-				add_entity_and_particles("nssm:morvy", p1, "morparticle.png", 1)
+				nssm:add_entity_and_particles("nssm:morvy", p1, "morparticle.png", 1)
 				p1 = vector.add(p1,per)
 			end
 		end
@@ -793,7 +793,7 @@ mobs:register_mob("nssm:morvalar2", {
 
 		self.object:remove()
 
-		add_entity_and_particles("nssm:morvalar1", pos, "morparticle.png", 10)
+		nssm:add_entity_and_particles("nssm:morvalar1", pos, "morparticle.png", 10)
 	end
 })
 
@@ -892,7 +892,7 @@ mobs:register_mob("nssm:morvalar1", {
 
 		self.object:remove()
 
-		add_entity_and_particles("nssm:morvalar0", pos, "morparticle.png", 10)
+		nssm:add_entity_and_particles("nssm:morvalar0", pos, "morparticle.png", 10)
 	end
 })
 

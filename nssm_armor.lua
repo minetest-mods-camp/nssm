@@ -147,7 +147,7 @@ if minetest.get_modpath("shields") then
 			description = v.name .. " Shield",
 			inventory_image = "inv_shield_" .. k .. ".png",
 			groups = {
-				armor_head = math.floor(5 * v.armor),
+				armor_shield = math.floor(5 * v.armor),
 				armor_heal = v.heal,
 				armor_use = v.use
 			},
@@ -182,7 +182,7 @@ for k, v in pairs(stats) do
 		description = v.name .. " ",
 		inventory_image ="inv_helmet_" .. k .. ".png",
 		groups = {
-			armor_shield = math.floor(5 * v.armor),
+			armor_head = math.floor(5 * v.armor),
 			armor_heal = v.heal,
 			armor_use = v.use
 		},

@@ -131,6 +131,7 @@ minetest.register_entity("nssm:mortick", {
 	armor = 100,
 	visual = "mesh",
 	mesh = "mortick.x",
+	collisionbox = {-0.2, -0.2, -0.2, 0.2, 0.2, 0.2},
 	visual_size = {x = 3, y = 3},
 	--lifetime = 10,
 	damage = 1,
@@ -154,7 +155,10 @@ minetest.register_entity("nssm:mortick", {
 		local name = minetest.get_node(s1).name
 
 		if name == "fire:basic_flame"
-		or name == "fire:permanent_flame" then
+		or name == "fire:permanent_flame"
+		or name == "nssm:phoenix_fire"
+		or name == "default:lava_source"
+		or name == "default:lava_flowing" then
 			self.object:remove()
 		end
 

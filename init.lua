@@ -1,9 +1,24 @@
 local path = minetest.get_modpath("nssm")
 
+-- translation
+local S
+if minetest.get_translator ~= nil then
+	S = minetest.get_translator("nssm") -- 5.x translation function
+else -- boilerplate function
+	S = function(str, ...)
+		local args = {...}
+		return str:gsub("@%d+", function(match)
+			return args[tonumber(match:sub(2))]
+		end)
+	end
+end
+
 nssm = {
-	mymapgenis = tonumber(minetest.settings:get("mymapgenis")) or 7,
-	multimobs = tonumber(minetest.settings:get("multimobs")) or 1000,
-	spiders_litter_web = minetest.settings:get_bool("spiders_litter_web", true)
+	mymapgenis = tonumber(minetest.settings:get("nssm.mymapgenis")) or 7,
+	multimobs = tonumber(minetest.settings:get("nssm.multimobs")) or 1000,
+	spiders_litter_web = minetest.settings:get_bool("nssm.spiders_litter_web", true),
+	classic_rainbow_staff = minetest.settings:get_bool("nssm.classic_rainbow_staff", false),
+	S = S
 }
 
 

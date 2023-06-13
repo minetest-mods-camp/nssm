@@ -24,7 +24,7 @@ local function duck_explosion(pos)
 		texture = "duck_egg_fragments.png"
 	})
 
-	core.after(0.4, function()
+	minetest.after(0.4, function()
 
 		for dx = -1, 1 do
 
@@ -182,7 +182,7 @@ mobs:register_arrow("nssm:morarrow", {
 })
 
 
-local function explosion_web(pos)
+local function explosion_web(pos, webnode)
 
 	pos.y = round(pos.y)
 
@@ -200,11 +200,11 @@ local function explosion_web(pos)
 				local ontop  = minetest.get_node(k).name
 
 				if current ~= "air"
-				and current ~= "nssm:web"
+				and current ~= webnode
 				and ontop == "air"
-				and not minetest.is_protected(p,"")
-				and not minetest.is_protected(k,"") then
-					minetest.set_node(k, {name = "nssm:web"})
+				and not minetest.is_protected(p, "")
+				and not minetest.is_protected(k, "") then
+					minetest.set_node(k, {name = webnode})
 				end
 			end
 		end
@@ -224,7 +224,7 @@ mobs:register_arrow("nssm:webball", {
 
 		local p = player:get_pos()
 
-		explosion_web(p)
+		explosion_web(p, "nssm:web")
 	end,
 
 	hit_mob = function(self, player)
@@ -236,39 +236,9 @@ mobs:register_arrow("nssm:webball", {
 	end,
 
 	hit_node = function(self, pos, node)
-		explosion_web(pos)
+		explosion_web(pos, "nssm:web")
 	end
 })
-
-
-function explosion_thickweb(pos)
-
-	pos.y = round(pos.y)
-
-	if minetest.is_protected(pos, "") then
-		return
-	end
-
-	for i = pos.x + 0, pos.x + 0, 1 do
-		for j = pos.y - 2, pos.y, 1 do
-			for k = pos.z + 0, pos.z + 0, 1 do
-
-				local p = {x = i, y = j, z = k}
-				local k = {x = i, y = j + 1, z = k}
-				local current = minetest.get_node(p).name
-				local ontop  = minetest.get_node(k).name
-
-				if current ~= "air"
-				and current ~= "nssm:thick_web"
-				and ontop == "air"
-				and not minetest.is_protected(p,"")
-				and not minetest.is_protected(k,"") then
-					minetest.set_node(k, {name = "nssm:thick_web"})
-				end
-			end
-		end
-	end
-end
 
 
 -- thick_web arrow
@@ -281,7 +251,7 @@ mobs:register_arrow("nssm:thickwebball", {
 	-- direct hit
 	hit_player = function(self, player)
 		local p = player:get_pos()
-		explosion_thickweb(p)
+		explosion_web(p, "nssm:thick_web")
 	end,
 
 	hit_mob = function(self, player)
@@ -292,7 +262,7 @@ mobs:register_arrow("nssm:thickwebball", {
 	end,
 
 	hit_node = function(self, pos, node)
-		explosion_thickweb(pos)
+		explosion_web(pos, "nssm:thick_web")
 	end
 })
 

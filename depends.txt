@@ -4,3 +4,7 @@ farming?
 3d_armor?
 fire
 tnt
+shields?
+nssb?
+nyancat?
+pbj_pup?

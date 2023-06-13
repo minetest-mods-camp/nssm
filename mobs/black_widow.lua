@@ -5,9 +5,7 @@ mobs:register_mob("nssm:black_widow", {
 	collisionbox = {-0.4, 0.00, -0.4, 0.4, 0.8, 0.4},
 	visual = "mesh",
 	mesh = "black_widow.x",
-	textures = {
-		{"black_widow.png"}
-	},
+	textures = {{"black_widow.png"}},
 	visual_size = {x = 2, y = 2},
 	makes_footstep_sound = true,
 	view_range = 15,

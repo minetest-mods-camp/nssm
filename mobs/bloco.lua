@@ -5,9 +5,7 @@ mobs:register_mob("nssm:bloco", {
 	collisionbox = {-0.56, -0.2, -0.56, 0.56, 1.2, 0.56},
 	visual = "mesh",
 	mesh = "bloco.x",
-	textures = {
-		{"bloco.png"}
-	},
+	textures = {{"bloco.png"}},
 	visual_size = {x = 4, y = 4},
 	makes_footstep_sound = true,
 	view_range = 8,

@@ -6,9 +6,7 @@ mobs:register_mob("nssm:ant_worker", {
 	collisionbox = {-0.4, 0.00, -0.4, 0.4, 0.5, 0.4},
 	visual = "mesh",
 	mesh = "ant_worker.x",
-	textures = {
-		{"ant_worker.png"}
-	},
+	textures = {{"ant_worker.png"}},
 	visual_size = {x = 2, y = 2},
 	makes_footstep_sound = true,
 	view_range = 20,

@@ -76,18 +76,25 @@ mobs:register_mob("nssm:masticone", {
 				texture = "tnt_smoke.png"
 			})
 
-			for i = 1, 2 do
+			local respawn_count = 3
 
-				local pos = {
-					x = pos.x + math.random(-1, 1),
-					y = pos.y + 0.5,
-					z = pos.z + math.random(-1, 1)
-				}
+			for i = 1, respawn_count do
 
-				local n = minetest.get_node(pos).name
+				local chance = math.random(1, math.ceil(respawn_count * 1.5))
 
-				if n == "air" then
-					minetest.add_entity(pos, "nssm:masticone")
+				if chance == 1 then
+
+					local pos = {
+						x = pos.x + math.random(-1, 1),
+						y = pos.y + 0.5,
+						z = pos.z + math.random(-1, 1)
+					}
+
+					local n = minetest.get_node(pos).name
+
+					if n == "air" then
+						minetest.add_entity(pos, "nssm:masticone")
+					end
 				end
 			end
 		end)

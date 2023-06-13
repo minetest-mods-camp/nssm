@@ -4,9 +4,9 @@ mobs:register_mob("nssm:flying_duck", {
 	hp_min = 10,
 	collisionbox = {-0.3, -0.2, -0.3, 0.3, 0.2, 0.3},
 	visual = "mesh",
-	mesh = "nathan_petrelli.x",
+	mesh = "flying_duck.x",
 	textures = {
-		{"nathan_petrelli.png"}
+		{"flying_duck.png"}
 	},
 	visual_size = {x = 1, y = 1},
 	view_range = 30,

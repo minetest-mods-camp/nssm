@@ -28,7 +28,7 @@ mobs:register_mob("nssm:moonheron", {
 	armor = 70,
 	floats = 1,
 	drawtype = "front",
-	water_damage = 5,
+	water_damage = .1,
 	lava_damage = 5,
 	fire_damage = 5,
 	group_attack = true,

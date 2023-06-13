@@ -31,7 +31,7 @@ mobs:register_mob("nssm:phoenix", {
 	},
 	armor = 40,
 	drawtype = "front",
-	water_damage = 5,
+	water_damage = .1,
 	lava_damage = 0,
 	fire_damage = 0,
 	light_damage = 0,

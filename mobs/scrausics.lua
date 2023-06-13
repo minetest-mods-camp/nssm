@@ -14,7 +14,7 @@ mobs:register_mob("nssm:scrausics", {
 	walk_velocity = 2,
 	run_velocity = 3,
 	fall_speed = 0,
-	 stepheight = 3,
+	stepheight = 3,
 	floats=1,
 	sounds = {
 		random = "scrausics",

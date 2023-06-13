@@ -5,9 +5,7 @@ mobs:register_mob("nssm:ant_queen", {
 	collisionbox = {-0.6, 0.00, -0.6, 0.6, 1, 0.6},
 	visual = "mesh",
 	mesh = "ant_queen.x",
-	textures = {
-		{"ant_queen.png"}
-	},
+	textures = {{"ant_queen.png"}},
 	visual_size = {x = 6, y = 6},
 	makes_footstep_sound = true,
 	view_range = 30,

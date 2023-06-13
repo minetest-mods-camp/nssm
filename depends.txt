@@ -5,6 +5,3 @@ farming?
 fire
 tnt
 shields?
-nssb?
-nyancat?
-pbj_pup?

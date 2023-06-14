@@ -49,5 +49,23 @@ mobs:register_mob("nssm:flying_duck", {
 		run_end = 220,
 		punch_start = 110,
 		punch_end = 140
-	}
+	},
+	do_custom = function(self, dtime)
+
+		-- 5 second timer
+		self._land_timer = (self._land_timer or 0) + dtime
+		if self._land_timer < 5 then return end
+		self._land_timer = 0
+
+		-- if flying duck lands in water, change to walking/floating duck
+		if minetest.get_item_group(self.standing_in, "water")
+		and minetest.get_item_group(self.standing_on, "water") then
+
+			local pos = self.object:get_pos()
+
+			self.object:remove()
+
+			minetest.add_entity(pos, "nssm:duck")
+		end
+	end
 })

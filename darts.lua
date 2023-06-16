@@ -1,16 +1,3 @@
-local function round(n)
-
-	if (n > 0) then
-		return n % 1 >= 0.5 and math.ceil(n) or math.floor(n)
-	else
-		n = -n
-
-		local t = n % 1 >= 0.5 and math.ceil(n) or math.floor(n)
-
-		return -t
-	end
-end
-
 local function duck_explosion(pos)
 
 	if minetest.is_protected(pos, "") then
@@ -197,7 +184,7 @@ mobs:register_arrow("nssm:morarrow", {
 
 local function explosion_web(pos, webnode)
 
-	pos.y = round(pos.y)
+	pos = vector.round(pos)
 
 	if minetest.is_protected(pos, "") then
 		return

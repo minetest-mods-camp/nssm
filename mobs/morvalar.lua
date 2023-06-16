@@ -1,5 +1,6 @@
 local time_limit = 120
-local posmorvalarblock = {x = 827, y = -30094, z = -817}
+local level = tonumber(minetest.settings:get("nssb.morlendor_level")) or -30000
+local posmorvalarblock = {x = 827, y = level -94, z = -817}
 
 local function respawn_block(self)
 	--start a timer if it doesn't exist

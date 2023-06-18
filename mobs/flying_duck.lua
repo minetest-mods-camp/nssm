@@ -63,9 +63,9 @@ mobs:register_mob("nssm:flying_duck", {
 
 			local pos = self.object:get_pos()
 
-			self.object:remove()
-
-			minetest.add_entity(pos, "nssm:duck")
+			if mobs:add_mob(pos, {name = "nssm:duck"}) then
+				self.object:remove()
+			end
 		end
 	end
 })

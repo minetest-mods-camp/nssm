@@ -58,13 +58,20 @@ mobs:register_mob("nssm:flying_duck", {
 		self._land_timer = 0
 
 		-- if flying duck lands in water, change to walking/floating duck
-		if minetest.get_item_group(self.standing_in, "water")
-		and minetest.get_item_group(self.standing_on, "water") then
+		if minetest.get_item_group(self.standing_in, "water") > 0
+		and minetest.get_item_group(self.standing_on, "water") > 0 then
 
 			local pos = self.object:get_pos()
 
 			if mobs:add_mob(pos, {name = "nssm:duck"}) then
 				self.object:remove()
+			else
+				self.object:set_velocity({x = 0, y = 3, z = 0})
+
+				local ent = self.object:get_luaentity()
+
+				ent.state = "walk"
+				ent.attack = nil
 			end
 		end
 	end

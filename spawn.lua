@@ -329,15 +329,14 @@ if mm ~= 0 then
 
 	mobs:spawn({
 		name = "nssm:bloco",
-		nodes = {"default:stone", "default:desert_stone"},
-		neighbors = {"default:stone", "default:desert_stone"},
+		nodes = {"default:stone", "default:desert_stone", "default:sandstone"},
 		max_height = -20,
 		chance = (500000 / mm)
 	})
 
 	mobs:spawn({
 		name = "nssm:lava_titan",
-		nodes = {"default:stone", "default:desert_stone"},
+		nodes = {"default:stone", "default:desert_stone", "default:sandstone"},
 		max_height = -100,
 		max_light = 12,
 		interval = 120,
@@ -346,8 +345,7 @@ if mm ~= 0 then
 
 	mobs:spawn({
 		name = "nssm:stone_eater",
-		nodes = {"default:stone", "default:desert_stone"},
-		neighbors = {"default:stone", "default:desert_stone"},
+		nodes = {"default:stone", "default:desert_stone", "default:sandstone"},
 		max_height = -20,
 		interval = 40,
 		chance = (700000 / mm),
@@ -356,8 +354,7 @@ if mm ~= 0 then
 
 	mobs:spawn({
 		name = "nssm:signosigno",
-		nodes = {"default:stone", "default:desert_stone"},
-		neighbors = {"default:stone", "default:desert_stone"},
+		nodes = {"default:stone", "default:desert_stone", "default:sandstone"},
 		max_height = -20,
 		max_light = 10,
 		interval = 20,

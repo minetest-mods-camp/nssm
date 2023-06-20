@@ -336,7 +336,10 @@ if mm ~= 0 then
 
 	mobs:spawn({
 		name = "nssm:lava_titan",
-		nodes = {"default:stone", "default:desert_stone", "default:sandstone"},
+		nodes = {
+			"default:stone", "default:desert_stone",
+			"default:sandstone", "default:lava_source"
+		},
 		max_height = -100,
 		max_light = 12,
 		interval = 120,
